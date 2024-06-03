@@ -1,1 +1,2 @@
 select dwdw
+where row_id = 'afsaff'
