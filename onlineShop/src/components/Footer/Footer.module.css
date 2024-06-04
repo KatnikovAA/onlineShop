@@ -1,4 +1,19 @@
 .footer{
-    background-color: black;
+    background-color: #444B58;
     color: azure;
+    height: 43px;
+    width: 1180;
+    padding: 18.5px 130px 18.5px 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+nav{
+    display: flex;
+    width: 110px;
+    justify-content: space-between;
+    flex-direction: row; 
 }

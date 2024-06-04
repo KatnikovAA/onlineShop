@@ -1,5 +1,21 @@
 .header{
     display: flex;
-    background-color: aqua;
-    justify-content: center;
+    color: white;  
+    height: 40px;
+    width: 1180px;
+    padding: 25px 130px 25px 130px;
+    background-color: #484283;
+    justify-content: space-between;
+    align-self: center;
+    
+}
+
+.menu{
+    display: flex; 
+    align-self: center;
+    justify-content: space-between;
+    width: 200px;
+}
+.logoText{
+    align-self: center;
 }

@@ -1,0 +1,47 @@
+.catalog{
+    padding: 0 130px 0;
+    display: flex;
+    flex-direction: column;
+    width: 1180px;
+}
+
+.searchBlock{
+    padding-top: 43px;
+    width: 1180px;
+    height: 67px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name{
+    padding-top: 54px;
+    font-size: 16px;
+}
+.seacrhText{
+    width: 944px;
+    height: 67px;
+    background-color: #F6F6F6;
+    color: #B2B5BB;
+    border: #F6F6F6;
+    padding-left: 14px;
+    border-radius: 4px;
+}
+
+.seacrhText:focus{
+    outline: none;
+}
+.propucts{
+    width: 1180px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.button{
+    padding: 60px 0 60px;
+    display: flex;
+    align-self: center;
+}
