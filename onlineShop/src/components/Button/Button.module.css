@@ -15,8 +15,25 @@
     cursor: pointer;
 }
 
-.productButton{
+.productCountButton{
+    cursor: pointer;
     width: 48px;
     height: 48px;
     border-radius: 4px;
+    background-color: #F14F4F;
+    color: #FFFFFF;
+}
+
+.noneBorder{
+    cursor: pointer;
+    width: 42px;
+    height: 20px;
+    border: none;
+    background-color: white;
+    color: #B2B5BB;
+}
+.noneBorder:hover{
+    color: #444B58;
+    cursor: pointer;
+    text-decoration: underline;
 }

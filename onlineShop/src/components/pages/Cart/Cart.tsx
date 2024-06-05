@@ -1,20 +1,21 @@
-import { Header } from "../Header/Header";
-import { Button } from "../Button/Button";
-import { Footer } from "../Footer/Footer";
+import { Button } from "../../Button/Button";
+import { ProductInCart } from "../../ProductInCart/ProductInCart";
 import styles from './Cart.module.css' 
 import { FC } from "react";
+import { productInCartStub } from "../../../stub";
 
 export const Cart:FC = () =>{
     return(
         <div className={styles.cart}>
-            <Header></Header>
             <main className={styles.mainBlock}>
                 <h1 className={styles.mainBlockName}>My Cart</h1>
                 <div className={styles.informCart}>
                     <div className={styles.listProduct}>
-                        <div className={styles.product}>fafasfaffafa</div>
-                        <div className={styles.product}>fafasfaffafa</div>
-                        <div className={styles.product}>fafasfaffafa</div>
+                        {
+                            productInCartStub.map((product)=>{
+                                return <ProductInCart key={product.id} product={product}/>
+                            })
+                        }
                     </div>
                     <div className={styles.totalBlock}>
                         <div className={styles.nameTotalCount}>
@@ -37,9 +38,7 @@ export const Cart:FC = () =>{
                         </div>
                     </div>
                 </div>
-
             </main>
-            <Footer></Footer>
         </div>
     )
 }

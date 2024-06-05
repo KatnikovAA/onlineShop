@@ -30,7 +30,9 @@
 
 .seacrhText:focus{
     outline: none;
+    color: #444B58;
 }
+
 .propucts{
     width: 1180px;
     display: flex;

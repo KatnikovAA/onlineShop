@@ -5,6 +5,14 @@ export type objProductStub = {
     id?:number,
 }
 
+export type objProductInCartStub = {
+    imgUrl:string,
+    name:string,
+    cost:number,
+    id?:number,
+    
+}
+
 export type objDitalPorudctStub = {
     imgUrl:string[],
     name:string,
@@ -19,7 +27,26 @@ export type objDitalPorudctStub = {
     description:string,
     skuid:string,
 }
-
+export const productInCartStub:objProductInCartStub[] = [
+    {
+        imgUrl:'https://s3-alpha-sig.figma.com/img/5d02/cb5f/e04354526949f8dba1c7d1cafd160e5e?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fob-fhC57RBO4B10Hy5Gk-CNd3NKFaszqgUJ~Hi5bsbZzYzRlPqiRy-GdA3h~Bc7Lq29YSIAFlkGptdVtwfSLRDlW9g7~HGIcXTA4NIXWOBHVwatMFjjRPlmiwRkctNY1XPnnzA2F8CZcBCGNq3lrGOJ~ggyChqtUlMpkCbLz9oa9cQHzPJewb0-HTPIY52e4AqImHRx0Lzl9xNCmh8D~E2TPuzHuXs8rkTd3xznpSu2fKYXCOBva4SODdNkLl05tfiVQ53uKH5-Q1cog0FbYBrpB--ap~-EA6XzhYVq~lnOpUOIzhgmoU2QQVnsnJqZZ~ICS6BFIisW5w1HeNUjqg__',
+        name:'Essence Mascara Lash Princess',
+        cost:110,
+        id:1,
+    },
+    {
+        imgUrl:'https://s3-alpha-sig.figma.com/img/5d02/cb5f/e04354526949f8dba1c7d1cafd160e5e?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fob-fhC57RBO4B10Hy5Gk-CNd3NKFaszqgUJ~Hi5bsbZzYzRlPqiRy-GdA3h~Bc7Lq29YSIAFlkGptdVtwfSLRDlW9g7~HGIcXTA4NIXWOBHVwatMFjjRPlmiwRkctNY1XPnnzA2F8CZcBCGNq3lrGOJ~ggyChqtUlMpkCbLz9oa9cQHzPJewb0-HTPIY52e4AqImHRx0Lzl9xNCmh8D~E2TPuzHuXs8rkTd3xznpSu2fKYXCOBva4SODdNkLl05tfiVQ53uKH5-Q1cog0FbYBrpB--ap~-EA6XzhYVq~lnOpUOIzhgmoU2QQVnsnJqZZ~ICS6BFIisW5w1HeNUjqg__',
+        name:'Essence Mascara Lash Princess',
+        cost:110,
+        id:2,
+    },
+    {
+        imgUrl:'https://s3-alpha-sig.figma.com/img/5d02/cb5f/e04354526949f8dba1c7d1cafd160e5e?Expires=1718582400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fob-fhC57RBO4B10Hy5Gk-CNd3NKFaszqgUJ~Hi5bsbZzYzRlPqiRy-GdA3h~Bc7Lq29YSIAFlkGptdVtwfSLRDlW9g7~HGIcXTA4NIXWOBHVwatMFjjRPlmiwRkctNY1XPnnzA2F8CZcBCGNq3lrGOJ~ggyChqtUlMpkCbLz9oa9cQHzPJewb0-HTPIY52e4AqImHRx0Lzl9xNCmh8D~E2TPuzHuXs8rkTd3xznpSu2fKYXCOBva4SODdNkLl05tfiVQ53uKH5-Q1cog0FbYBrpB--ap~-EA6XzhYVq~lnOpUOIzhgmoU2QQVnsnJqZZ~ICS6BFIisW5w1HeNUjqg__',
+        name:'Essence Mascara Lash Princess',
+        cost:110,
+        id:3,
+    },
+]
 export const ditalPorudctStub:objDitalPorudctStub = {
     id:5,
     name:'Puma Force 1 Shadow',

@@ -1,14 +1,11 @@
 import { FC } from "react"
 import styles from './DitalProduct.module.css' 
-import { Header } from "../Header/Header"
-import { Footer } from "../Footer/Footer"
-import { ditalPorudctStub } from "../../stub"
-import { Button } from "../Button/Button"
+import { ditalPorudctStub } from "../../../stub"
+import { Button } from "../../Button/Button"
 
 export const DitalProduct:FC = ({}) =>{
     return(
         <div className={styles.ditalProduct}>
-            <Header></Header>
             <main className={styles.mainDitalProduct}>
                 <h1 className={styles.productNameId}>Product {ditalPorudctStub.id}</h1>
                 <div className={styles.productInform}>
@@ -92,7 +89,6 @@ export const DitalProduct:FC = ({}) =>{
                     </div>
                 </div>
             </main>
-            <Footer></Footer>
         </div>
     )
 }

@@ -12,7 +12,7 @@ type catalogProps = {
 export const Catalog:FC<catalogProps> = ({}) => {
 
     return(
-        <div className={styles.catalog}>
+        <div className={styles.catalog} id="catalog">
             <h1 className={styles.name}>Catalog</h1>
             <div className={styles.searchBlock}>
                 <input type="text" placeholder='Search by title' className={styles.seacrhText}/>
@@ -27,7 +27,8 @@ export const Catalog:FC<catalogProps> = ({}) => {
                     })
                 }
             </div>
-            <div className={styles.button}>                  
+            <div className={styles.button}> 
+                            
                 <Button text={'Show more'} styleCss={'articleButton'}></Button>
             </div>
         </div>

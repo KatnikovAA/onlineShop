@@ -3,46 +3,50 @@ import styles from './App.module.css'
 import './normalize.css'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
-import { Button } from '../Button/Button'
+import { DitalProduct } from '../pages/DitalProduct/DitalProduct'
+import { Cart } from '../pages/Cart/Cart'
+import { Routes, Route } from 'react-router-dom'
+import { Home } from '../pages/Home/Home'
+import { ErrorPage } from '../pages/ErrorPage/ErrorPage'
 import { Catalog } from '../Catalog/Catalog'
-import { DitalProduct } from '../DitalProduct/DitalProduct'
-import { Cart } from '../Cart/Cart'
+import { useNavigate } from 'react-router-dom'
 
 function App() {
   
+  const scrollIntoCatalog = ():void  =>{
+    let catalog = document.getElementById('catalog')
+    catalog ?
+      catalog.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      :
+      setTimeout(() =>{
+        catalog = document.getElementById('catalog')
+        catalog?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      },10)
+  }
+
+  const scrollIntoFAQ = ():void => {
+    let FAQ = document.getElementById('FAQ')
+    FAQ ?
+      FAQ.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      :
+      setTimeout(() =>{
+        FAQ = document.getElementById('FAQ')
+        FAQ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      },10)
+  }
+
   return (
     <>
       <div className={styles.app}>
-          <Header/>
-           <main className={styles.main}>
-              <article className={styles.article}>
-                  <div className={styles.tagline}>Any products from famous brands with worldwide delivery</div>
-                  <div className={styles.description}>We sell smartphones, laptops, clothes, shoes and many other products at low prices</div>
-                  <Button styleCss='articleButton' text='Go to shopping'></Button> 
-                  <div className={styles.backText}>Goods4you</div>
-              </article>
-              <Catalog ></Catalog>
-              <section className={styles.faqBlock}>
-                <h3>FAQ</h3>
-                <div className={styles.questionList}>
-                  <label>
-                    Question 1
-                    <div>
+          <Header scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
+          <Routes>
+            <Route path='/' element={<Home/>}></Route>
+            <Route path='/DitalProduct' element={<DitalProduct/>}></Route>
+            <Route path='/cart' element={<Cart/>}></Route>
+            <Route path='/*' element={<ErrorPage/>}></Route>
+          </Routes>
+          <Footer scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
 
-                    </div>
-                  </label>
-                  <label>
-                    Question 2
-                    <div>
-
-                    </div>
-                  </label>
-                  </div>
-              </section>
-            </main>
-          <Footer/>
-          <DitalProduct></DitalProduct>
-          <Cart></Cart>
       </div>
     </>
   )
