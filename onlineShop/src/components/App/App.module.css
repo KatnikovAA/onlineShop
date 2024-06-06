@@ -1,0 +1,17 @@
+.app{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-style: 'Jost';   
+}
+.link {
+    
+    color: #FFFFFF;
+    text-decoration: none; 
+  }
+
+  .link:hover{
+
+    text-decoration: underline;
+    color: #C4C4C4; 
+}

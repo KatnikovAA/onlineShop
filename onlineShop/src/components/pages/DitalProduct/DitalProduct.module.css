@@ -1,0 +1,70 @@
+.mainDitalProduct{
+    width: 1180px;
+    padding: 0 130px 0; 
+    padding-bottom: 109px;
+}
+.productNameId{
+    padding: 55px 0 55px;
+    font-size: 30px;
+}
+.productInform{
+    display: flex;
+    flex-direction: row;   
+}
+.imgBlock{
+    width: 520px;
+    height: 558px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.imgMain{
+    width: 520px;
+    height: 462px;
+}
+.listImgCarousel{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.imgCarousel{
+    width: 70px;
+    height: 75px;
+}
+
+.descriptionProduct{
+    display: flex;
+    flex-direction: column;
+    padding-left: 43px;
+}
+
+.descriptionHead{
+    display: flex;
+    justify-content: space-between;
+
+}
+.name{
+    font-size: 24px;
+    font-weight: bold;
+    width: 523px;
+    padding-bottom: 48px;
+}
+.nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRatinga,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
+    
+    color: #B2B5BB;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 24px;
+    
+}
+.description,.category,.brand,.skuid, .stock, .ratinga,.basePrice,.discountPercentage,.discountPrice{
+    padding-left: 10px;
+    color: black;
+    font-size: 16px;
+}
+.ditalProductButton{
+    padding-top: 43px;
+}

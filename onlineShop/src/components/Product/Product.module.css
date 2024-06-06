@@ -1,0 +1,15 @@
+.imgProduct{
+    width: 370px;
+    height: 293px;
+}
+
+.product{
+    padding-top: 40px;
+
+}
+
+.productInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

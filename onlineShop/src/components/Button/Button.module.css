@@ -1,0 +1,39 @@
+.articleButton{
+    z-index: 2;
+    width: 200px;
+    height: 67px;
+    background-color: #F14F4F;
+    border-radius: 4px;
+    border: #F14F4F;
+    color: white;
+    cursor: pointer;
+}
+
+
+.articleButton:hover{
+    background-color: #8C2828;
+    cursor: pointer;
+}
+
+.productCountButton{
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background-color: #F14F4F;
+    color: #FFFFFF;
+}
+
+.noneBorder{
+    cursor: pointer;
+    width: 42px;
+    height: 20px;
+    border: none;
+    background-color: white;
+    color: #B2B5BB;
+}
+.noneBorder:hover{
+    color: #444B58;
+    cursor: pointer;
+    text-decoration: underline;
+}

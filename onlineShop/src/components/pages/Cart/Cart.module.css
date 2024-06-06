@@ -1,0 +1,57 @@
+.cart{
+    padding: 0 130px 0;
+
+}
+
+.mainBlock{
+    
+}
+.mainBlockName{
+    padding: 55px 0 55px;
+}
+.listProduct{
+    width: 780px;
+    border: 1px solid #D9D9D9;
+}
+
+.informCart{
+    display: flex;  
+}
+
+.listProduct{
+    padding: 30px 47px 30px 47px;
+    margin-bottom: 307px;
+}
+.product{
+    
+    display: block;
+    width: 686px;
+    height: 100px;
+}
+
+.totalBlock{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 53px;
+    width: 343px;
+}
+.nameTotalCount,.nameTotalPrice,.nameTotalCountWithDiscount{
+    color: #B2B5BB;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.nameTotalCount{
+    padding-bottom: 42px;
+}
+.nameTotalPrice{
+    padding-bottom: 4px;
+}
+.totalCount,.totalPrice,.totalCountWithDiscount{
+    padding-left: 10px;
+    color: black;
+    font-size: 16px;
+    
+}
