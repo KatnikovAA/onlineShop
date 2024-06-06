@@ -2,15 +2,28 @@ import { FC } from "react"
 import styles from './DitalProduct.module.css' 
 import { ditalPorudctStub } from "../../../stub"
 import { Button } from "../../Button/Button"
+import starImg from  '../../../image/star.png'
 
 export const DitalProduct:FC = ({}) =>{
+
     return(
         <div className={styles.ditalProduct}>
             <main className={styles.mainDitalProduct}>
                 <h1 className={styles.productNameId}>Product {ditalPorudctStub.id}</h1>
                 <div className={styles.productInform}>
                     <div className={styles.imgBlock}>
-                        <img src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}></img>
+                        <picture>
+                            <source 
+                                type="image/jpeg"
+                                sizes="(max-width: 300px) 300w, 700px"
+                            />
+                            <img src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}
+                        
+                        
+                        
+                        ></img>
+                        </picture>
+
                         <div className={styles.listImgCarousel}>
                             {
                                 ditalPorudctStub.imgUrl.map((url) =>{
@@ -35,10 +48,14 @@ export const DitalProduct:FC = ({}) =>{
                                 </div>   
                             </div>
                         </div>
-                        <div className={styles.nameRatinga}>
-                            Ratinga 
-                            <div className={styles.ratinga}>
-                                    {ditalPorudctStub.ratinga}    
+                        <div className={styles.nameRating}>
+                            Rating 
+                            <div className={styles.rating}>
+                                <img src={starImg} className={styles.starImg} alt="1 звезда" />
+                                <img src={starImg} className={styles.starImg} alt="2 звезда" />  
+                                <img src={starImg} className={styles.starImg} alt="3 звезда" />  
+                                <img src={starImg} className={styles.starImg} alt="4 звезда" />  
+                                <img src={starImg} className={styles.starImg} alt="5 звезда" />    
                             </div>  
                         </div>
                         <div className={styles.nameBasePrice}>
@@ -84,7 +101,7 @@ export const DitalProduct:FC = ({}) =>{
                             </div> 
                         </div>
                         <div className={styles.ditalProductButton}>
-                            <Button text={"Add to cart"} styleCss={"articleButton"}></Button>          
+                            <Button text={"Add to cart"} styleCss={"defaultButton"}></Button>          
                         </div>
                     </div>
                 </div>

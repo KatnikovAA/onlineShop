@@ -4,7 +4,7 @@ import styles from './Cart.module.css'
 import { FC } from "react";
 import { productInCartStub } from "../../../stub";
 
-export const Cart:FC = () =>{
+export const Cart:FC = ({}) =>{
     return(
         <div className={styles.cart}>
             <main className={styles.mainBlock}>

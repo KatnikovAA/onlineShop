@@ -17,6 +17,7 @@
     text-decoration: underline;
 }
 .img{
+    object-fit: cover;
     width: 100px;
     height: 57px;
 }
@@ -35,18 +36,21 @@
     font-size: 18px;
 }
 
+.buttonDelete{
+    
+}
+
 .countButtons{
-    width: 206px;
+    width: 175px;
+    height: 48px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    padding-left: 16px;
-    padding-right: 48px;
+    padding-left: 10px;
 }
 
 .inputCountProduct{
-    width: 73px;
-    height: 42px;
+    width: 62px;
+    height: 48px;
     text-align:center;
     background-color: #F6F6F6;
     color: #B2B5BB;
@@ -58,8 +62,4 @@
 .inputCountProduct:focus{
     outline: none;
     color: #444B58;
-}
-
-.buttonDelete{
-    
 }

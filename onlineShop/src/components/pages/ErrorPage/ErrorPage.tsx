@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import styles from './ErrorPage.module.css' 
 
-export const ErrorPage = () =>{
+export const ErrorPage:FC = () =>{
     return(
         <main className={styles.errorPage}>
             <div className={styles.mainBlock}>

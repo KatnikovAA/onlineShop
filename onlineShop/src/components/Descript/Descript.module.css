@@ -1,0 +1,52 @@
+.article{
+    color: white;
+    width: 1180px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    height: 428px;
+    padding: 0 130px 0;
+    background-color: #484283;
+    z-index: 3;
+}
+.descript{
+    display: flex;
+    flex-direction: column;
+}
+.border{
+    border-top: 1px solid #FFFFFF;
+    opacity: 50%;
+    width: 1180px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    position: absolute;
+    top: 15%;
+    
+    
+}
+.tagline{
+    padding-top: 100px;
+    width: 580px;
+    height: 100px;
+    font-size:36px;
+}
+
+.description{
+    padding-top: 20px;
+    width: 480px;
+    height: 44px;
+    font-size:16px;
+    padding-bottom: 20px;
+}
+
+.backLayerLogo{
+    width: 1127px;
+    position: absolute;
+    z-index: 0;
+    font-size: 100px;
+    height: 289px;
+    font-size: 200px;
+    padding-bottom: 40px;
+    opacity: 12%;
+}

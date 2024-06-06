@@ -1,15 +1,44 @@
 .imgProduct{
+    object-fit: cover;
     width: 370px;
     height: 293px;
 }
 
 .product{
     padding-top: 40px;
+}
 
+.product:hover .imgProduct{
+    transition: all 1s;
+    filter: brightness(75%)
 }
 
 .productInfo{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.countButtons{
+    width: 175px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.inputCountProduct{
+    width: 62px;
+    height: 48px;
+    text-align:center;
+    background-color: #F6F6F6;
+    color: #B2B5BB;
+    border: #F6F6F6;
+    border-radius: 4px;
+    
+}
+
+.inputCountProduct:focus{
+    outline: none;
+    color: #444B58;
 }

@@ -21,9 +21,11 @@
 
 .imgMain{
     width: 520px;
-    height: 462px;
+    height: 461px;
+    object-fit: cover;
 }
 .listImgCarousel{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -31,28 +33,32 @@
 }
 
 .imgCarousel{
+    object-fit: cover;
     width: 70px;
     height: 75px;
+    border-radius: 4px;
 }
 
 .descriptionProduct{
     display: flex;
     flex-direction: column;
-    padding-left: 43px;
+    padding-left: 45px;
+    padding-top: 1px;
 }
 
 .descriptionHead{
     display: flex;
-    justify-content: space-between;
-
 }
+
 .name{
     font-size: 24px;
     font-weight: bold;
     width: 523px;
     padding-bottom: 48px;
+    align-self: center;
+    align-items: center;
 }
-.nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRatinga,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
+.nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRating,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
     
     color: #B2B5BB;
     display: flex;
@@ -60,11 +66,40 @@
     padding-bottom: 24px;
     
 }
-.description,.category,.brand,.skuid, .stock, .ratinga,.basePrice,.discountPercentage,.discountPrice{
+
+.nameSkuid{
+   position: relative;
+   white-space: nowrap;
+   width: 52px;
+   height: 23px; 
+   display: flex;
+   justify-self: center;
+   top: 8%;
+   
+}
+.description,.category,.brand,.skuid, .stock, .rating,.basePrice,.discountPercentage,.discountPrice{
     padding-left: 10px;
     color: black;
     font-size: 16px;
 }
 .ditalProductButton{
-    padding-top: 43px;
+    padding-top: 67px;
+}
+
+.rating{
+    display: flex;
+    justify-content: space-between;
+    width: 116px;
+    height: 20px;
+}
+
+.starImg{
+    width: 20px;
+    height: 20px;
+}
+
+.imgCarousel:first-child{
+    border: 3px solid #C4C4C4;
+    border-radius: 4px;
+
 }

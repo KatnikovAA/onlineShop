@@ -1,9 +1,9 @@
 import styles from './ProductInCart.module.css'
 import { Button } from '../Button/Button'
-
 import { objProductInCartStub } from '../../stub'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
+
 type productInCartProps = {
     product:objProductInCartStub
 }
@@ -24,9 +24,8 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
                 <Button text='+' styleCss='productCountButton'></Button>   
             </div>
             <div className={styles.buttonDelete}>
-                <Button text='Delete' styleCss='noneBorder'></Button>
+                <Button text='Delete' styleCss='noneBorderButton'></Button>
             </div>
-
         </div>
     )
 }

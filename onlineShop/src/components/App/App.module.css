@@ -4,14 +4,20 @@
     flex-direction: column;
     font-style: 'Jost';   
 }
+
 .link {
-    
     color: #FFFFFF;
     text-decoration: none; 
   }
 
-  .link:hover{
-
+.link:hover{
     text-decoration: underline;
     color: #C4C4C4; 
 }
+
+.cartImg{
+  width:21px;
+  height: 18px;
+  fill: white;
+}
+

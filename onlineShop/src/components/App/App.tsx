@@ -1,4 +1,3 @@
-import  React,{ useState } from 'react'
 import styles from './App.module.css'
 import './normalize.css'
 import { Header } from '../Header/Header'
@@ -8,31 +7,31 @@ import { Cart } from '../pages/Cart/Cart'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from '../pages/Home/Home'
 import { ErrorPage } from '../pages/ErrorPage/ErrorPage'
-import { Catalog } from '../Catalog/Catalog'
-import { useNavigate } from 'react-router-dom'
+import { FC } from 'react'
 
-function App() {
+const App:FC = () => {
   
-  const scrollIntoCatalog = ():void  =>{
-    let catalog = document.getElementById('catalog')
+  const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
+
+    let catalog: HTMLElement | null = document.getElementById('catalog')
     catalog ?
       catalog.scrollIntoView({ behavior: 'smooth', block: 'start' })
       :
       setTimeout(() =>{
-        catalog = document.getElementById('catalog')
+        catalog = document.getElementById('catalog') // жду 10 ms пока страницка с главным экраном отрендирится и опять получаю id куда скролить
         catalog?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      },10)
+      }, 10)
   }
 
   const scrollIntoFAQ = ():void => {
-    let FAQ = document.getElementById('FAQ')
+    let FAQ: HTMLElement | null = document.getElementById('FAQ')
     FAQ ?
       FAQ.scrollIntoView({ behavior: 'smooth', block: 'start' })
       :
       setTimeout(() =>{
         FAQ = document.getElementById('FAQ')
         FAQ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      },10)
+      }, 10)
   }
 
   return (
@@ -46,7 +45,6 @@ function App() {
             <Route path='/*' element={<ErrorPage/>}></Route>
           </Routes>
           <Footer scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
-
       </div>
     </>
   )
