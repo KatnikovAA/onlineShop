@@ -20,27 +20,24 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
 
     return(
         <header className={styles.header}>
-        
-                <div className={styles.logoText}>
                 <Link to='/' className={stylesApp.link} >
-                    {
-                    // <div>Goods4you</div> ниже в данном блоке не получилось использовать h1 и блока появляется margin 
-                    // и не могу отслудить от куда, пробовал отключать normalize тоже самое
-                    }
-                    <div>Goods4you</div> 
+                    <h1 className={styles.logoText}>Goods4you</h1> 
                 </Link>
-                </div>
+
                 <nav className={styles.menu}>
                     <Link onClick={handleClickCatalog} className={stylesApp.link} to="/" >Catalog</Link>                   
                     <Link onClick={handleClickFAQ} className={stylesApp.link} to="/" >FAQ</Link>
-                    <Link to='/cart' className={styles.cart}>
-                        <div  className={stylesApp.link}>Cart</div>
-                        <div>
-                            {/* <img src={redCircleImg} alt="" /> */}
-                            <img className={styles.cartImg} src={cartImg} alt="Коризна" />
-                            <div className={styles.countInCart}>1</div>
+                    <div className={styles.cart}>
+                        <Link to='/cart' className={stylesApp.link}>Cart
+                            
+   
+                        </Link>
+                        <div className={styles.cartCountProductImg}>
+                                <img className={styles.cartImg} src={cartImg} alt="Коризна" />
+                                <div className={styles.countInCart}>1</div>
                         </div>
-                    </Link>
+                    </div>
+
                 </nav>
             
         </header>

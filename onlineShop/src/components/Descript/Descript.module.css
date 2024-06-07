@@ -5,9 +5,10 @@
     flex-direction: column;
     align-self: center;
     height: 428px;
-    padding: 0 130px 0;
+    padding: 0px 130px 0px;
     background-color: #484283;
     z-index: 3;
+    padding-bottom: 20px;
 }
 .descript{
     display: flex;
@@ -21,32 +22,39 @@
     justify-content: center;
     align-self: center;
     position: absolute;
-    top: 15%;
+    top: 12%;
     
     
 }
 .tagline{
-    padding-top: 100px;
+    line-height: 50.4px;
+    padding-top: 84px;
     width: 580px;
     height: 100px;
     font-size:36px;
 }
 
 .description{
+    
+    line-height: 22.4px;
     padding-top: 20px;
-    width: 480px;
+    width: 330px;
     height: 44px;
     font-size:16px;
-    padding-bottom: 20px;
+    padding-bottom: 39px;
+    
 }
 
 .backLayerLogo{
     width: 1127px;
-    position: absolute;
-    z-index: 0;
+    position: relative;
+    z-index: -1;
     font-size: 100px;
     height: 289px;
     font-size: 200px;
     padding-bottom: 40px;
     opacity: 12%;
+    font-weight: bold;
+    bottom: 55.7%;
+    left: 2.7%;
 }

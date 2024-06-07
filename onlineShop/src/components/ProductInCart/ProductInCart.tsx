@@ -3,6 +3,8 @@ import { Button } from '../Button/Button'
 import { objProductInCartStub } from '../../stub'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
+import plusImg from  '../../image/plus.png'
+import minusImg from  '../../image/Vector 2.png'
 
 type productInCartProps = {
     product:objProductInCartStub
@@ -19,13 +21,18 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
                 </div>
             </Link>
             <div className={styles.countButtons}>
-                <Button text='-' styleCss='productCountButton'></Button>
-                    <input type="text" className={styles.inputCountProduct} value={1}/>
-                <Button text='+' styleCss='productCountButton'></Button>   
+                <div className={styles.buttonMinus}>
+                <Button text={minusImg}  styleCss='productCountButton' imgFlg={true}></Button>
+                </div>
+                    <input type="text" className={styles.inputCountProduct} value={1}/>  
+                <div className={styles.buttonPlus}>
+                    <Button text={plusImg} styleCss='productCountButton' imgFlg={true}></Button>  
+                </div>
             </div>
             <div className={styles.buttonDelete}>
                 <Button text='Delete' styleCss='noneBorderButton'></Button>
             </div>
+
         </div>
     )
 }

@@ -2,19 +2,30 @@
     background-color: #444B58;
     color: azure;
     height: 43px;
-    width: 1180;
+    width: 1180px;
     padding: 18.5px 130px 18.5px 130px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    
     align-items: center;
     
 }
 
 nav{
+    padding-left: 896px;
+    font-size: 14px;
+    height: 20px;
     display: flex;
     width: 110px;
     justify-content: space-between;
     flex-direction: row; 
 }
-
+.name{
+    width: 174px;
+    height: 43px;
+    padding-left: 1px;
+    line-height: 43.35px;
+    font-size: 30px;
+    width: 181px;
+    letter-spacing: normal;
+}

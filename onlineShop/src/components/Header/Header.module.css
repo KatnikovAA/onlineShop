@@ -1,36 +1,58 @@
 .header{
-    padding: 25px 130px 25px 130px;
+    padding: 15px 130px 15px 130px;
     display: flex;
     color: white;  
-    justify-content: space-between;
     align-self: center;  
     background-color: #484283; 
-    height: 40px;
+    height: 60px;
     width: 1180px;
+    font-weight: bold;
+    
 }
 
+
 .menu{
+    padding-left: 797px;
+    line-height: 19.4px;
+    font-size: 14px;
+    height:24px;
+    font-weight: bold;
     display: flex; 
     align-self: center;
     justify-content: space-between;
     width: 200px;
     color: #FFFFFF;
+    
 }
 .logoText{
+    line-height: 43.35px;
     font-size: 30px;
+    width: 181px;
+    margin: 0;
     
+}
+.cartCountProductImg{
+  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    top: -30%;
+    /* position: absolute;
+    top: 8%;
+    right: 19.2%; */
 }
 
 .cart{
-    text-decoration: none; 
-    font-size: 14px;
+    color: #FFFFFF;
     width: 56px;
     display: flex;
     flex-direction: row;
-    align-self: center;    
+      
 }
 
 .countInCart{
+    line-height: 10px;
     z-index: 2;
     width: 12px;
     height: 12px;
@@ -40,16 +62,16 @@
     align-items: center;
     border-radius: 10px;
     font-size: 8px;
-    transform: translateY(-80%) translateX(120%);
+    transform: translateY(-80%) translateX(135%);
     text-decoration: none; 
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .cartImg{
-    position: relative;
+    margin-top:18px;
     display: flex;
     width:20px;
-    height: 18px;
+    height: 18.3px;
     padding-left: 6px;
     transform: translateY(-20%);
   }

@@ -1,16 +1,15 @@
 .cart{
     padding: 0 130px 0;
-
 }
 
 .mainBlock{
     
 }
 .mainBlockName{
-    padding: 55px 0 55px;
+    padding: 32px 0 32px;
 }
 .listProduct{
-    width: 780px;
+    width: 685px;
     border: 1px solid #D9D9D9;
 }
 
@@ -19,8 +18,8 @@
 }
 
 .listProduct{
-    padding: 30px 47px 30px 47px;
-    margin-bottom: 307px;
+    padding: 50px 30px 30px 45px;
+    margin-bottom: 285px;
 }
 .product{
     
@@ -45,13 +44,20 @@
 
 .nameTotalCount{
     padding-bottom: 42px;
+    font-size: 20px;
 }
 .nameTotalPrice{
     padding-bottom: 4px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.nameTotalCountWithDiscount{
+    font-weight: bold;
+    font-size: 23px;
 }
 .totalCount,.totalPrice,.totalCountWithDiscount{
     padding-left: 10px;
     color: black;
-    font-size: 16px;
+    font-weight: bold;
     
 }

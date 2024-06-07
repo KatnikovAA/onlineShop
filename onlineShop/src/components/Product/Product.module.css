@@ -2,6 +2,7 @@
     object-fit: cover;
     width: 370px;
     height: 293px;
+    border-radius: 4px;
 }
 
 .product{
@@ -13,7 +14,11 @@
     filter: brightness(75%)
 }
 
+.product:hover .productName{
+    text-decoration:underline;
+}
 .productInfo{
+    padding-top: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,5 +45,18 @@
 
 .inputCountProduct:focus{
     outline: none;
+    color: #444B58;
+}
+
+.productName{
+    line-height: 22px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444B58;
+}
+
+.productCost{
+    line-height: 26px;
+    font-size: 18px;
     color: #444B58;
 }

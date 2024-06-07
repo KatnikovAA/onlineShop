@@ -6,7 +6,7 @@
 }
 
 .searchBlock{
-    padding-top: 43px;
+    padding-top: 22px;
     width: 1180px;
     height: 67px;
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 .name{
-    padding-top: 54px;
+    padding-top: 34px;
     font-size: 30px;
 }
 .seacrhText{
@@ -24,7 +24,8 @@
     background-color: #F6F6F6;
     color: #B2B5BB;
     border: #F6F6F6;
-    padding-left: 14px;
+    padding-left: 16px;
+    margin-bottom: 5px;
     border-radius: 4px;
 }
 
@@ -35,6 +36,7 @@
 
 .propucts{
     width: 1180px;
+    height: 1133px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,7 +45,7 @@
 }
 
 .button{
-    padding: 60px 0 60px;
+    padding: 100px 0 60px;
     display: flex;
     align-self: center;
 }

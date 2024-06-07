@@ -14,7 +14,7 @@ export const FaqQuestion:FC<propsFaqQuestion> = ({question}) =>{
     return(
         <label className={styles.question} onClick={() =>{setOpenAnswer((prevActive) => !prevActive)}}>
             <div className={styles.headerQuestion}>
-                <h2 className={styles.name}>{question.name} {question.id}</h2>
+                <div className={styles.name}>{question.name} {question.id}</div>
                 <div className={styles.imgCross}>
                     <img src={crossImg} className={!openAnswer ? styles.headerCrossClose : styles.headerCrossOpen}></img> 
                 </div>

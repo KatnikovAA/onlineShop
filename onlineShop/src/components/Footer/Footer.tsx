@@ -21,7 +21,7 @@ export const Footer:FC<footerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
     return(
         <footer className={styles.footer}>
                 <Link to='/' className={stylesApp.link}>
-                    <h1>Goods4you</h1>
+                    <h1 className={styles.name}>Goods4you</h1>
                 </Link>
                 <nav className={styles.nav}>
                 <Link onClick={handleClickCatalog} className={stylesApp.link} to="/" >Catalog</Link>                   

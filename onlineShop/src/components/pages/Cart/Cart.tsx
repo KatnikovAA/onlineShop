@@ -7,8 +7,8 @@ import { productInCartStub } from "../../../stub";
 export const Cart:FC = ({}) =>{
     return(
         <div className={styles.cart}>
-            <main className={styles.mainBlock}>
-                <h1 className={styles.mainBlockName}>My Cart</h1>
+            <div className={styles.mainBlock}>
+                <h1 className={styles.mainBlockName}>My cart</h1>
                 <div className={styles.informCart}>
                     <div className={styles.listProduct}>
                         {
@@ -38,7 +38,7 @@ export const Cart:FC = ({}) =>{
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     )
 }

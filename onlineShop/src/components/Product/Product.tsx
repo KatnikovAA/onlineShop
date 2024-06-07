@@ -1,10 +1,11 @@
 import styles from './Product.module.css'
-import stylesProductInCart from './ProductInCart.module.css'
 import { FC } from "react"
 import { Button } from "../Button/Button"
 import { objProductStub } from "../../stub"
 import { Link } from 'react-router-dom'
 import cartImg from  '../../image/cart.png'
+import plusImg from  '../../image/plus.png'
+import minusImg from  '../../image/Vector 2.png'
 
 export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
    
@@ -24,8 +25,8 @@ export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
                     {
                         // выражение id !== 1 ? name : reduceName() ниже использовал для зашулшку для макета дальше буду завязвать логику на пропс/состояние
                     }
-                    <div className="productName">{id !== 1 ? name : reduceName()}</div> 
-                    <div className="productCost">{cost}$</div>
+                    <div className={styles.productName}>{id !== 1 ? name : reduceName()}</div> 
+                    <div className={styles.productCost}>{cost} $</div>
                 </div>
 
                 {
@@ -38,9 +39,9 @@ export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
                     :
                         
                         <div className={styles.countButtons}>
-                        <Button text='-' styleCss='productCountButton'></Button>
+                        <Button text={minusImg} styleCss='productCountButton' imgFlg={true}></Button>
                             <input type="text" className={styles.inputCountProduct} value={1}/>
-                        <Button text='+' styleCss='productCountButton'></Button>   
+                        <Button text={plusImg} styleCss='productCountButton' imgFlg={true}></Button>   
              </div>
                 }
                 

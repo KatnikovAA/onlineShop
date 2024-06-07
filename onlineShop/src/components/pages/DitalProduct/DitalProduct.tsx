@@ -8,7 +8,7 @@ export const DitalProduct:FC = ({}) =>{
 
     return(
         <div className={styles.ditalProduct}>
-            <main className={styles.mainDitalProduct}>
+            <div className={styles.mainDitalProduct}>
                 <h1 className={styles.productNameId}>Product {ditalPorudctStub.id}</h1>
                 <div className={styles.productInform}>
                     <div className={styles.imgBlock}>
@@ -17,20 +17,13 @@ export const DitalProduct:FC = ({}) =>{
                                 type="image/jpeg"
                                 sizes="(max-width: 300px) 300w, 700px"
                             />
-                            <img src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}
-                        
-                        
-                        
-                        ></img>
+                            <img src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}></img>
                         </picture>
-
                         <div className={styles.listImgCarousel}>
                             {
                                 ditalPorudctStub.imgUrl.map((url) =>{
                                     return(
-                                        <img src={url} className={styles.imgCarousel}>
-
-                                        </img>
+                                        <img src={url} className={styles.imgCarousel}></img>
                                     )
                                 })
                             }
@@ -59,9 +52,9 @@ export const DitalProduct:FC = ({}) =>{
                             </div>  
                         </div>
                         <div className={styles.nameBasePrice}>
-                            Base Price 
+                            Base price 
                             <div className={styles.basePrice}>
-                                {ditalPorudctStub.basePrice}$  
+                                {ditalPorudctStub.basePrice} $  
                             </div>  
                         </div>
                         <div className={styles.nameDiscountPercentage}>
@@ -105,7 +98,7 @@ export const DitalProduct:FC = ({}) =>{
                         </div>
                     </div>
                 </div>
-            </main>
+            </div>
         </div>
     )
 }

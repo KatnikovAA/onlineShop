@@ -4,7 +4,7 @@
     padding-bottom: 109px;
 }
 .productNameId{
-    padding: 55px 0 55px;
+    padding: 35px 0 35px;
     font-size: 30px;
 }
 .productInform{
@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 45px;
-    padding-top: 1px;
+
 }
 
 .descriptionHead{
@@ -59,11 +59,12 @@
     align-items: center;
 }
 .nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRating,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
-    
+    line-height: 23px;
     color: #B2B5BB;
     display: flex;
     flex-direction: row;
-    padding-bottom: 24px;
+    padding-bottom: 23px;
+    
     
 }
 
@@ -81,9 +82,10 @@
     padding-left: 10px;
     color: black;
     font-size: 16px;
+    font-weight: bold;
 }
 .ditalProductButton{
-    padding-top: 67px;
+    padding-top: 37px;
 }
 
 .rating{

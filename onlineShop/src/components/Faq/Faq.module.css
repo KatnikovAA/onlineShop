@@ -1,6 +1,19 @@
 .faqBlock{
-    width: 880px;
-    padding: 35px 270px 123px 290px;
+    width: 1440px;
+    height: 445px;
     background-color: #484283;
     color: white;
+    margin-right: 20px;
   }
+
+.main{
+  padding: 35px 280px 123px 280px;
+  width: 880px;
+  height: 287px;
+}
+
+.name{
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
