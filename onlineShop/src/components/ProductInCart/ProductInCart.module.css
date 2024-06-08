@@ -23,14 +23,14 @@
 }
 
 .inform{
-    padding: 5px 0 0 12px;
+    padding: 5px 1px 0 11px;
     display: flex;
     flex-direction: column;
 }
 
 .name{
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 
@@ -40,8 +40,9 @@
 
 .buttonDelete{
     height: 48px;
-    padding-left: 42px;
-    padding-top: 14px;
+    padding-left: 57px;
+    padding-top: 18px;
+    font-size: 14px;
 }
 
 .countButtons{
@@ -49,12 +50,12 @@
     height: 48px;
     display: flex;
     justify-content: space-between;
-    padding-left: 40px;
+    padding-left: 75px;
     padding-top: 5px;
 }
 
 .inputCountProduct{
-    width: 73px;
+    width: 60px;
     height: 48px;
     text-align:center;
     background-color: #F6F6F6;
@@ -74,5 +75,5 @@
 }
 
 .buttonPlus{
-    padding-left: 10px;
+    padding-left: 6px;
 }

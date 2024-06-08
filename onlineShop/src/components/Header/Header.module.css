@@ -1,21 +1,52 @@
 .header{
-    padding: 15px 130px 15px 130px;
     display: flex;
+    flex-direction: column;
     color: white;  
-    align-self: center;  
+    justify-content: center;
     background-color: #484283; 
-    height: 60px;
-    width: 1180px;
-    font-weight: bold;
-    
+    height: 90px;
+    width: 1440px;
+    align-items: center;   
 }
 
+.main{
+    display: flex;
+    width: 1178px;
+    height: 40px;  
+    position: relative;
+    top: 5px; 
+}
+
+.logoText{   
+    position: relative;
+    bottom: 8px; 
+    font-size: 30px;
+    width: 181px;
+    margin: 0;
+    display: flex;
+    flex-direction: column; 
+}
+
+.border{  
+    padding-top: 14px;
+    position: relative;
+    bottom: -6px; 
+    border-top: rgba(255, 255, 255, 0.5) 1px solid;
+    width: 1178px;      
+}
+
+.borderNone{
+    
+    border: none;
+    width: 1178px;      
+}
 
 .menu{
-    padding-left: 797px;
-    line-height: 19.4px;
+    position: relative;
+    bottom: -5px;
+    padding-left: 798px;
     font-size: 14px;
-    height:24px;
+    height:40px;
     font-weight: bold;
     display: flex; 
     align-self: center;
@@ -24,23 +55,13 @@
     color: #FFFFFF;
     
 }
-.logoText{
-    line-height: 43.35px;
-    font-size: 30px;
-    width: 181px;
-    margin: 0;
-    
-}
+
 .cartCountProductImg{
-  
     display: flex;
     justify-content: center;
     flex-direction: column;
     position: relative;
-    top: -30%;
-    /* position: absolute;
-    top: 8%;
-    right: 19.2%; */
+    top: -35%;
 }
 
 .cart{
@@ -74,4 +95,54 @@
     height: 18.3px;
     padding-left: 6px;
     transform: translateY(-20%);
+  }
+
+  @media (max-width:1200px) {
+
+    .header{
+        width: 1200px;
+    }
+    .main{
+        width: 1200px; 
+    }
+    .menu{
+        padding-left: 598px;
+    }
+  }
+
+  @media (max-width:1000px) {
+
+    .header{
+        width: 1000px;
+    }
+    .main{
+        width: 1000px; 
+    }
+    .menu{
+        padding-left: 298px;
+    }
+  }
+  @media (max-width:768px) {
+
+    .header{
+        width: 768px;
+    }
+    .main{
+        width: 768px; 
+    }
+    .menu{
+        padding-left: 198px;
+    }
+  }
+  @media (max-width:480px) {
+
+    .header{
+        width: 480px;
+    }
+    .main{
+        width: 480px; 
+    }
+    .menu{
+        padding-left: 0px;
+    }
   }

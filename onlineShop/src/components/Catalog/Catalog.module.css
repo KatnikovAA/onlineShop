@@ -19,13 +19,14 @@
     font-size: 30px;
 }
 .seacrhText{
+    letter-spacing:0.1px;
     width: 944px;
     height: 67px;
     background-color: #F6F6F6;
     color: #B2B5BB;
     border: #F6F6F6;
     padding-left: 16px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     border-radius: 4px;
 }
 

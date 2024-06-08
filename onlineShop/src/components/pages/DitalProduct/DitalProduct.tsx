@@ -23,7 +23,7 @@ export const DitalProduct:FC = ({}) =>{
                             {
                                 ditalPorudctStub.imgUrl.map((url) =>{
                                     return(
-                                        <img src={url} className={styles.imgCarousel}></img>
+                                            <img src={url} className={styles.imgCarousel}></img>
                                     )
                                 })
                             }
@@ -54,7 +54,7 @@ export const DitalProduct:FC = ({}) =>{
                         <div className={styles.nameBasePrice}>
                             Base price 
                             <div className={styles.basePrice}>
-                                {ditalPorudctStub.basePrice} $  
+                                {ditalPorudctStub.basePrice}$  
                             </div>  
                         </div>
                         <div className={styles.nameDiscountPercentage}>

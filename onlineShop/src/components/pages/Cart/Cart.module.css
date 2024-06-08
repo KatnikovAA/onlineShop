@@ -1,16 +1,21 @@
 .cart{
     padding: 0 130px 0;
+    flex: 1 1 auto;
 }
 
 .mainBlock{
-    
+    padding-bottom: 21px;
 }
-.mainBlockName{
-    padding: 32px 0 32px;
+.name{
+    padding: 35px 0 35px 1px;
+    font-size: 30px;
 }
+
 .listProduct{
-    width: 685px;
+    width: 703px;
     border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    height: 278px;
 }
 
 .informCart{
@@ -19,7 +24,7 @@
 
 .listProduct{
     padding: 50px 30px 30px 45px;
-    margin-bottom: 285px;
+   
 }
 .product{
     
@@ -32,19 +37,16 @@
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    padding-left: 53px;
-    width: 343px;
+    /* padding-left: 40px; */
+    width: 397px;
+    font-size: 20px;
 }
 .nameTotalCount,.nameTotalPrice,.nameTotalCountWithDiscount{
-    color: #B2B5BB;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    color: #B2B5BB; 
 }
 
-.nameTotalCount{
+.totalCount{
     padding-bottom: 42px;
-    font-size: 20px;
 }
 .nameTotalPrice{
     padding-bottom: 4px;
@@ -53,11 +55,83 @@
 }
 .nameTotalCountWithDiscount{
     font-weight: bold;
-    font-size: 23px;
+    font-size: 24px;
 }
 .totalCount,.totalPrice,.totalCountWithDiscount{
-    padding-left: 10px;
-    color: black;
-    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
     
 }
+
+.valueTotalPrice,.valueTotalCount,.valueTotalCountWithDiscount{
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.totalCountWithDiscount{
+    font-size: 24px;
+    letter-spacing:-0.2px;
+}
+
+@media (max-width:1400px) {
+
+    .informCart{
+        display: flex;  
+        flex-direction: column;
+    }
+    .main{
+        width: 1200px; 
+    }
+    .menu{
+        padding-left: 598px;
+    }
+  }
+@media (max-width:1200px) {
+
+    .listProduct{
+        width: 500px;
+    }
+    .main{
+        width: 1200px; 
+    }
+    .menu{
+        padding-left: 598px;
+    }
+  }
+
+  @media (max-width:1000px) {
+
+    .header{
+        width: 1000px;
+    }
+    .main{
+        width: 1000px; 
+    }
+    .menu{
+        padding-left: 298px;
+    }
+  }
+  @media (max-width:768px) {
+
+    .header{
+        width: 768px;
+    }
+    .main{
+        width: 768px; 
+    }
+    .menu{
+        padding-left: 198px;
+    }
+  }
+  @media (max-width:480px) {
+
+    .header{
+        width: 480px;
+    }
+    .main{
+        width: 480px; 
+    }
+    .menu{
+        padding-left: 0px;
+    }
+  }

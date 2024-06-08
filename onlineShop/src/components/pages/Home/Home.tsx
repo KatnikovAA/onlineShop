@@ -4,11 +4,15 @@ import { FC } from 'react'
 import { Descript } from '../../Descript/Descript'
 import { Faq } from '../../Faq/Faq'
 
-export const Home:FC = () =>{
+type homeProps = {
+  scrollIntoCatalog:() => void,
+}
+
+export const Home:FC<homeProps> = ({scrollIntoCatalog}) =>{
     
     return(
         <main className={styles.main}>
-          <Descript></Descript>
+          <Descript scrollIntoCatalog={scrollIntoCatalog}></Descript>
           <Catalog></Catalog>
           <Faq></Faq>
         </main>

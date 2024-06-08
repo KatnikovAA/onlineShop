@@ -4,7 +4,7 @@ import { objProductInCartStub } from '../../stub'
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import plusImg from  '../../image/plus.png'
-import minusImg from  '../../image/Vector 2.png'
+import minusImg from  '../../image/minus.png'
 
 type productInCartProps = {
     product:objProductInCartStub
@@ -13,11 +13,11 @@ type productInCartProps = {
 export const ProductInCart:FC<productInCartProps> = ({product}) =>{
     return(
         <div className={styles.productInCart}>
-            <Link className={styles.product} to={'/DitalProduct'}>
+            <Link className={styles.product} to={'/idProduct'}>
                 <img className={styles.img} src={product.imgUrl}></img>
                 <div className={styles.inform}>
                     <div className={styles.name}>{product.name}</div>
-                    <div className={styles.cost}>{product.cost}$</div>
+                    <div className={styles.cost}>{product.cost} $</div>
                 </div>
             </Link>
             <div className={styles.countButtons}>

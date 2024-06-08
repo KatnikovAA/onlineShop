@@ -6,9 +6,10 @@ import stylesApp from '../App/App.module.css'
 type footerProps = {
     scrollIntoCatalog:() => void,
     scrollIntoFAQ:() => void,
+    scrollIntoHeader:() => void,
 }
 
-export const Footer:FC<footerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
+export const Footer:FC<footerProps> = ({scrollIntoHeader,scrollIntoCatalog,scrollIntoFAQ}) => {
 
     const handleClickCatalog = ():void =>{
         scrollIntoCatalog();
@@ -18,9 +19,12 @@ export const Footer:FC<footerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
         scrollIntoFAQ();
     }
 
+    const handleClickName= ():void =>{
+        scrollIntoHeader();
+    }
     return(
         <footer className={styles.footer}>
-                <Link to='/' className={stylesApp.link}>
+                <Link to='/' className={stylesApp.link} onClick={handleClickName}>
                     <h1 className={styles.name}>Goods4you</h1>
                 </Link>
                 <nav className={styles.nav}>

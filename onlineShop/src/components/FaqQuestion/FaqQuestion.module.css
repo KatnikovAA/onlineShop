@@ -25,23 +25,23 @@
     opacity: 1;
     padding-bottom: 37px;
     padding-left: 1px;
-    padding-top: 17px;
+    padding-top: 18px;
     transition-duration:300ms;
     transition: all 0.2s;
-    
+    letter-spacing:0.5px;
 }
 
 .headerQuestion{
     padding-top: 15px;
-    
     border-top: 1px solid white;
     display: flex;
     width: 880px;
     justify-content: space-between;
-
 }
 
 .headerCrossClose{
+    position: relative;
+    top: 4px;
     width: 25px;
     height: 25px;
     transform: rotate(0deg) ;
@@ -51,12 +51,12 @@
 }
 
 .headerCrossOpen{
+    position: relative;
+    top: 4px;
     width: 25px;
     height: 25px;
     transform: rotate(45deg) ;
-    
     transition-duration:300ms;
-    
   }
 
   .imgCross{

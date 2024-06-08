@@ -5,7 +5,7 @@ import { objProductStub } from "../../stub"
 import { Link } from 'react-router-dom'
 import cartImg from  '../../image/cart.png'
 import plusImg from  '../../image/plus.png'
-import minusImg from  '../../image/Vector 2.png'
+import minusImg from  '../../image/minus.png'
 
 export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
    
@@ -17,7 +17,7 @@ export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
 
     return(
         <div className={styles.product}>
-            <Link to={'/DitalProduct'}>
+            <Link to={'/idProduct'}>
                 <img src={imgUrl} alt="Картиника товара" className={styles.imgProduct}/>
             </Link>
             <div className={styles.productInfo}>

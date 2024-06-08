@@ -12,7 +12,6 @@ import { FC } from 'react'
 const App:FC = () => {
   
   const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
-
     let catalog: HTMLElement | null = document.getElementById('catalog')
     catalog ?
       catalog.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -34,17 +33,31 @@ const App:FC = () => {
       }, 10)
   }
 
+  const scrollIntoHeader = ():void => {
+    let header: HTMLElement | null = document.getElementById('header')
+    header ?
+    header.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      :
+      setTimeout(() =>{
+        header = document.getElementById('FAQ')
+        header?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }, 10)
+  }
+
   return (
     <>
       <div className={styles.app}>
           <Header scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
           <Routes>
-            <Route path='/' element={<Home/>}></Route>
-            <Route path='/DitalProduct' element={<DitalProduct/>}></Route>
+            <Route path='/' element={<Home scrollIntoCatalog={scrollIntoCatalog}/>}></Route>
+            <Route path='/idProduct' element={<DitalProduct/>}></Route>
             <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/*' element={<ErrorPage/>}></Route>
           </Routes>
-          <Footer scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
+          <Footer scrollIntoCatalog={scrollIntoCatalog} 
+          scrollIntoFAQ ={scrollIntoFAQ}
+          scrollIntoHeader = {scrollIntoHeader}
+          />
       </div>
     </>
   )

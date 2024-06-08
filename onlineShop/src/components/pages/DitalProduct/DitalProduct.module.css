@@ -1,3 +1,6 @@
+.ditalProduct{
+    flex: 1 1 auto;
+}
 .mainDitalProduct{
     width: 1180px;
     padding: 0 130px 0; 
@@ -16,23 +19,24 @@
     height: 558px;
     display: flex;
     flex-direction: column; 
-    justify-content: space-between;
+    
 }
 
 .imgMain{
     width: 520px;
     height: 461px;
     object-fit: cover;
+    padding-bottom: 14px;
 }
 .listImgCarousel{
-    
+    width: 520px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .imgCarousel{
+    
     object-fit: cover;
     width: 70px;
     height: 75px;
@@ -43,6 +47,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 45px;
+    width: 616px;
 
 }
 
@@ -51,27 +56,31 @@
 }
 
 .name{
+    letter-spacing:0px;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
     width: 523px;
     padding-bottom: 48px;
     align-self: center;
     align-items: center;
+    
 }
+
 .nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRating,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
     line-height: 23px;
     color: #B2B5BB;
     display: flex;
     flex-direction: row;
     padding-bottom: 23px;
-    
+    letter-spacing:0.5px;
     
 }
 
 .nameSkuid{
+    letter-spacing:1px;
    position: relative;
    white-space: nowrap;
-   width: 52px;
+   width: 103px;
    height: 23px; 
    display: flex;
    justify-self: center;
@@ -79,29 +88,36 @@
    
 }
 .description,.category,.brand,.skuid, .stock, .rating,.basePrice,.discountPercentage,.discountPrice{
+    letter-spacing:0px;
     padding-left: 10px;
     color: black;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
 }
-.ditalProductButton{
-    padding-top: 37px;
+.nameDiscountPrice{
+    padding-bottom: 21px;
 }
 
 .rating{
     display: flex;
+    padding-top: 2px;
     justify-content: space-between;
     width: 116px;
     height: 20px;
 }
 
 .starImg{
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
 }
-
-.imgCarousel:first-child{
-    border: 3px solid #C4C4C4;
+/* заглушка для макета */
+.imgCarousel:first-child{ 
+    outline:3px solid #C4C4C4;
+    outline-offset:-4px;
     border-radius: 4px;
 
+}
+
+.ditalProductButton{
+    padding-top: 42px;
 }

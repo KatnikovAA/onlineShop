@@ -6,7 +6,7 @@
 }
 
 .product{
-    padding-top: 40px;
+    padding-top: 39px;
 }
 
 .product:hover .imgProduct{
@@ -49,9 +49,11 @@
 }
 
 .productName{
+    letter-spacing:0px;
     line-height: 22px;
     font-size: 16px;
-    font-weight: bold;
+    
+    font-weight: 610;
     color: #444B58;
 }
 
@@ -59,4 +61,8 @@
     line-height: 26px;
     font-size: 18px;
     color: #444B58;
+}
+
+.description{
+    padding-top: 1.5px;
 }
