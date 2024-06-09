@@ -1,6 +1,7 @@
 .cart{
     padding: 0 130px 0;
-    flex: 1 1 auto;
+    margin-bottom: 285px;
+    /* flex: 1 1 auto; -- убарл для ПП*/
 }
 
 .mainBlock{
@@ -16,16 +17,13 @@
     border: 1px solid #D9D9D9;
     border-radius: 4px;
     height: 278px;
+    padding: 50px 30px 30px 45px;
 }
 
 .informCart{
     display: flex;  
 }
 
-.listProduct{
-    padding: 50px 30px 30px 45px;
-   
-}
 .product{
     
     display: block;
@@ -43,6 +41,11 @@
 }
 .nameTotalCount,.nameTotalPrice,.nameTotalCountWithDiscount{
     color: #B2B5BB; 
+    margin: 0;
+    font-size: 20px;
+}
+.nameTotalCount{
+    font-weight: normal;
 }
 
 .totalCount{
@@ -51,7 +54,7 @@
 .nameTotalPrice{
     padding-bottom: 4px;
     font-size: 20px;
-    font-weight: bold;
+    
 }
 .nameTotalCountWithDiscount{
     font-weight: bold;
@@ -79,59 +82,44 @@
         display: flex;  
         flex-direction: column;
     }
-    .main{
-        width: 1200px; 
-    }
-    .menu{
-        padding-left: 598px;
-    }
+
   }
 @media (max-width:1200px) {
-
+    .cart{
+        padding-left: 130px;
+    }
     .listProduct{
-        width: 500px;
-    }
-    .main{
-        width: 1200px; 
-    }
-    .menu{
-        padding-left: 598px;
+        width: 700px;
     }
   }
 
   @media (max-width:1000px) {
 
-    .header{
-        width: 1000px;
-    }
-    .main{
-        width: 1000px; 
-    }
-    .menu{
-        padding-left: 298px;
-    }
+
   }
   @media (max-width:768px) {
 
-    .header{
-        width: 768px;
-    }
-    .main{
-        width: 768px; 
-    }
-    .menu{
-        padding-left: 198px;
-    }
+
   }
   @media (max-width:480px) {
+    .mainBlock{
+        padding-left: 230px;
+    }
+    .listProduct{
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+        border: none;
+    }
 
-    .header{
-        width: 480px;
+    .totalBlock{
+        margin-top: 300px;
     }
-    .main{
-        width: 480px; 
+
+    .totalCount,.totalPrice,.totalCountWithDiscount{
+        display: flex;
+        justify-content: center;
+        
     }
-    .menu{
-        padding-left: 0px;
-    }
+
   }

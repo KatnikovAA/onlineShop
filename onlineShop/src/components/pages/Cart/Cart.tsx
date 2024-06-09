@@ -7,7 +7,7 @@ export const Cart:FC = ({}) =>{
     return(
         <div className={styles.cart}>
             <div className={styles.mainBlock}>
-                <h1 className={styles.name}>My cart</h1>
+                <h1 className={styles.name} aria-label='My cart' tabIndex={2}>My cart</h1>
                 <div className={styles.informCart}>
                     <div className={styles.listProduct}>
                         {
@@ -16,32 +16,32 @@ export const Cart:FC = ({}) =>{
                             })
                         }
                     </div>
-                    <div className={styles.totalBlock}>
+                    <section className={styles.totalBlock}>
                         <div className={styles.totalCount}>
-                            <div className={styles.nameTotalCount}>
+                            <h2 className={styles.nameTotalCount} aria-label='Total count:3'>
                                 Total count:
-                            </div>
+                            </h2>
                             <div className={styles.valueTotalCount}>
                                 3
                             </div>
                         </div>
                         <div className={styles.totalPrice}>
-                            <div className={styles.nameTotalPrice}>
+                            <h2 className={styles.nameTotalPrice} aria-label='Total price:700$'>
                                 Total price:
-                            </div>
+                            </h2>
                             <div className={styles.valueTotalPrice}>
                                 700$
                             </div>
                         </div>
                         <div className={styles.totalCountWithDiscount}>
-                            <div className={styles.nameTotalCountWithDiscount}>
+                            <h2 className={styles.nameTotalCountWithDiscount} aria-label='Total price with discount:590$'>
                                 Total price with discount:
-                            </div>
+                            </h2>
                             <div className={styles.valueTotalCountWithDiscount}>
                                 590$
                             </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

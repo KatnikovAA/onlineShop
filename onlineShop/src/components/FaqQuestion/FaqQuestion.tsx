@@ -13,14 +13,14 @@ export const FaqQuestion:FC<propsFaqQuestion> = ({question}) =>{
 
     return(
         <label className={styles.question} onClick={() =>{setOpenAnswer((prevActive) => !prevActive)}}>
-            <div className={styles.headerQuestion}>
-                <div className={styles.name}>{question.name} {question.id}</div>
+            <section className={styles.headerQuestion}>
+                <div className={styles.name} aria-label={question.name}>{question.name} {question.id} </div>
                 <div className={styles.imgCross}>
-                    <img src={crossImg} className={!openAnswer ? styles.headerCrossClose : styles.headerCrossOpen}></img> 
+                    <img alt='' src={crossImg} className={!openAnswer ? styles.headerCrossClose : styles.headerCrossOpen}></img> 
                 </div>
-            </div>
-            <div className={!openAnswer ? styles.answerClose : styles.answerOpen}>
+            </section>
+            <p aria-label={question.answer} className={!openAnswer ? styles.answerClose : styles.answerOpen}>
                 {question.answer}
-            </div>
+            </p>
         </label>
 )}

@@ -55,8 +55,8 @@ const App:FC = () => {
             <Route path='/*' element={<ErrorPage/>}></Route>
           </Routes>
           <Footer scrollIntoCatalog={scrollIntoCatalog} 
-          scrollIntoFAQ ={scrollIntoFAQ}
-          scrollIntoHeader = {scrollIntoHeader}
+            scrollIntoFAQ ={scrollIntoFAQ}
+            scrollIntoHeader = {scrollIntoHeader}
           />
       </div>
     </>

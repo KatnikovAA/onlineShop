@@ -13,10 +13,10 @@ type productInCartProps = {
 export const ProductInCart:FC<productInCartProps> = ({product}) =>{
     return(
         <div className={styles.productInCart}>
-            <Link className={styles.product} to={'/idProduct'}>
-                <img className={styles.img} src={product.imgUrl}></img>
+            <Link className={styles.product} to={'/idProduct'} >
+                <img className={styles.img} src={product.imgUrl} alt=''></img>
                 <div className={styles.inform}>
-                    <div className={styles.name}>{product.name}</div>
+                    <h2 className={styles.name} aria-label={product.name}>{product.name}</h2>
                     <div className={styles.cost}>{product.cost} $</div>
                 </div>
             </Link>

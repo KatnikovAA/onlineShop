@@ -19,9 +19,11 @@
     font-size: 0px;
     opacity: 0;
     transition: all 0.2s;
+    margin: 0;
 }
 
 .answerOpen{
+    margin: 0;
     opacity: 1;
     padding-bottom: 37px;
     padding-left: 1px;
@@ -61,4 +63,42 @@
 
   .imgCross{
     transform: translateY(20%);
+  }
+
+  @media (max-width:1200px) {
+    .question{
+        width: 980px;
+      }
+    .headerQuestion{
+        width: 980px;
+    }
+  }
+  
+  @media (max-width:1000px) {
+  
+    .question{
+        width: 680px;
+      }
+    .headerQuestion{
+        width: 680px;
+    }
+  
+  }
+  @media (max-width:768px) {
+
+    .question{
+        width: 580px;
+      }
+    .headerQuestion{
+        width: 580px;
+    }
+  }
+  @media (max-width:480px) {
+    .question{
+        width: 380px;
+      }
+    .headerQuestion{
+        width: 380px;
+    }
+  
   }

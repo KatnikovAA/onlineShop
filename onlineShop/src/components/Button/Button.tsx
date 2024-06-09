@@ -10,7 +10,7 @@ export const Button:FC<buttonProps> = ({text,styleCss,imgFlg = false}) =>{
     return(
         <button className={styles[styleCss]}>
             {
-                imgFlg ? <img  src={text} className={styles.cartImg}/> : text //в дальнейшем избавлюсь от такой конструкции сейчас использовал для заглушки
+                imgFlg ? <img  alt ='' src={text} className={styles.cartImg}/> : text //в дальнейшем избавлюсь от такой конструкции сейчас использовал для заглушки
             }
         </button>
     )

@@ -18,34 +18,31 @@ export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
     return(
         <div className={styles.product}>
             <Link to={'/idProduct'}>
-                <img src={imgUrl} alt="Картиника товара" className={styles.imgProduct}/>
+                <img src={imgUrl} alt="Картиника товара" className={styles.imgProduct} />
             </Link>
             <div className={styles.productInfo}>
                 <div className={styles.description}>
                     {
                         // выражение id !== 1 ? name : reduceName() ниже использовал для зашулшку для макета дальше буду завязвать логику на пропс/состояние
                     }
-                    <div className={styles.productName}>{id !== 1 ? name : reduceName()}</div> 
+                    <h2 aria-label={name} className={styles.productName}>{id !== 1 ? name : reduceName()}</h2> 
                     <div className={styles.productCost}>{cost} $</div>
                 </div>
 
                 {
-                                        
                      // выражение id !== 1 ниже использовал для зашулшку для макета дальше буду завязвать логику на пропс/состояние
                                         
                     id !== 1
                     ?
-                        <Button styleCss ={'productCountButton'} text={cartImg} imgFlg={true}/>
+                        <Button styleCss ={'productCountButton'} text={cartImg} imgFlg={true} aria-label='Add to cart'/>
                     :
                         
                         <div className={styles.countButtons}>
-                        <Button text={minusImg} styleCss='productCountButton' imgFlg={true}></Button>
+                        <Button text={minusImg} styleCss='productCountButton' imgFlg={true} aria-label='minus product'></Button>
                             <input type="text" className={styles.inputCountProduct} value={1}/>
-                        <Button text={plusImg} styleCss='productCountButton' imgFlg={true}></Button>   
-             </div>
+                        <Button text={plusImg} styleCss='productCountButton' imgFlg={true} aria-label='plus product'></Button>   
+                        </div>
                 }
-                
-
             </div>
         </div>
     )

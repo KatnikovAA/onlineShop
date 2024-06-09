@@ -97,52 +97,54 @@
     transform: translateY(-20%);
   }
 
+  @media (max-width:1400px) {
+
+    .menu{
+        padding-left: 600px;
+    }
+    
+
+  }
   @media (max-width:1200px) {
 
-    .header{
-        width: 1200px;
-    }
+
     .main{
         width: 1200px; 
     }
     .menu{
-        padding-left: 598px;
+        padding-left: 500px;
     }
   }
 
   @media (max-width:1000px) {
-
-    .header{
-        width: 1000px;
-    }
     .main{
-        width: 1000px; 
+        width: 1200px; 
     }
     .menu{
-        padding-left: 298px;
+        padding-left: 450px;
     }
+    .border{
+        border: none;
+    }
+  
+
   }
   @media (max-width:768px) {
 
-    .header{
-        width: 768px;
-    }
     .main{
-        width: 768px; 
+        width: 1200px; 
     }
     .menu{
-        padding-left: 198px;
+        padding-left: 450px;
     }
   }
   @media (max-width:480px) {
 
-    .header{
-        width: 480px;
-    }
+
     .main{
-        width: 480px; 
+        width: 880px; 
     }
     .menu{
-        padding-left: 0px;
+        padding-left: 300px;
     }
   }

@@ -15,8 +15,8 @@ export const Descript:FC<descriptProps> = ({scrollIntoCatalog}) =>{
     return(
         <div className={styles.descript}>
             <article className={styles.article}>
-                <div className={styles.tagline}>Any products from famous brands with worldwide delivery</div>
-                <div className={styles.description}>We sell smartphones, laptops, clothes, shoes and many other products at low prices</div>
+                <h2 className={styles.tagline} aria-label='Any products from famous brands with worldwide delivery'>Any products from famous brands with worldwide delivery</h2>
+                <p className={styles.description}>We sell smartphones, laptops, clothes, shoes and many other products at low prices</p>
                 <div onClick={handleClickButtonCatalog}> 
                     <Button styleCss='defaultButton' text='Go to shopping'></Button> 
                 </div> 

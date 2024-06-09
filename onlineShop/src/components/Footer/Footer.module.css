@@ -29,3 +29,43 @@
     width: 181px;
     letter-spacing: normal;
 }
+
+
+@media (max-width:1400px) {
+
+    .nav{
+        padding-left: 700px;
+    }
+    
+
+  }
+  @media (max-width:1200px) {
+
+
+    .nav{
+        padding-left: 600px;
+    }
+  }
+
+  @media (max-width:1000px) {
+    .nav{
+        padding-left: 500px;
+    }
+  
+
+  }
+  @media (max-width:768px) {
+
+    .nav{
+        padding-left: 450px;
+    }
+  }
+  @media (max-width:480px) {
+
+    .name{
+        padding-left: 200px;
+    }
+    .nav{
+        padding-left: 300px;
+    }
+  }

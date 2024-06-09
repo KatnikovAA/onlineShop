@@ -28,30 +28,22 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
     return(
         <header className={styles.header} id='header'>
                 <div className={styles.main}>
-
-                
                     <Link to='/' className={stylesApp.link} >
-                        <h1 className={styles.logoText}>Goods4you</h1> 
+                        <h1 className={styles.logoText} aria-label='Goods4you' tabIndex={1}>Goods4you</h1> 
                     </Link>
-
                     <nav className={styles.menu}>
-                        <Link onClick={handleClickCatalog} className={stylesApp.link} to="/" >Catalog</Link>                   
-                        <Link onClick={handleClickFAQ} className={stylesApp.link} to="/" >FAQ</Link>
+                        <Link onClick={handleClickCatalog} className={stylesApp.link} to="/" aria-label='Link to Catalog'>Catalog</Link>                   
+                        <Link onClick={handleClickFAQ} className={stylesApp.link} to="/" aria-label='Link to FAQ'>FAQ</Link>
                         <div className={styles.cart}>
-                            <Link to='/cart' className={stylesApp.link}>Cart
-                                
-    
-                            </Link>
+                            <Link to='/cart' className={stylesApp.link}>Cart</Link>
                             <div className={styles.cartCountProductImg}>
                                     <img className={styles.cartImg} src={cartImg} alt="Коризна" />
                                     <div className={styles.countInCart}>1</div>
                             </div>
-                            
                         </div>
                     </nav> 
                 </div>
-                <div className={cheackLocation() ? styles.border : styles.borderNone}></div>
-            
+                <div className={cheackLocation() ? styles.border : styles.borderNone}></div> 
         </header>
     )
 }

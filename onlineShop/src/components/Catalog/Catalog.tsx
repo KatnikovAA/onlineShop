@@ -12,10 +12,10 @@ export const Catalog:FC<catalogProps> = ({}) => {
 
     return(
         <div className={styles.catalog} id="catalog">
-            <h1 className={styles.name}>Catalog</h1>
-            <div className={styles.searchBlock}>
+            <h1 className={styles.name} tabIndex={2} aria-label='Catalog'>Catalog</h1>
+            <div className={styles.searchBlock} aria-label='Field for search'>
                 <input type="text" placeholder='Search by title' className={styles.seacrhText}/>
-                <Button text='Search' styleCss='defaultButton'></Button>
+                <Button aria-label='Button for search' text='Search' styleCss='defaultButton'></Button>
             </div>
            <div className={styles.propucts}>
                 {
@@ -25,7 +25,7 @@ export const Catalog:FC<catalogProps> = ({}) => {
                 }
             </div>
             <div className={styles.button}>            
-                <Button text={'Show more'} styleCss={'defaultButton'}></Button>
+                <Button aria-label='Show more' text={'Show more'} styleCss={'defaultButton'}></Button>
             </div>
         </div>
     )

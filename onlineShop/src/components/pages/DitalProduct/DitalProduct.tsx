@@ -9,29 +9,29 @@ export const DitalProduct:FC = ({}) =>{
     return(
         <div className={styles.ditalProduct}>
             <div className={styles.mainDitalProduct}>
-                <h1 className={styles.productNameId}>Product {ditalPorudctStub.id}</h1>
+                <h1 className={styles.productNameId} aria-label='Product' tabIndex={3}>Product {ditalPorudctStub.id}</h1>
                 <div className={styles.productInform}>
-                    <div className={styles.imgBlock}>
+                    <section className={styles.imgBlock}>
                         <picture>
                             <source 
                                 type="image/jpeg"
                                 sizes="(max-width: 300px) 300w, 700px"
                             />
-                            <img src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}></img>
+                            <img alt='' src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}></img>
                         </picture>
                         <div className={styles.listImgCarousel}>
                             {
                                 ditalPorudctStub.imgUrl.map((url) =>{
                                     return(
-                                            <img src={url} className={styles.imgCarousel}></img>
+                                            <img src={url} className={styles.imgCarousel} alt=''></img>
                                     )
                                 })
                             }
                         </div>
-                    </div>
-                    <div className={styles.descriptionProduct}>
+                    </section>
+                    <section className={styles.descriptionProduct}>
                         <div className={styles.descriptionHead}>
-                            <div className={styles.name}>
+                            <div className={styles.name} aria-label={ditalPorudctStub.name}>
                                 {ditalPorudctStub.name}
                             </div>
                             <div className={styles.nameSkuid}>
@@ -51,52 +51,52 @@ export const DitalProduct:FC = ({}) =>{
                                 <img src={starImg} className={styles.starImg} alt="5 звезда" />    
                             </div>  
                         </div>
-                        <div className={styles.nameBasePrice}>
+                        <div className={styles.nameBasePrice} aria-label='Base price'>
                             Base price 
                             <div className={styles.basePrice}>
                                 {ditalPorudctStub.basePrice}$  
                             </div>  
                         </div>
-                        <div className={styles.nameDiscountPercentage}>
+                        <div className={styles.nameDiscountPercentage} aria-label='Discount percentage'>
                             Discount percentage 
                             <div className={styles.discountPercentage}>
                                 {ditalPorudctStub.discountPercentage}%
                             </div>  
                         </div>
-                        <div className={styles.nameDiscountPrice}>
+                        <div className={styles.nameDiscountPrice} aria-label='Discount price'>
                             Discount price
                             <div className={styles.discountPrice}>
                                 {ditalPorudctStub.discountPrice}$
                             </div> 
                         </div>
-                        <div className={styles.nameStock}>
+                        <div className={styles.nameStock} aria-label='Stock'>
                             Stock 
                             <div className={styles.stock}>
                                 {ditalPorudctStub.stock}
                             </div> 
                         </div>
-                        <div className={styles.nameBrand}>
+                        <div className={styles.nameBrand} aria-label='Brand'>
                             Brand 
                             <div className={styles.brand}>
                                 {ditalPorudctStub.brand}
                             </div> 
                         </div>
-                        <div className={styles.nameCategory}>
+                        <div className={styles.nameCategory} aria-label='Category'>
                             Category 
                             <div className={styles.category}>
                                 {ditalPorudctStub.category}
                             </div> 
                         </div>
-                        <div className={styles.nameDescription}>
+                        <div className={styles.nameDescription} aria-label='Description'>
                             Description
                             <div className={styles.description}>
                                 {ditalPorudctStub.description}
                             </div> 
                         </div>
-                        <div className={styles.ditalProductButton}>
+                        <div className={styles.ditalProductButton} aria-label='Add to cart '>
                             <Button text={"Add to cart"} styleCss={"defaultButton"}></Button>          
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>

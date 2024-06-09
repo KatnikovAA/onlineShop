@@ -50,3 +50,53 @@
     display: flex;
     align-self: center;
 }
+
+
+@media (max-width:1200px) {
+    .propucts{
+        width: 980px;  
+    }
+    .seacrhText{
+        width: 744px;
+        padding-left: 16px;
+    
+    }
+    .searchBlock{
+        width: 1100px;
+    }
+    .catalog{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width:1000px) {
+.button{
+    padding-right: 500px;  
+}
+
+}
+@media (max-width:768px) {
+    .catalog{
+        padding-left: 260px;
+    }
+    .propucts{
+        width:800px;  
+    }
+    .seacrhText{
+        width: 444px;
+        padding-left: 16px;
+    
+    }
+    .searchBlock{
+        width: 700px;
+    }
+}
+@media (max-width:480px) {
+
+    .propucts{
+        width: 580px;  
+    }
+
+}
