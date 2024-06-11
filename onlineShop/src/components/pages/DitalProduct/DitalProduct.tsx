@@ -1,13 +1,22 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import styles from './DitalProduct.module.css' 
 import { ditalPorudctStub } from "../../../stub"
 import { Button } from "../../Button/Button"
 import starImg from  '../../../image/star.png'
+import { ImgCarousel } from "../../ImgCarousel/ImgCarousel"
+
 
 export const DitalProduct:FC = ({}) =>{
 
+    const [activImg,setActivImg] = useState(ditalPorudctStub.imgUrl[0])
+
+    const pickMainImg = (url:string):void => {
+        setActivImg(url)  
+    }
+
     return(
-        <div className={styles.ditalProduct}>
+
+         <div className={styles.ditalProduct}>
             <div className={styles.mainDitalProduct}>
                 <h1 className={styles.productNameId} aria-label='Product' tabIndex={3}>Product {ditalPorudctStub.id}</h1>
                 <div className={styles.productInform}>
@@ -17,13 +26,17 @@ export const DitalProduct:FC = ({}) =>{
                                 type="image/jpeg"
                                 sizes="(max-width: 300px) 300w, 700px"
                             />
-                            <img alt='' src={ditalPorudctStub.imgUrl[0]} className={styles.imgMain}></img>
+                            <img alt='' src={activImg} className={styles.imgMain}></img>
                         </picture>
                         <div className={styles.listImgCarousel}>
                             {
-                                ditalPorudctStub.imgUrl.map((url) =>{
+                                ditalPorudctStub.imgUrl.map((urlImg,index) =>{
                                     return(
-                                            <img src={url} className={styles.imgCarousel} alt=''></img>
+                                            <ImgCarousel srcValue={urlImg} 
+                                                key={index} 
+                                                styleCss = {urlImg === activImg ? 'activImgCarousel' : 'imgCarousel'}
+                                                pickMainImg = {pickMainImg}   
+                                            ></ImgCarousel>
                                     )
                                 })
                             }

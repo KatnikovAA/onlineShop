@@ -36,13 +36,6 @@
     justify-content: space-between;
 }
 
-.imgCarousel{
-    
-    object-fit: cover;
-    width: 70px;
-    height: 75px;
-    border-radius: 4px;
-}
 
 .descriptionProduct{
     display: flex;
@@ -110,13 +103,6 @@
 .starImg{
     width: 16px;
     height: 16px;
-}
-/* заглушка для макета */
-.imgCarousel:first-child{ 
-    outline:3px solid #C4C4C4;
-    outline-offset:-4px;
-    border-radius: 4px;
-
 }
 
 .ditalProductButton{
