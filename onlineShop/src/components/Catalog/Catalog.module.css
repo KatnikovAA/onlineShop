@@ -5,34 +5,9 @@
     width: 1180px;
 }
 
-.searchBlock{
-    padding-top: 22px;
-    width: 1180px;
-    height: 67px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .name{
     padding-top: 34px;
     font-size: 30px;
-}
-.seacrhText{
-    letter-spacing:0.1px;
-    width: 944px;
-    height: 67px;
-    background-color: #F6F6F6;
-    color: #B2B5BB;
-    border: #F6F6F6;
-    padding-left: 16px;
-    margin-bottom: 12px;
-    border-radius: 4px;
-}
-
-.seacrhText:focus{
-    outline: none;
-    color: #444B58;
 }
 
 .propucts{
@@ -56,11 +31,6 @@
     .propucts{
         width: 980px;  
     }
-    .seacrhText{
-        width: 744px;
-        padding-left: 16px;
-    
-    }
     .searchBlock{
         width: 1100px;
     }
@@ -83,11 +53,6 @@
     }
     .propucts{
         width:800px;  
-    }
-    .seacrhText{
-        width: 444px;
-        padding-left: 16px;
-    
     }
     .searchBlock{
         width: 700px;

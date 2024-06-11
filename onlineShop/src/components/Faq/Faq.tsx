@@ -1,6 +1,6 @@
 import styles from './Faq.module.css'
 import { faqQuestionStub } from '../../stub'
-import { FaqQuestion } from '../FaqQuestion/FaqQuestion'
+import { FaqQuestion } from '../FaqQuestion/FaqQuestion.tsx'
 import { FC } from 'react'
 
 export const Faq:FC = ({}) => {

@@ -1,0 +1,33 @@
+.seacrhText{
+    letter-spacing:0.1px;
+    width: 944px;
+    height: 67px;
+    background-color: #F6F6F6;
+    color: #B2B5BB;
+    border: #F6F6F6;
+    padding-left: 16px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+
+.seacrhText:focus{
+    outline: none;
+    color: #444B58;
+}
+
+@media (max-width:1200px) {
+    .seacrhText{
+        width: 744px;
+        padding-left: 16px;
+    
+    }
+}
+
+@media (max-width:768px) {
+
+    .seacrhText{
+        width: 444px;
+        padding-left: 16px;
+    }
+
+}

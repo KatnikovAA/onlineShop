@@ -34,13 +34,13 @@ export const Product:FC<objProductStub> = ({name,cost,imgUrl,id}) =>{
                                         
                     id !== 1
                     ?
-                        <Button styleCss ={'productCountButton'} text={cartImg} imgFlg={true} aria-label='Add to cart'/>
+                        <Button styleCss ={'productCountButton'} value={cartImg} imgFlg={true} aria-label='Add to cart'/>
                     :
                         
                         <div className={styles.countButtons}>
-                        <Button text={minusImg} styleCss='productCountButton' imgFlg={true} aria-label='minus product'></Button>
+                        <Button value={minusImg} styleCss='productCountButton' imgFlg={true} aria-label='minus product'></Button>
                             <input type="text" className={styles.inputCountProduct} value={1}/>
-                        <Button text={plusImg} styleCss='productCountButton' imgFlg={true} aria-label='plus product'></Button>   
+                        <Button value={plusImg} styleCss='productCountButton' imgFlg={true} aria-label='plus product'></Button>   
                         </div>
                 }
             </div>

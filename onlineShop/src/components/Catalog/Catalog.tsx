@@ -3,6 +3,7 @@ import { Button } from '../Button/Button'
 import { FC } from 'react'
 import { Product } from '../Product/Product'
 import { productStub } from '../../stub'
+import { Search } from '../Search/Search'
 
 type catalogProps = {
     
@@ -13,10 +14,7 @@ export const Catalog:FC<catalogProps> = ({}) => {
     return(
         <div className={styles.catalog} id="catalog">
             <h1 className={styles.name} tabIndex={2} aria-label='Catalog'>Catalog</h1>
-            <div className={styles.searchBlock} aria-label='Field for search'>
-                <input type="text" placeholder='Search by title' className={styles.seacrhText}/>
-                <Button aria-label='Button for search' text='Search' styleCss='defaultButton'></Button>
-            </div>
+            <Search />
            <div className={styles.propucts}>
                 {
                     productStub.map((product)=>{
