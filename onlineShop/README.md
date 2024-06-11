@@ -1,3 +1,6 @@
+For start project : npm run dev
+For start storybook: npm run storybook
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
