@@ -10,9 +10,12 @@
     font-size: 30px;
 }
 
+.emptyData{
+    
+}
 .propucts{
     width: 1180px;
-    height: 1133px;
+    height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -21,7 +24,7 @@
 }
 
 .button{
-    padding: 100px 0 60px;
+    padding: 100px 0 0;
     display: flex;
     align-self: center;
 }

@@ -11,6 +11,7 @@ import { FC } from 'react'
 
 const App:FC = () => {
   
+  
   const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
     let catalog: HTMLElement | null = document.getElementById('catalog')
     catalog ?

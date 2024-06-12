@@ -1,18 +1,16 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import styles from './DitalProduct.module.css' 
 import { ditalPorudctStub } from "../../../stub"
 import { Button } from "../../Button/Button"
 import starImg from  '../../../image/star.png'
 import { ImgCarousel } from "../../ImgCarousel/ImgCarousel"
+import { useSelector } from "react-redux"
+import { RootState } from "../../../redux/store"
 
 
 export const DitalProduct:FC = ({}) =>{
 
-    const [activImg,setActivImg] = useState(ditalPorudctStub.imgUrl[0])
-
-    const pickMainImg = (url:string):void => {
-        setActivImg(url)  
-    }
+    const activImg = useSelector((state: RootState) => state.activImg.imgUrl)
 
     return(
 
@@ -35,7 +33,7 @@ export const DitalProduct:FC = ({}) =>{
                                             <ImgCarousel srcValue={urlImg} 
                                                 key={index} 
                                                 styleCss = {urlImg === activImg ? 'activImgCarousel' : 'imgCarousel'}
-                                                pickMainImg = {pickMainImg}   
+                                                  
                                             ></ImgCarousel>
                                     )
                                 })
@@ -107,7 +105,7 @@ export const DitalProduct:FC = ({}) =>{
                             </div> 
                         </div>
                         <div className={styles.ditalProductButton} aria-label='Add to cart '>
-                            <Button text={"Add to cart"} styleCss={"defaultButton"}></Button>          
+                            <Button value={"Add to cart"} styleCss={"defaultButton"}></Button>          
                         </div>
                     </section>
                 </div>

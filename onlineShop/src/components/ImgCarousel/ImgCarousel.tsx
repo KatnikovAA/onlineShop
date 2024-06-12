@@ -1,17 +1,20 @@
 import { FC } from 'react'
 import styles from './ImgCarousel.module.css' 
+import { useSelector , useDispatch} from 'react-redux'
+import { pickActivImg } from '../../redux/features/ditalProduct/ditalProductSlice'
 
 type headerProps = {
     srcValue:string,
     styleCss:string,
-    pickMainImg:(value:string)=>void,
 }
 
 
-export const ImgCarousel:FC<headerProps>= ({srcValue,styleCss,pickMainImg}) => {
+export const ImgCarousel:FC<headerProps>= ({srcValue,styleCss}) => {
+
+    const dispatch = useDispatch()
 
     const handleClickImg = () =>{
-        pickMainImg(srcValue)
+        dispatch(pickActivImg(srcValue))
     }
 
     return(
