@@ -5,24 +5,35 @@ import { useSelector } from 'react-redux'
 import { RootState } from "../../redux/store"
 import { textSerach } from '../../redux/features/searchField/searchFieldSlice'
 import { useDispatch } from 'react-redux'
-import { useState } from 'react'
-import debounce
+import { useEffect, useState } from 'react'
+import debounce from 'debounce'
+
 export const Search = () => {
 
     const[searchValue,setSearchValue] = useState<string>('')
 
-    const dispatch = useDispatch()
+    useEffect(()=>{
+        debounceOnChege()
+    },[searchValue])
 
+    const dispatch = useDispatch()
+    
     const handleSearch = () => {
         dispatch(textSerach(searchValue))
     }
 
-    const handleTextValue = (value:string) =>{
-        if(value===''){
-            setSearchValue(' ')
-        }else
-        setSearchValue(value)
+    const debounceOnChege:debounce.DebouncedFunction<() => void> = debounce(handleSearch,500)
 
+    
+    const handleTextValue = (valueText:string) =>{
+        if(valueText === ''){
+            setSearchValue(' ')
+            
+        }else{
+            setSearchValue(valueText)
+            
+        }
+        
     }
 
     return(

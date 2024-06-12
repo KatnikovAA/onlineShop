@@ -29,7 +29,7 @@ export const Catalog:FC<catalogProps> = ({}) => {
 
     const {isLoading,data,error} = useGetProductsQuery(searchValue)
 
-    console.log(data?.products)
+    
 
     const clickButtonShowMore = () =>{
         setCountLoadProducts(prev => prev + 9)
