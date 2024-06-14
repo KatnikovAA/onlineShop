@@ -22,6 +22,9 @@ export const countLoadProductsSlice = createSlice({
   },
 })
 
+
+
+
 export const { countLoadProducts,countLoadProductsDefult } = countLoadProductsSlice.actions
 
 export default countLoadProductsSlice.reducer

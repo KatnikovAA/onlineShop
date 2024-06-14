@@ -1,13 +1,13 @@
 import styles from './Catalog.module.css'
 import { Button } from '../Button/Button'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Product } from '../Product/Product'
 import { useSelector,useDispatch } from 'react-redux'
 import { Search } from '../Search/Search'
 import { useGetProductsQuery  } from '../../services/api'
 import { RootState } from "../../redux/store"
 import { countLoadProducts } from '../../redux/features/catalog/catalogSlice'
-
+import { apiData } from '../../services/api'
 
 type catalogProps = {
     
@@ -22,11 +22,16 @@ export const Catalog:FC<catalogProps> = ({}) => {
     //const[countLoadProducts,setCountLoadProducts] = useState(9)
     const searchValue:string = useSelector((state: RootState) => state.textSearchValue.text)
     const {isLoading,data,error} = useGetProductsQuery({value:searchValue,limit:loadCount})
-
+    const [apiData,setApiData] = useState<apiData>({  products: [],limit:0,skip:0,total:0})
 
     const clickButtonShowMore = () =>{
         dispatch(countLoadProducts())
     }
+    useEffect(()=>{
+        if(!isLoading && data){
+            setApiData(data)
+        }
+    },[isLoading])
 
     return(
         <div className={styles.catalog} id="catalog">

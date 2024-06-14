@@ -32,7 +32,7 @@ export type SingleProduct = {
   reviews:[]
 
 }
-type apiData = {
+export type apiData = {
   products: apiProducts[],
   limit:number,
   skip:number,

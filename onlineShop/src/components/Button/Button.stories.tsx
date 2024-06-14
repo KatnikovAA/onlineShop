@@ -1,8 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react"
 import { Button } from "./Button"
 import './Button.module.css'
+import { Provider } from "react-redux";
+import { store } from "../../redux/store"
 
 const meta: Meta<typeof Button> = {
+    decorators: [(Story) => <Provider store={store}><Story /></Provider>],
     title: 'Atoms/Button',
     tags:['autodocs'],
     component: Button,

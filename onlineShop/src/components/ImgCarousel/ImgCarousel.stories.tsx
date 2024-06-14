@@ -1,10 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react"
 import { ImgCarousel } from "./ImgCarousel"
 import './ImgCarousel.module.css'
-
+import { store } from "../../redux/store"
+import { Provider } from "react-redux";
 import { ditalPorudctStub } from "../../stub"
 
 const meta: Meta<typeof ImgCarousel> = {
+    decorators: [(Story) => <Provider store={store}><Story /></Provider>],
     title: 'Atoms/ImgCarousel',
     component: ImgCarousel,
     tags:['autodocs']
