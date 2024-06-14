@@ -2,14 +2,17 @@ import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import activImgProuctReducer from './features/ditalProduct/ditalProductSlice'
 import textForSearchReducer from './features/searchField/searchFieldSlice'
+import countLoadProductsReducer from './features/catalog/catalogSlice'
+import dataCartUserReducer from './features/app/appSlice'
 import { api } from '../services/api'
 
 export const store = configureStore({
   reducer: {
     [api.reducerPath]:api.reducer,
-    
     activImg:activImgProuctReducer,
     textSearchValue:textForSearchReducer,
+    countLoadProducts:countLoadProductsReducer,
+    dataCartsByUser:dataCartUserReducer,
     
   },
   middleware: (getDefaultMiddleware) =>

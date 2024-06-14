@@ -42,6 +42,7 @@
     flex-direction: column;
     padding-left: 45px;
     width: 616px;
+    height: 92px;
 
 }
 
@@ -88,6 +89,12 @@
     font-size: 16px;
     font-weight: 600;
 }
+.description{
+    font-size: 15px;
+}
+.nameDescription{
+    min-height: 60px;
+}
 .nameDiscountPrice{
     padding-bottom: 21px;
 }
@@ -95,18 +102,42 @@
 .rating{
     display: flex;
     padding-top: 2px;
-    justify-content: space-between;
+    
     width: 116px;
     height: 20px;
 }
 
 .starImg{
+    padding-left: 5px;
     width: 16px;
     height: 16px;
 }
 
-.ditalProductButton{
-    padding-top: 42px;
+.buttons{
+    padding-bottom: 10px;
+}
+
+
+.inputCountProduct{
+    margin: 0 10px 0;
+    width: 106px;
+    height: 67px;
+    text-align:center;
+    background-color: #F6F6F6;
+    color: #B2B5BB;
+    border: #F6F6F6;
+    border-radius: 4px;  
+}
+
+.inputCountProduct:focus{
+    outline: none;
+    color: #444B58;
+}
+
+.countButtons{
+    display: flex;
+    height: 67px;
+
 }
 
 @media (max-width:1400px) {

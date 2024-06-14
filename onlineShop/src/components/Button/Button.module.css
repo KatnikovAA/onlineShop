@@ -20,12 +20,19 @@
     border: none;
     width: 48px;
     height: 48px;
-    
     border-radius: 4px;
     background-color: #F14F4F;
     color: #FFFFFF;
 }
-
+.productDetalCountButton{
+    cursor: pointer;
+    border: none;
+    width: 67px;
+    height: 67px;
+    border-radius: 4px;
+    background-color: #F14F4F;
+    color: #FFFFFF;
+}
 .noneBorderButton{
     cursor: pointer;
     width: 42px;
@@ -45,4 +52,11 @@
     display: flex;
     justify-content: center;
     padding-left: 6px;
+  }
+
+  .productDetalCartImg{  
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    padding-left: 12px;
   }

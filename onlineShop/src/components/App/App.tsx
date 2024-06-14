@@ -7,11 +7,20 @@ import { Cart } from '../pages/Cart/Cart'
 import { Routes, Route } from 'react-router-dom'
 import { Home } from '../pages/Home/Home'
 import { ErrorPage } from '../pages/ErrorPage/ErrorPage'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { useGetCartsByUserQuery } from '../../services/api'
+import { useDispatch } from 'react-redux'
+import { dataCartUser } from '../../redux/features/app/appSlice'
 
 const App:FC = () => {
   
+  const {data,isLoading} = useGetCartsByUserQuery('')
+  const dispatch = useDispatch()
   
+  useEffect(()=>{
+    data && dispatch(dataCartUser(data))
+  },[isLoading])
+
   const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
     let catalog: HTMLElement | null = document.getElementById('catalog')
     catalog ?
@@ -51,7 +60,7 @@ const App:FC = () => {
           <Header scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
           <Routes>
             <Route path='/' element={<Home scrollIntoCatalog={scrollIntoCatalog}/>}></Route>
-            <Route path='/idProduct' element={<DitalProduct/>}></Route>
+            <Route path='/:idProduct' element={<DitalProduct/>}></Route>
             <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/*' element={<ErrorPage/>}></Route>
           </Routes>

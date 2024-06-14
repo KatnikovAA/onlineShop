@@ -11,7 +11,7 @@ export const Faq:FC = ({}) => {
                 <div className={styles.questionList}>
                 {
                     faqQuestionStub.map((question) => {
-                        return <FaqQuestion question={question} />
+                        return <FaqQuestion question={question} key={question.id} />
                     })
                 }
                 </div>
