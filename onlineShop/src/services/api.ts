@@ -1,8 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { API_URL } from '../const'
-//import type { Pokemon } from './types'
-
-// Define a service using a base URL and expected endpoints
 
 export type SingleProduct = {
 
@@ -69,7 +66,7 @@ export type apiProducts = {
 
 type QueryArgument = {
   value:string,
-  limit:number,
+  skip:number,
 }
 export const api = createApi({
 
@@ -77,9 +74,11 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   tagTypes:["shop"],
   endpoints: (builder) => ({
-
+    // изначально переменную ${skip} прокидывал в limit и грузил по + 9, 
+    // но по заданию надо выводит и старый данные и при клик грузить новые но только со skip без загрузку старый уже загруженный данных 
+    // сделал через состояние  вывод и старых и новых данные в Каталог
     getProducts: builder.query<apiData, QueryArgument>({
-      query: ({value, limit}) => `/products/search?q=${value}&limit=${limit}&skip=0`,
+      query: ({value, skip}) => `/products/search?q=${value}&limit=9&skip=${skip}`, 
     }),
     getCartsByUser: builder.query<apiCartsByUser, string>({
       query: () => `/carts/user/6`,
@@ -87,17 +86,7 @@ export const api = createApi({
     getSingleProduct: builder.query<SingleProduct, string | number >({
       query: (id) => `/products/${id}`,
     }),
-    // createProducts:builder.mutation<number,string>({
-    //   query:product =>({
-    //     body:product,
-    //     url:'/',
-    //     method:'POST',
-    //   })
-    // })
   }),
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-// query: (name) => `pokemon/${name}`
 export const { useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery } = api

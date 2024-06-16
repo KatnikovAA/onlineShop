@@ -19,16 +19,17 @@ export const Cart:FC = ({}) =>{
             <div className={styles.mainBlock}>
                 <h1 className={styles.name} aria-label='My cart' tabIndex={2}>My cart</h1>
                 <div className={styles.informCart}>
+                        {   
+                            error 
+                                &&
+                            <div className={styles.listProduct}>
+                                {error && JSON.stringify(error)}
+                            </div>
+                        }
                     <div className={styles.listProduct}>
                         {   
                             isLoading                     
                             ? 
-                                error 
-                                ?
-                                <div>
-                                    {error && JSON.stringify(error)}
-                                </div>
-                            :
                                 <h3>Loading...</h3> 
                             :
                                 data && data.carts && data.carts.length > 0 ?

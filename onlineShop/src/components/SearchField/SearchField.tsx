@@ -4,6 +4,9 @@ import { textSerach } from '../../redux/features/searchField/searchFieldSlice'
 import { FC } from 'react'
 import { debounce } from 'lodash'
 import { countLoadProductsDefult } from '../../redux/features/catalog/catalogSlice'
+import { catalogDataDefult } from '../../redux/features/catalog/catalogTwoSlice'
+
+
 type searchFieldProps = {
     handleTextValue:(value:string)=>void
 }
@@ -11,8 +14,11 @@ type searchFieldProps = {
 export const SearchField:FC<searchFieldProps> = ({handleTextValue}) => {    
     const dispatch = useDispatch()
     const handleChangeValue = (e:React.ChangeEvent<HTMLInputElement>) =>{
+        
         dispatch(textSerach(e?.target?.value))
+        
         dispatch(countLoadProductsDefult())
+        dispatch(catalogDataDefult())
         handleTextValue(e.target.value)
     }
 

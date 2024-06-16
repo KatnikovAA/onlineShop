@@ -6,7 +6,7 @@ export interface countLoads {
 }
 
 const initialState: countLoads = {
-    countLoad: 9,
+    countLoad: 0,
 }
 
 export const countLoadProductsSlice = createSlice({
@@ -17,7 +17,7 @@ export const countLoadProductsSlice = createSlice({
       state.countLoad += 9
     },
     countLoadProductsDefult: (state) => {
-        state.countLoad = 9
+        state.countLoad = 0
       },
   },
 })

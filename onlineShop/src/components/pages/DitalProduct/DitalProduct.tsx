@@ -69,15 +69,16 @@ export const DitalProduct:FC = ({}) =>{
         
          <div className={styles.ditalProduct}>
 
+                {   
+                    error 
+                        &&
+                    <div className={styles.mainDitalProduct}>
+                        {error && JSON.stringify(error)}
+                    </div>
+                }
                 {
                     isLoading
                     ? 
-                        error 
-                        ?
-                        <div>
-                            {error && JSON.stringify(error)}
-                        </div>
-                    :
                     <h2 className={styles.mainDitalProduct}>Loading...</h2> 
                     :
                     <div className={styles.mainDitalProduct}>

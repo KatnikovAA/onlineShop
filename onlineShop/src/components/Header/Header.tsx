@@ -16,11 +16,7 @@ type headerProps = {
 export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
 
     
-    const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
-
-
-    console.log(dataCart)
-    
+    const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)    
 
     const handleClickCatalog = ():void =>{
         scrollIntoCatalog();

@@ -4,6 +4,7 @@ import activImgProuctReducer from './features/ditalProduct/ditalProductSlice'
 import textForSearchReducer from './features/searchField/searchFieldSlice'
 import countLoadProductsReducer from './features/catalog/catalogSlice'
 import dataCartUserReducer from './features/app/appSlice'
+import  catalogDataReducer  from './features/catalog/catalogTwoSlice'
 import { api } from '../services/api'
 
 export const store = configureStore({
@@ -13,7 +14,7 @@ export const store = configureStore({
     textSearchValue:textForSearchReducer,
     countLoadProducts:countLoadProductsReducer,
     dataCartsByUser:dataCartUserReducer,
-    
+    apiData:catalogDataReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),

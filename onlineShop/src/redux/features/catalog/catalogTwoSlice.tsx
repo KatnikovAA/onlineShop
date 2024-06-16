@@ -2,25 +2,36 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { apiData } from '../../../services/api'
 
-export interface interfaceApiData {
+export interface catalogApiData {
   apiDataCatalog:apiData,
 }
 
-const initialState: interfaceApiData = {
+const initialState: catalogApiData = {
   apiDataCatalog: { products:[],limit:0,skip:0,total:0},
 }
 
-export const apiDataCatalogSlice = createSlice({
-  name: 'apiDataCatalog',
+
+const catalogDataSlice = createSlice({
+  name: 'apiData',
   initialState,
   reducers: {
-    countLoadProducts: (state,apiData: PayloadAction<apiData>) => {
-      state.apiDataCatalog = apiData.payload
+    catalogData: (state,apiData: PayloadAction<apiData>) => {
+      const newProducts = apiData.payload.products.filter(
+        (newProduct) => !state.apiDataCatalog.products.some(
+          (existingProduct) => existingProduct.id === newProduct.id
+        )
+      );
+      state.apiDataCatalog.products = state.apiDataCatalog.products.concat(newProducts);
+      state.apiDataCatalog.limit = apiData.payload.limit + state.apiDataCatalog.limit;
+      state.apiDataCatalog.skip = apiData.payload.skip + state.apiDataCatalog.skip;
+      state.apiDataCatalog.total = apiData.payload.total;
+    },
+    catalogDataDefult: (state) => {
+      state.apiDataCatalog = initialState.apiDataCatalog
     },
   },
-})
+});
 
+export const { catalogData,catalogDataDefult } = catalogDataSlice.actions
 
-export const { countLoadProducts} = apiDataCatalogSlice.actions
-
-export default apiDataCatalogSlice.reducer
+export default catalogDataSlice.reducer
