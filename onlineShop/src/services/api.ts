@@ -75,7 +75,7 @@ export const api = createApi({
   tagTypes:["shop"],
   endpoints: (builder) => ({
     // изначально переменную ${skip} прокидывал в limit и грузил по + 9, 
-    // но по заданию надо выводит и старый данные и при клик грузить новые но только со skip без загрузку старый уже загруженный данных 
+    // но по заданию надо выводит и старый данные и при клик зарпашивать  только новые,
     // сделал через состояние  вывод и старых и новых данные в Каталог
     getProducts: builder.query<apiData, QueryArgument>({
       query: ({value, skip}) => `/products/search?q=${value}&limit=9&skip=${skip}`, 
