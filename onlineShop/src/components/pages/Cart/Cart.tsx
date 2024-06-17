@@ -1,15 +1,14 @@
 import { ProductInCart } from "../../ProductInCart/ProductInCart";
 import styles from './Cart.module.css' 
-import { FC, useState } from "react";
-import { productInCartStub } from "../../../stub";
+import { FC } from "react";
 import { useGetCartsByUserQuery } from "../../../services/api";
 import { RootState } from '../../../redux/store'
 import { apiCartsByUser } from '../../../services/api'
 import { useSelector } from 'react-redux'
 
 export const Cart:FC = ({}) =>{
-
-    const { error, isLoading } = useGetCartsByUserQuery('') // использую тут useGetCartsByUserQuery т.к по 1 заданию надо и error, isLoading учитывать
+    const idCart:number = useSelector((state: RootState) => state.idCart.id)
+    const { error, isLoading } = useGetCartsByUserQuery(idCart) // использую тут useGetCartsByUserQuery т.к по 1 заданию надо и error, isLoading учитывать
     // и и получать data корзины из Стора а не из запроса 
     const data:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
 

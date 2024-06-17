@@ -80,13 +80,30 @@ export const api = createApi({
     getProducts: builder.query<apiData, QueryArgument>({
       query: ({value, skip}) => `/products/search?q=${value}&limit=9&skip=${skip}`, 
     }),
-    getCartsByUser: builder.query<apiCartsByUser, string>({
-      query: () => `/carts/user/6`,
+    getCartsByUser: builder.query<apiCartsByUser, number>({
+      query: (id) => `/carts/user/${id}`,
     }),
     getSingleProduct: builder.query<SingleProduct, string | number >({
       query: (id) => `/products/${id}`,
     }),
-  }),
-})
+    deletePost: builder.mutation<{ success: boolean; id: number }, number>({
+      query(id) {
+        return {
+          url: `post/${id}`,
+          method: 'DELETE',
+        }
+      },
+    }),
+    getAuthUser: builder.mutation({
+      query: (credentials) => ({
+        url: '/auth/login',
+        method: 'POST',
+        body: credentials,
+        }),
+      }),
+    }),
+  })
 
-export const { useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery } = api
+
+export const { useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery,useGetAuthUserMutation} = api
+

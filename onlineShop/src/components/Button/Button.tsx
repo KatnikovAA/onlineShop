@@ -5,15 +5,15 @@ type buttonProps ={
     imgFlg?:boolean,
     value:string,
     styleCss:string,
-    onClick?:()=>void,
+    onClick?:(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>void,
     styleImg?:string,
 }
 
 export const Button:FC<buttonProps> = ({value,styleCss,imgFlg = false,onClick,styleImg = 'cartImg'}) =>{
 
-    const handleClickButton  = () =>{
+    const handleClickButton  = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
         if(onClick)
-            onClick()
+            onClick(event)
     }
 
     return(

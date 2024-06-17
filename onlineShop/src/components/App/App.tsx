@@ -9,18 +9,35 @@ import { Home } from '../pages/Home/Home'
 import { ErrorPage } from '../pages/ErrorPage/ErrorPage'
 import { FC, useEffect } from 'react'
 import { useGetCartsByUserQuery } from '../../services/api'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { dataCartUser } from '../../redux/features/app/appSlice'
+import { Login } from '../pages/Login/Login'
+import { useNavigate } from 'react-router-dom'
+import { useGetAuthUserMutation } from '../../services/api'
+import { RootState } from "../../redux/store"
+import { useLocation } from 'react-router-dom'
 
 const App:FC = () => {
-  
-  const {data,isLoading} = useGetCartsByUserQuery('')
+
+  const idCart:number = useSelector((state: RootState) => state.idCart.id)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const {data,isLoading} = useGetCartsByUserQuery(idCart)
   const dispatch = useDispatch()
-  
+  const [_, result] = useGetAuthUserMutation()
+
+  useEffect(()=>{
+    if (result.status!=="fulfilled" && location.pathname !== '/auth') {
+        navigate('/auth'); 
+      }
+  },[result])
+
   useEffect(()=>{
     data && dispatch(dataCartUser(data))
   },[isLoading])
 
+  console.log(data)
+  
   const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
     let catalog: HTMLElement | null = document.getElementById('catalog')
     catalog ?
@@ -60,6 +77,7 @@ const App:FC = () => {
           <Header scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
           <Routes>
             <Route path='/' element={<Home scrollIntoCatalog={scrollIntoCatalog}/>}></Route>
+            <Route path='/auth' element={<Login />}></Route>
             <Route path='/:idProduct' element={<DitalProduct/>}></Route>
             <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/*' element={<ErrorPage/>}></Route>

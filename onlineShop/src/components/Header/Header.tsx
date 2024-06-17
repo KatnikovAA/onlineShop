@@ -9,8 +9,8 @@ import { RootState } from '../../redux/store'
 import { apiCartsByUser } from '../../services/api'
 
 type headerProps = {
-    scrollIntoCatalog:() => void,
-    scrollIntoFAQ:() => void,
+    scrollIntoCatalog?:() => void,
+    scrollIntoFAQ?:() => void,
 }
 
 export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
@@ -19,11 +19,11 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
     const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)    
 
     const handleClickCatalog = ():void =>{
-        scrollIntoCatalog();
+        scrollIntoCatalog && scrollIntoCatalog();
     }
 
     const handleClickFAQ = ():void =>{
-        scrollIntoFAQ();
+        scrollIntoFAQ && scrollIntoFAQ();
     }
 
     const cheackLocation = ():boolean =>{

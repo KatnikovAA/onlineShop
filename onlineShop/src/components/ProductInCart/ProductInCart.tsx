@@ -13,6 +13,10 @@ type productInCartProps = {
 
 export const ProductInCart:FC<productInCartProps> = ({product}) =>{
     
+    const handleClickDelete = ():void =>{
+        
+    }
+
     return(
         <div className={styles.productInCart}>
             <Link className={styles.product} to={`/${product.id}`} >
