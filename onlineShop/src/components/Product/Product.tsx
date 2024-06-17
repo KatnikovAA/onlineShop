@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { RootState } from "../../redux/store"
 import { useSelector } from 'react-redux'
 import { apiCartsByUser } from "../../services/api"
-import { useGetSingleProductQuery } from "../../services/api"
+
 import { useEffect } from 'react'
 type propsProduct = {
     product:apiProducts
