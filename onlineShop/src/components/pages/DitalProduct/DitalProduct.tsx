@@ -14,6 +14,8 @@ import { apiCartsByUser } from "../../../services/api"
 import { useUpdateQuantityMutation } from "../../../services/api";
 import { deleteProduct,plusQuantity,minusQuantity} from "../../../redux/features/app/appSlice";
 import { apiProducts } from "../../../services/api"
+import { countDiscountPrice } from "../../../function/countDiscountPrice/countDiscountPrice"
+
 
 
 export const DitalProduct:FC = ({}) =>{
@@ -102,15 +104,15 @@ export const DitalProduct:FC = ({}) =>{
         })
     }
 
-    const countDiscountPrice = ():number|string => {
+    // const countDiscountPrice = ():number|string => {
         
-        let result:number|string = 0
-        if(data){
-            result = data.price - (data.price * data.discountPercentage / 100);
-            result = Number(result).toFixed(2)
-        }
-        return result
-    }
+    //     let result:number|string = 0
+    //     if(data){
+    //         result = data.price - (data.price * data.discountPercentage / 100);
+    //         result = Number(result).toFixed(2)
+    //     }
+    //     return result
+    // }
 
     const handleRating = ():string[]  =>{
         
@@ -204,7 +206,7 @@ export const DitalProduct:FC = ({}) =>{
                                 <div className={styles.nameDiscountPrice} aria-label='Discount price'>
                                     Discount price
                                     <div className={styles.discountPrice}>
-                                        {countDiscountPrice()}$
+                                        {data ? countDiscountPrice(data.price,data.discountPercentage) : 0}$
                                     </div> 
                                 </div>
                                 <div className={styles.nameStock} aria-label='Stock'>

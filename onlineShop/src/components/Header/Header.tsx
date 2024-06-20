@@ -7,6 +7,7 @@ import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
 import { apiCartsByUser } from '../../services/api'
+import { cheackLocation } from '../../function/cheackLocation/cheackLocation'
 
 type headerProps = {
     scrollIntoCatalog?:() => void,
@@ -26,9 +27,9 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
         scrollIntoFAQ && scrollIntoFAQ();
     }
 
-    const cheackLocation = ():boolean =>{
-        return location.pathname === '/' ? true : false
-    }
+    // const cheackLocation = ():boolean =>{
+    //     return location.pathname === '/' ? true : false
+    // }
     
     return(
         <header className={styles.header} id='header'>
@@ -54,7 +55,7 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
                         </div>
                     </nav> 
                 </div>
-                <div className={cheackLocation() ? styles.border : styles.borderNone}></div> 
+                <div className={cheackLocation(location.pathname) ? styles.border : styles.borderNone}></div> 
         </header>
     )
 }

@@ -14,6 +14,7 @@ import { deleteProduct,plusQuantity,minusQuantity} from "../../redux/features/ap
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useGetSingleProductQuery } from '../../services/api'
+import { reduceName } from '../../function/reduceName/reduceName'
 
 type propsProduct = {
     product:apiProducts
@@ -44,11 +45,11 @@ export const Product:FC<propsProduct> = ({product}) =>{
         }
     },[dataCart])
 
-    const reduceName = ():string => {
-        let shortName:string[] = product.title.split('')
-        shortName.length = 20
-        return shortName.join('') + '...'
-    }
+    // const reduceName = ():string => {
+    //     let shortName:string[] = product.title.split('')
+    //     shortName.length = 20
+    //     return shortName.join('') + '...'
+    // }
     
     const handlePlusProduct = ():void => {
         let quantity:number = productQuantity + 1
@@ -106,7 +107,7 @@ export const Product:FC<propsProduct> = ({product}) =>{
                     {
                         // выражение id !== 1 ? name : reduceName() ниже использовал для зашулшку для макета дальше буду завязвать логику на пропс/состояние
                     }
-                    <h2 aria-label={product.title} className={styles.productName}>{!inCartFlg ? product.title : reduceName()}</h2> 
+                    <h2 aria-label={product.title} className={styles.productName}>{!inCartFlg ? product.title : reduceName(product.title)}</h2> 
                     <div className={styles.productCost}>{product.price} $</div>
                 </div>
 
