@@ -6,13 +6,23 @@ import { RootState } from '../../../redux/store'
 import { apiCartsByUser } from '../../../services/api'
 import { useSelector } from 'react-redux'
 
+
+export type productValueType = {
+    id:number,
+    stock?:number,
+}
 export const Cart:FC = ({}) =>{
+
+    
+
     const idCart:number = useSelector((state: RootState) => state.idCart.id)
     const { error, isLoading } = useGetCartsByUserQuery(idCart) // использую тут useGetCartsByUserQuery т.к по 1 заданию надо и error, isLoading учитывать
     // и и получать data корзины из Стора а не из запроса 
     const data:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
 
-    
+ 
+
+
     return(
         <div className={styles.cart}>
             <div className={styles.mainBlock}>
@@ -31,12 +41,14 @@ export const Cart:FC = ({}) =>{
                             ? 
                                 <h3>Loading...</h3> 
                             :
-                                data && data.carts && data.carts.length > 0 ?
-
+                                data && data.carts && data.carts.length > 0 && data.carts[0].products.length > 0 
+                            
+                                ?
+                                
                                 data.carts[0].products.map((product)=>{
                                     return <ProductInCart key={product.id} product={product}/>
                                 })
-                            :
+                                :
                                 <h3>Nothing in the cart yet </h3>
                         }
                     </div>
@@ -55,7 +67,7 @@ export const Cart:FC = ({}) =>{
                             </h2>
                             <div className={styles.valueTotalPrice}>
                             
-                            {data?.carts[0]?.total ? data?.carts[0]?.total : 0}$
+                            {data?.carts[0]?.total && data.carts[0].products.length > 0 ? Number(data?.carts[0]?.total).toFixed(2) : 0}$
                             </div>
                         </div>
                         <div className={styles.totalCountWithDiscount}>
@@ -63,7 +75,7 @@ export const Cart:FC = ({}) =>{
                                 Total price with discount:
                             </h2>
                             <div className={styles.valueTotalCountWithDiscount}>
-                            {data?.carts[0]?.discountedTotal ? data?.carts[0]?.discountedTotal : 0}$
+                            {data?.carts[0]?.discountedTotal && data.carts[0].products.length > 0 ? Number(data?.carts[0]?.discountedTotal).toFixed(2) : 0}$
                             </div>
                         </div>
                     </section>

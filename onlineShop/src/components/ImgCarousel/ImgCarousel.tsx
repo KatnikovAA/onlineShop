@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styles from './ImgCarousel.module.css' 
-import { useSelector , useDispatch} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { pickActivImg } from '../../redux/features/ditalProduct/ditalProductSlice'
 
 type headerProps = {

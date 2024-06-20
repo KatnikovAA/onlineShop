@@ -2,24 +2,24 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 
-export interface idCart {
+export interface idUser {
     id: number,
 }
 
-const initialState: idCart = {
+const initialState: idUser = {
     id: 0,
 }
 
-export const userCartIdSlice = createSlice({
-  name: 'idCart',
+export const idUserSlice = createSlice({
+  name: 'idUser',
   initialState,
   reducers: {
-    idCartUser: (state, id: PayloadAction<number>) => {
+    idUser: (state, id: PayloadAction<number>) => {
       state.id = id.payload
     },
   },
 })
 
-export const { idCartUser } = userCartIdSlice.actions
+export const { idUser } = idUserSlice.actions
 
-export default userCartIdSlice.reducer
+export default idUserSlice.reducer

@@ -9,6 +9,10 @@
     align-items: center;   
 }
 
+.menuNone{
+    display: none;
+}
+
 .main{
     display: flex;
     width: 1178px;

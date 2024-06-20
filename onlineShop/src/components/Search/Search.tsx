@@ -23,7 +23,7 @@ export const Search = () => {
     return(
         <div className={styles.search} aria-label='Field for search'>
             <SearchField handleTextValue={handleTextValue}/>
-            <Button aria-label='Button for search' value='Search' styleCss='defaultButton' onClick={handleSearch}></Button>
+            <Button aria-label='Button for search' value='Search' styleCss='defaultButton' onClickEvent={handleSearch}></Button>
         </div>
     )
 }

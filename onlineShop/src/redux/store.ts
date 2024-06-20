@@ -5,13 +5,14 @@ import textForSearchReducer from './features/searchField/searchFieldSlice'
 import countLoadProductsReducer from './features/catalog/catalogSlice'
 import dataCartUserReducer from './features/app/appSlice'
 import  catalogDataReducer  from './features/catalog/catalogTwoSlice'
-import  userCartIdReducer  from './features/login/loginSlice'
+import  idUserReducer  from './features/login/loginSlice'
 import { api } from '../services/api'
-
+import  idCartReducer  from './features/app/appSliceTwo'
 export const store = configureStore({
   reducer: {
     [api.reducerPath]:api.reducer,
-    idCart:userCartIdReducer,
+    idCart:idCartReducer,
+    idUser:idUserReducer,
     activImg:activImgProuctReducer,
     textSearchValue:textForSearchReducer,
     countLoadProducts:countLoadProductsReducer,

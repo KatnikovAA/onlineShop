@@ -78,7 +78,7 @@ export const Catalog:FC<catalogProps> = ({}) => {
                 &&
 
                    <div className={styles.button}>            
-                   <Button onClick={clickButtonShowMore} aria-label='Show more' value={'Show more'} styleCss={'defaultButton'}></Button>
+                   <Button onClickEvent={clickButtonShowMore} aria-label='Show more' value={'Show more'} styleCss={'defaultButton'}></Button>
                </div>
             }
         </div>

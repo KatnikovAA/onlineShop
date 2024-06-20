@@ -15,7 +15,7 @@ type headerProps = {
 
 export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
 
-    
+    const location = useLocation()
     const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)    
 
     const handleClickCatalog = ():void =>{
@@ -27,16 +27,16 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
     }
 
     const cheackLocation = ():boolean =>{
-        return useLocation().pathname === '/' ? true : false
+        return location.pathname === '/' ? true : false
     }
     
     return(
         <header className={styles.header} id='header'>
                 <div className={styles.main}>
-                    <Link to='/' className={stylesApp.link} >
+                    <Link to='/' className={location.pathname !=='/auth' ? stylesApp.link : stylesApp.linkNone} >
                         <h1 className={styles.logoText} aria-label='Goods4you' tabIndex={1}>Goods4you</h1> 
                     </Link>
-                    <nav className={styles.menu}>
+                    <nav className={location.pathname !=='/auth' ? styles.menu : styles.menuNone}>
                         <Link onClick={handleClickCatalog} className={stylesApp.link} to="/" aria-label='Link to Catalog'>Catalog</Link>                   
                         <Link onClick={handleClickFAQ} className={stylesApp.link} to="/" aria-label='Link to FAQ'>FAQ</Link>
                         <div className={styles.cart}>

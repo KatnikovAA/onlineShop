@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { API_URL } from '../const'
 
+
 export type SingleProduct = {
 
   shippingInformation:string,
@@ -44,6 +45,7 @@ export type apiCartsByUser = {
 
 export type apiCarts = {
     discountedTotal:number,
+    discountedPrice:number,
     id:number,
     products:apiProducts[],
     total:number,
@@ -53,6 +55,8 @@ export type apiCarts = {
 }
 
 export type apiProducts = {
+  discountedTotal:number,
+  discountedPrice:number,
   discountPercentage:number,
   id:number,
   price:number,
@@ -68,6 +72,11 @@ type QueryArgument = {
   value:string,
   skip:number,
 }
+type objForUpdate = {
+  idCart:number,
+  idProduct: number
+  quantity: number,
+}
 export const api = createApi({
 
   reducerPath: 'api',
@@ -78,18 +87,43 @@ export const api = createApi({
     // но по заданию надо выводит и старый данные и при клик зарпашивать  только новые,
     // сделал через состояние  вывод и старых и новых данные в Каталог
     getProducts: builder.query<apiData, QueryArgument>({
-      query: ({value, skip}) => `/products/search?q=${value}&limit=9&skip=${skip}`, 
+      query({value, skip}) {
+        return {
+          url: `/products/search?q=${value}&limit=9&skip=${skip}`,
+          method: 'GET',
+          headers:{
+            Authorization:'Bearer' + `${localStorage.token}`
+          }
+        }
+      },   
     }),
     getCartsByUser: builder.query<apiCartsByUser, number>({
-      query: (id) => `/carts/user/${id}`,
-    }),
-    getSingleProduct: builder.query<SingleProduct, string | number >({
-      query: (id) => `/products/${id}`,
-    }),
-    deletePost: builder.mutation<{ success: boolean; id: number }, number>({
       query(id) {
         return {
-          url: `post/${id}`,
+          url: `/carts/user/${id}`,
+          method: 'GET',
+          headers:{
+            Authorization:'Bearer' + `${localStorage.token}`
+          }
+        }
+      },
+    }),
+    getSingleProduct: builder.query<SingleProduct, string | number >({
+      // query: (id) => `/products/${id}`,
+      query(id) {
+        return {
+          url: `/products/${id}`,
+          method: 'GET',
+          headers:{
+            Authorization:'Bearer' + `${localStorage.token}`
+          }
+        }
+      },
+    }),
+    deleteCart: builder.mutation<{ success: boolean; id: number }, number>({
+      query(id) {
+        return {
+          url: `carts/${id}`,
           method: 'DELETE',
         }
       },
@@ -101,9 +135,29 @@ export const api = createApi({
         body: credentials,
         }),
       }),
+      updateQuantity: builder.mutation<apiCarts, objForUpdate>({
+        query: (objForUpdate) => ({
+          url: `https://dummyjson.com/carts/${objForUpdate.idCart}`,
+          headers:{
+            Authorization:'Bearer' + `${localStorage.token}`
+          },
+          method: 'PUT',
+          body: {
+            merge: false,
+            products: [
+              {
+                id: objForUpdate.idProduct,
+                quantity: objForUpdate.quantity,
+              },
+            ]
+          },
+          }),
+        }),
     }),
+
+    
   })
 
 
-export const { useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery,useGetAuthUserMutation} = api
+export const { useDeleteCartMutation,useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery,useGetAuthUserMutation,useUpdateQuantityMutation} = api
 

@@ -24,6 +24,16 @@
     background-color: #F14F4F;
     color: #FFFFFF;
 }
+.productCountButtonNone{
+    cursor: pointer;
+    pointer-events: none;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background-color: #7c7c7c;
+    color: #FFFFFF; 
+}
 .productDetalCountButton{
     cursor: pointer;
     border: none;
@@ -31,6 +41,17 @@
     height: 67px;
     border-radius: 4px;
     background-color: #F14F4F;
+    color: #FFFFFF;
+}
+
+.productDetalCountButtonNone{
+    pointer-events: none;
+    cursor: pointer;
+    border: none;
+    width: 67px;
+    height: 67px;
+    border-radius: 4px;
+    background-color: #7c7c7c;
     color: #FFFFFF;
 }
 .noneBorderButton{

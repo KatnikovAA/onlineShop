@@ -16,27 +16,30 @@ import { useNavigate } from 'react-router-dom'
 import { useGetAuthUserMutation } from '../../services/api'
 import { RootState } from "../../redux/store"
 import { useLocation } from 'react-router-dom'
+import { getIdCart } from '../../redux/features/app/appSliceTwo'
 
 const App:FC = () => {
 
-  const idCart:number = useSelector((state: RootState) => state.idCart.id)
+  const idUser:number = useSelector((state: RootState) => state.idUser.id)
   const location = useLocation()
   const navigate = useNavigate()
-  const {data,isLoading} = useGetCartsByUserQuery(idCart)
+  const {data,isLoading} = useGetCartsByUserQuery(idUser)
   const dispatch = useDispatch()
   const [_, result] = useGetAuthUserMutation()
 
   useEffect(()=>{
-    if (result.status!=="fulfilled" && location.pathname !== '/auth') {
+    if (!localStorage.token) {
         navigate('/auth'); 
       }
-  },[result])
+  },[location.pathname,result])
 
   useEffect(()=>{
-    data && dispatch(dataCartUser(data))
+    if(data){
+      dispatch(dataCartUser(data))
+      dispatch(getIdCart(data.carts[0].id))
+    }
   },[isLoading])
 
-  console.log(data)
   
   const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
     let catalog: HTMLElement | null = document.getElementById('catalog')

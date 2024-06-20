@@ -10,7 +10,10 @@
     align-items: center;
     
 }
+.footerNone{
+    display: none;
 
+}
 .nav{
     padding-left: 892px;
     font-size: 14px;

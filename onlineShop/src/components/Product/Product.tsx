@@ -8,20 +8,27 @@ import minusImg from  '../../image/minus.png'
 import { apiProducts } from '../../services/api'
 import { useState } from 'react'
 import { RootState } from "../../redux/store"
-import { useSelector } from 'react-redux'
 import { apiCartsByUser } from "../../services/api"
-
+import { useUpdateQuantityMutation } from "../../services/api";
+import { deleteProduct,plusQuantity,minusQuantity} from "../../redux/features/app/appSlice";
 import { useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux"
+import { useGetSingleProductQuery } from '../../services/api'
+
 type propsProduct = {
     product:apiProducts
 }
 
 export const Product:FC<propsProduct> = ({product}) =>{
-
+    const {data} = useGetSingleProductQuery(product.id) // запришиваю тут что бы получить stock
+    const idCart:number = useSelector((state: RootState) => state.idCart.id)
+    const [update] = useUpdateQuantityMutation()
     const[inCartFlg,setInCartFlg] = useState<boolean>(false)
     const[productQuantity,setProductQuantity] = useState<number>(0)
     const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
-
+    const dispatch = useDispatch()
+    const [stock,setStock] = useState<number>(0)
+    
     useEffect(()=>{
         
         if(dataCart.carts.length > 0) {
@@ -32,7 +39,8 @@ export const Product:FC<propsProduct> = ({product}) =>{
                     setProductQuantity(product.quantity)
                     setInCartFlg(true)
                 }
-            })   
+            }) 
+            data && setStock(data.stock)  
         }
     },[dataCart])
 
@@ -42,6 +50,52 @@ export const Product:FC<propsProduct> = ({product}) =>{
         return shortName.join('') + '...'
     }
     
+    const handlePlusProduct = ():void => {
+        let quantity:number = productQuantity + 1
+        setProductQuantity(quantity);
+        update({idProduct:Number(product.id),idCart:idCart,quantity:quantity}) 
+        .then(respons =>{
+            if (respons.data) {
+                dispatch(plusQuantity(respons.data))
+                console.log(respons.data)
+                console.log(product)
+            } else {
+                console.error('Server dont return data');
+            }
+        }) 
+    }
+    
+    const handleMinusProduct = ():void =>{
+        let quantity:number = productQuantity - 1
+        setProductQuantity(quantity);
+        update({idProduct:Number(product.id),idCart:idCart,quantity:quantity}) 
+        .then(respons =>{
+            if (respons.data) {
+                dispatch(minusQuantity(respons.data))
+                if(quantity === 0){
+                    dispatch(deleteProduct(respons.data))
+                    setInCartFlg(false)
+                }
+            } else {
+                console.error('Server dont return data');
+            }
+        })
+    }
+
+    const handleAddToCart = ():void =>{
+        let quantity:number = productQuantity + 1
+        setProductQuantity(quantity);
+        update({idProduct:Number(product.id),idCart:idCart,quantity:quantity}) 
+        .then(respons =>{
+            if (respons.data) {
+                dispatch(plusQuantity(respons.data))
+                setInCartFlg(true)
+            } else {
+                console.error('Server dont return data');
+            }
+        })
+    }
+
     return( 
         <div className={styles.product}>
             <Link to={`/${product.id}`}>
@@ -61,13 +115,13 @@ export const Product:FC<propsProduct> = ({product}) =>{
                                         
                     !inCartFlg
                     ?
-                        <Button styleCss ={'productCountButton'} value={cartImg} imgFlg={true} aria-label='Add to cart'/>
+                        <Button onClickNumber={handleAddToCart} idProduct={product.id} styleCss ={'productCountButton'} value={cartImg} imgFlg={true} aria-label='Add to cart'/>
                     :
                         
                         <div className={styles.countButtons}>
-                            <Button value={minusImg} styleCss='productCountButton' imgFlg={true} aria-label='minus product'></Button>
-                            <input type="text" className={styles.inputCountProduct} value={productQuantity}/>
-                            <Button value={plusImg} styleCss='productCountButton' imgFlg={true} aria-label='plus product'></Button>   
+                            <Button onClickNumber={handleMinusProduct} idProduct={product.id} value={minusImg} styleCss='productCountButton' imgFlg={true} aria-label='minus product'></Button>
+                            <input type="text" className={styles.inputCountProduct} value={productQuantity} readOnly/>
+                            <Button onClickNumber={handlePlusProduct} idProduct={product.id} value={plusImg} styleCss={productQuantity >= stock ? 'productCountButtonNone' :'productCountButton'} imgFlg={true} aria-label='plus product'></Button>   
                         </div>
                 }
             </div>

@@ -1,12 +1,13 @@
-import { Header } from "../../Header/Header";
 import { Button } from "../../Button/Button";
 import styles from './Login.module.css'
 import { useGetAuthUserMutation } from "../../../services/api";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { idCartUser } from "../../../redux/features/login/loginSlice";
-export const Login = () =>{
+import { idUser } from "../../../redux/features/login/loginSlice";
+
+export const Login:FC = () =>{
+
     const dispatch = useDispatch()
     const[login,setLogin] = useState<string>('')
     const[password,setPassword] = useState<string>('')
@@ -14,11 +15,17 @@ export const Login = () =>{
     const navigate = useNavigate()
 
     useEffect(()=>{
+
         if (result.status==="fulfilled") {
-            dispatch(idCartUser(result.data.id))
+            console.log(result.status)
+            dispatch(idUser(result.data.id)) // передаем Id юзера
+            let authToken:string = result.data.token
+            localStorage.token = authToken
             navigate('/'); 
           }
     },[result])
+
+    console.log(result)
 
     const handleClickLogin = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
         event.preventDefault();
@@ -50,7 +57,7 @@ export const Login = () =>{
                     <input type="text" className={styles.input} placeholder="Login" onChange={handleChangeLogin}/>
                     <input type="password" className={styles.input} placeholder='Password' onChange={handleChangePassword}/>
                     { result.status==="rejected" && <div className={styles.errorText}>Incorrect login or password*</div>}
-                    <Button value={"Login"} styleCss={'defaultButton'} onClick={handleClickLogin}></Button>
+                    <Button value={"Login"} styleCss={'defaultButton'} onClickEvent={handleClickLogin}></Button>
                 </div>
             </form>
         </div>

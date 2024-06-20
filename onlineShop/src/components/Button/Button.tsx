@@ -1,19 +1,26 @@
 import { FC } from "react"
 import styles from './Button.module.css'
 
+
 type buttonProps ={
     imgFlg?:boolean,
     value:string,
     styleCss:string,
-    onClick?:(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>void,
+    onClickEvent?:(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void,
+    onClickNumber?:(value: number) => void,
     styleImg?:string,
+    idProduct?:number,
 }
 
-export const Button:FC<buttonProps> = ({value,styleCss,imgFlg = false,onClick,styleImg = 'cartImg'}) =>{
+export const Button:FC<buttonProps> = ({onClickEvent,idProduct,value,styleCss,imgFlg = false,onClickNumber,styleImg = 'cartImg'}) =>{
 
     const handleClickButton  = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
-        if(onClick)
-            onClick(event)
+        if(onClickEvent){
+            onClickEvent(event);
+        }
+        else if(onClickNumber && idProduct){
+            onClickNumber(idProduct);
+        }
     }
 
     return(
