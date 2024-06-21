@@ -5,18 +5,19 @@ import { Link } from 'react-router-dom'
 import plusImg from  '../../image/plus.png'
 import minusImg from  '../../image/minus.png'
 import { apiProducts } from '../../services/api'
-import { useGetSingleProductQuery } from '../../services/api'
-import { deleteProduct,plusQuantity,minusQuantity} from "../../redux/features/app/appSlice";
+import { useGetSingleProductQuery , objUpdateCartProduct} from '../../services/api'
+import { deleteProduct,chengeQuantity} from "../../redux/features/app/appSlice";
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../redux/store"
-import { useUpdateQuantityMutation } from "../../services/api";
+import { useUpdateQuantityMutation,apiCartsByUser } from "../../services/api";
 
 type productInCartProps = {
     product:apiProducts,
 }
 
 export const ProductInCart:FC<productInCartProps> = ({product}) =>{
+    const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
     const dispatch = useDispatch()
     const idCart:number = useSelector((state: RootState) => state.idCart.id)
     const [stock,setStock] = useState<number>(0)
@@ -32,44 +33,85 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
     },[product,isLoading])
 
     const handleClickDelete = ():void =>{
-        
         let quantity:number = productQuantity
-        setProductQuantity(quantity);
-        update({idProduct:Number(product.id),idCart:idCart,quantity:quantity}) 
+        let cartProdcuts = creactArrayProduct()
+        let modifiedCart = changeCart(false,quantity,cartProdcuts)
+        update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                dispatch(deleteProduct(respons.data))
+                dispatch(chengeQuantity(respons.data))
+                dispatch(deleteProduct(product.id))
             } else {
                 console.error('Server dont return data');
             }
         })    
     }
     
+    const changeCart = (plus:boolean,value:number,data:objUpdateCartProduct[]):objUpdateCartProduct[] =>{
+        let actualQuantity:number = plus ? productQuantity + value : productQuantity - value
+        let inProductFlg:boolean = false
+        data.find((dataProduct)=>{ //проверяем есть ли в корзине
+            if(dataProduct.id === product.id) {
+                inProductFlg = true
+            }
+        })
+        setProductQuantity(actualQuantity);
+        if(inProductFlg){ // если есть находим и прибавлем/отнимаем
+                let cartProdcutsQuantity = data.map((dataProduct)=>{
+                    if(dataProduct.id === product.id){
+                        dataProduct.quantity =  actualQuantity
+                    }
+                    return dataProduct
+                })
+                return cartProdcutsQuantity
+        }else{ // если есть нет то добаляем в корзину 
+            let objProduct:objUpdateCartProduct = {
+                id: product.id,
+                quantity: actualQuantity
+            }
+            data.push(objProduct)
+            return data
+        }
+    }
+
+    const creactArrayProduct = ():objUpdateCartProduct[]  => {
+        let cartProdcuts:objUpdateCartProduct[] = []
+        let arrData = dataCart.carts[0].products   
+        arrData.forEach((product) => {
+            let objProduct = {
+                id: product.id,
+                quantity: product.quantity
+            }
+            cartProdcuts.push(objProduct)
+        })
+        return cartProdcuts
+    } 
+
+
     const handlePlusProduct = ():void => {
-        let quantity:number = productQuantity + 1
-        setProductQuantity(quantity);
-        update({idProduct:Number(product.id),idCart:idCart,quantity:quantity}) 
+        let cartProdcuts = creactArrayProduct()
+        let modifiedCart = changeCart(true,1,cartProdcuts)
+        update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                dispatch(plusQuantity(respons.data))
-                console.log(respons.data)
-                console.log(product)
+                console.log(respons.data);
+                dispatch(chengeQuantity(respons.data))
             } else {
                 console.error('Server dont return data');
             }
-        }) 
+        })
     }
-    
+
     const handleMinusProduct = ():void =>{
+        let cartProdcuts = creactArrayProduct()
+        let modifiedCart = changeCart(false,1,cartProdcuts)
         let quantity:number = productQuantity - 1
-        setProductQuantity(quantity);
-        update({idProduct:Number(product.id),idCart:idCart,quantity:quantity}) 
+        update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
-            if (respons.data) {
-                dispatch(minusQuantity(respons.data))
+            if(respons.data) {
+                dispatch(chengeQuantity(respons.data))
                 if(quantity === 0){
-                    console.log(respons.data)
-                    dispatch(deleteProduct(respons.data))
+                    dispatch(deleteProduct(product.id))
                 }
             } else {
                 console.error('Server dont return data');

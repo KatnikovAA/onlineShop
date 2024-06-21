@@ -5,20 +5,22 @@ import starImg from  '../../../image/star.png'
 import { ImgCarousel } from "../../ImgCarousel/ImgCarousel"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
-import { useGetSingleProductQuery } from "../../../services/api"
+import { useGetSingleProductQuery  , objUpdateCartProduct} from "../../../services/api"
 import { useParams } from "react-router-dom"
 import { pickActivImg } from '../../../redux/features/ditalProduct/ditalProductSlice'
 import plusImg from  '../../../image/plus.png'
 import minusImg from  '../../../image/minus.png'
 import { apiCartsByUser } from "../../../services/api"
 import { useUpdateQuantityMutation } from "../../../services/api";
-import { deleteProduct,plusQuantity,minusQuantity} from "../../../redux/features/app/appSlice";
+import { deleteProduct,chengeQuantity} from "../../../redux/features/app/appSlice";
 import { apiProducts } from "../../../services/api"
 import { countDiscountPrice } from "../../../function/countDiscountPrice/countDiscountPrice"
 
+type propsDitalProduct = {
+    authIsLoading:boolean
+}
 
-
-export const DitalProduct:FC = ({}) =>{
+export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
     const idCart:number = useSelector((state: RootState) => state.idCart.id)
     const dataCart:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
     const activImg = useSelector((state: RootState) => state.activImg.imgUrl)
@@ -35,9 +37,11 @@ export const DitalProduct:FC = ({}) =>{
         if(!isLoading && data){
             dispatch(pickActivImg(data?.images[0]))
             setStock(data.stock)
-
         }
+
     },[isLoading])
+    
+    delete localStorage.token 
 
     useEffect(() => {
         if (dataCart.carts.length > 0) {
@@ -58,14 +62,55 @@ export const DitalProduct:FC = ({}) =>{
           }
 
       }, [dataCart,idProduct]);
+    
+    const creactArrayProduct = ():objUpdateCartProduct[]  => {
+        let cartProdcuts:objUpdateCartProduct[] = []
+        let arrData = dataCart.carts[0].products  
+        arrData.forEach((product) => {
+            let objProduct = {
+                id: product.id,
+                quantity: product.quantity
+            }
+            cartProdcuts.push(objProduct)
+        })
+        return cartProdcuts
+    } 
+
+    const changeCart = (plus:boolean,data:objUpdateCartProduct[]):objUpdateCartProduct[] =>{
+        let actualQuantity:number = plus ? productQuantity + 1 : productQuantity - 1
+        let inProductFlg:boolean = false
+        data.find((product)=>{ //проверяем есть ли в корзине
+            if(product.id === Number(idProduct)) {
+                inProductFlg = true
+            }
+        })
+        setProductQuantity(actualQuantity);
+        if(inProductFlg){ // если есть находим и прибавлем/отнимаем
+                let cartProdcutsQuantity = data.map((prodcut)=>{
+                    if(prodcut.id === Number(idProduct)){
+                        prodcut.quantity =  actualQuantity
+                    }
+                    return prodcut
+                })
+                return cartProdcutsQuantity
+        }else{ // если есть нет то добаляем в корзину 
+            let objProduct:objUpdateCartProduct = {
+                id: Number(idProduct),
+                quantity: actualQuantity
+            }
+            data.push(objProduct)
+            return data
+        }
+    }
 
     const handlePlusProduct = ():void => {
-        let quantity:number = productQuantity + 1
-        setProductQuantity(quantity);
-        update({idProduct:Number(idProduct),idCart:idCart,quantity:quantity}) 
+        let cartProdcuts = creactArrayProduct()
+        let modifiedCart = changeCart(true,cartProdcuts)
+        update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                dispatch(plusQuantity(respons.data))
+                console.log(respons.data);
+                dispatch(chengeQuantity(respons.data))
             } else {
                 console.error('Server dont return data');
             }
@@ -73,12 +118,12 @@ export const DitalProduct:FC = ({}) =>{
     }
 
     const handleAddToCart = ():void =>{
-        let quantity:number = productQuantity + 1
-        setProductQuantity(quantity);
-        update({idProduct:Number(idProduct),idCart:idCart,quantity:quantity}) 
+        let cartProdcuts = creactArrayProduct()
+        let modifiedCart = changeCart(true,cartProdcuts)
+        update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                dispatch(plusQuantity(respons.data))
+                dispatch(chengeQuantity(respons.data))
                 setInCartFlg(true)
             } else {
                 console.error('Server dont return data');
@@ -87,15 +132,15 @@ export const DitalProduct:FC = ({}) =>{
     }
 
     const handleMinusProduct = ():void =>{
+        let cartProdcuts = creactArrayProduct()
+        let modifiedCart = changeCart(false,cartProdcuts)
         let quantity:number = productQuantity - 1
-        setProductQuantity(quantity);
-        update({idProduct:Number(idProduct),idCart:idCart,quantity:quantity}) 
+        update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
-            if (respons.data) {
-                dispatch(minusQuantity(respons.data))
+            if(respons.data) {
+                dispatch(chengeQuantity(respons.data))
                 if(quantity === 0){
-                    console.log(respons.data)
-                    dispatch(deleteProduct(respons.data))
+                    dispatch(deleteProduct(Number(idProduct)))
                     setInCartFlg(false)
                 }
             } else {
@@ -103,16 +148,6 @@ export const DitalProduct:FC = ({}) =>{
             }
         })
     }
-
-    // const countDiscountPrice = ():number|string => {
-        
-    //     let result:number|string = 0
-    //     if(data){
-    //         result = data.price - (data.price * data.discountPercentage / 100);
-    //         result = Number(result).toFixed(2)
-    //     }
-    //     return result
-    // }
 
     const handleRating = ():string[]  =>{
         
@@ -122,8 +157,7 @@ export const DitalProduct:FC = ({}) =>{
             stars = []
             for(let i = 0;i<Math.round(data?.rating);i++){
                 stars.push(starImg)
-            }
-            
+            }  
         }
         return stars
     }
@@ -133,16 +167,15 @@ export const DitalProduct:FC = ({}) =>{
          <div className={styles.ditalProduct}>
 
                 {   
-                    error 
-                        &&
-                    <div className={styles.mainDitalProduct}>
-                        {error && JSON.stringify(error)}
-                    </div>
-                }
-                {
-                    isLoading
+                    isLoading  || authIsLoading 
+                    ?
+                    <h3>Loading...</h3> 
+                    :
+                    error                 
                     ? 
-                    <h2 className={styles.mainDitalProduct}>Loading...</h2> 
+                        <div className={styles.listProduct}>
+                            {error && JSON.stringify(error)}
+                        </div>
                     :
                     <div className={styles.mainDitalProduct}>
                         <h1 className={styles.productNameId} aria-label='Product' tabIndex={3}>Product {data?.id}</h1>

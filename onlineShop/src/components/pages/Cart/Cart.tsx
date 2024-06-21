@@ -11,7 +11,10 @@ export type productValueType = {
     id:number,
     stock?:number,
 }
-export const Cart:FC = ({}) =>{
+type propsCart = {
+    authIsLoading:boolean
+}
+export const Cart:FC<propsCart> = ({authIsLoading}) =>{
 
     
 
@@ -28,18 +31,18 @@ export const Cart:FC = ({}) =>{
             <div className={styles.mainBlock}>
                 <h1 className={styles.name} aria-label='My cart' tabIndex={2}>My cart</h1>
                 <div className={styles.informCart}>
-                        {   
-                            error 
-                                &&
-                            <div className={styles.listProduct}>
-                                {error && JSON.stringify(error)}
-                            </div>
-                        }
+
                     <div className={styles.listProduct}>
                         {   
-                            isLoading                     
+                            isLoading  || authIsLoading 
+                            ?
+                            <h3>Loading...</h3> 
+                            :
+                            error                 
                             ? 
-                                <h3>Loading...</h3> 
+                                <div className={styles.listProduct}>
+                                    {error && JSON.stringify(error)}
+                                </div>
                             :
                                 data && data.carts && data.carts.length > 0 && data.carts[0].products.length > 0 
                             

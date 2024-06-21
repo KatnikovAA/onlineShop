@@ -72,9 +72,12 @@ type QueryArgument = {
   value:string,
   skip:number,
 }
-type objForUpdate = {
+export type objUpdateCart = {
   idCart:number,
-  idProduct: number
+  product:objUpdateCartProduct[]
+}
+export type objUpdateCartProduct = {
+  id: number
   quantity: number,
 }
 export const api = createApi({
@@ -92,7 +95,7 @@ export const api = createApi({
           url: `/products/search?q=${value}&limit=9&skip=${skip}`,
           method: 'GET',
           headers:{
-            Authorization:'Bearer' + `${localStorage.token}`
+            Authorization:'Bearer ' + `${localStorage.token}`
           }
         }
       },   
@@ -103,7 +106,7 @@ export const api = createApi({
           url: `/carts/user/${id}`,
           method: 'GET',
           headers:{
-            Authorization:'Bearer' + `${localStorage.token}`
+            Authorization:'Bearer ' + `${localStorage.token}`
           }
         }
       },
@@ -115,16 +118,8 @@ export const api = createApi({
           url: `/products/${id}`,
           method: 'GET',
           headers:{
-            Authorization:'Bearer' + `${localStorage.token}`
-          }
-        }
-      },
-    }),
-    deleteCart: builder.mutation<{ success: boolean; id: number }, number>({
-      query(id) {
-        return {
-          url: `carts/${id}`,
-          method: 'DELETE',
+            Authorization:'Bearer ' + `${localStorage.token}`
+          },
         }
       },
     }),
@@ -135,21 +130,25 @@ export const api = createApi({
         body: credentials,
         }),
       }),
-      updateQuantity: builder.mutation<apiCarts, objForUpdate>({
+      getCurrentAuthUser: builder.query({
+        query: () => ({
+          url: '/auth/me',
+          method: 'GET',
+          headers:{
+            Authorization:'Bearer ' + `${localStorage.token}`
+          },
+          }),
+        }),
+      updateQuantity: builder.mutation<apiCarts, objUpdateCart>({
         query: (objForUpdate) => ({
           url: `https://dummyjson.com/carts/${objForUpdate.idCart}`,
           headers:{
-            Authorization:'Bearer' + `${localStorage.token}`
+            Authorization:'Bearer ' + `${localStorage.token}`
           },
-          method: 'PUT',
+          method: 'PATCH',
           body: {
             merge: false,
-            products: [
-              {
-                id: objForUpdate.idProduct,
-                quantity: objForUpdate.quantity,
-              },
-            ]
+            products: objForUpdate.product
           },
           }),
         }),
@@ -159,5 +158,5 @@ export const api = createApi({
   })
 
 
-export const { useDeleteCartMutation,useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery,useGetAuthUserMutation,useUpdateQuantityMutation} = api
+export const { useGetCurrentAuthUserQuery,useGetProductsQuery , useGetCartsByUserQuery, useGetSingleProductQuery,useGetAuthUserMutation,useUpdateQuantityMutation} = api
 
