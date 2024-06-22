@@ -40,8 +40,6 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
         }
 
     },[isLoading])
-    
-    delete localStorage.token 
 
     useEffect(() => {
         if (dataCart.carts.length > 0) {
@@ -63,6 +61,8 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
 
       }, [dataCart,idProduct]);
     
+
+
     const creactArrayProduct = ():objUpdateCartProduct[]  => {
         let cartProdcuts:objUpdateCartProduct[] = []
         let arrData = dataCart.carts[0].products  
@@ -109,7 +109,6 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
         update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                console.log(respons.data);
                 dispatch(chengeQuantity(respons.data))
             } else {
                 console.error('Server dont return data');

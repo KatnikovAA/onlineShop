@@ -28,16 +28,11 @@ const App:FC = () => {
   const {data,isLoading} = useGetCartsByUserQuery(idUserFromState)
   const dispatch = useDispatch()
   const [_] = useGetAuthUserMutation()
-  const { data: authData, error , isLoading: authIsLoading} = useGetCurrentAuthUserQuery(undefined);
+  const { data: authData, error , isLoading: authIsLoading} = useGetCurrentAuthUserQuery(undefined); // проверяем срок жизни токена
 
-//     // console.log(localStorage.token)
-//     // console.log(result.status)
-//     // console.log(!localStorage.token && result.status !== "fulfilled")
 useEffect(() => {
-
-  
-  if (!localStorage.token || error) {
-    navigate('/auth'); 
+    if (!localStorage.token || (!authIsLoading && error)) {
+      navigate('/auth'); 
   }
 }, [location.pathname, navigate, error]);
 
@@ -48,15 +43,13 @@ useEffect(() => {
       dispatch(dataCartUser(data))
       dispatch(getIdCart(data.carts[0].id))
     }
+
     if(idUserFromState === 0 && authData){
-      dispatch(idUser(authData.id))
+      dispatch(idUser(authData.id)) //
+      
     }
   },[isLoading,authIsLoading])
 
-      
-      
-console.log(authData)
-  
   const scrollIntoCatalog = ():void  =>{ //фукнция для скрола до элмента найденего по getElementById, можно было попробовать через useRef, но решил не нагроможать 1 задание useRef
     let catalog: HTMLElement | null = document.getElementById('catalog')
     catalog ?

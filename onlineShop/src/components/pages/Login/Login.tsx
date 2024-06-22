@@ -5,6 +5,7 @@ import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { idUser } from "../../../redux/features/login/loginSlice";
+import { useGetCurrentAuthUserQuery } from "../../../services/api";
 
 export const Login:FC = () =>{
     const dispatch = useDispatch()
@@ -12,6 +13,7 @@ export const Login:FC = () =>{
     const[password,setPassword] = useState<string>('')
     const [auth, result] = useGetAuthUserMutation()
     const navigate = useNavigate()
+    const {  error , isLoading: authIsLoading} = useGetCurrentAuthUserQuery(undefined); // проверяем срок жизни токена
 
     useEffect(()=>{
         if (result.status==="fulfilled") {
@@ -20,10 +22,12 @@ export const Login:FC = () =>{
     },[result])
 
     useEffect(()=>{
-        if (localStorage.token) {
-            navigate('/'); 
-          }
-    },[])
+        if (localStorage.token && (!authIsLoading && !error)) {
+          navigate('/'); 
+        } else if (error) {
+          navigate('/auth');
+        }
+      },[authIsLoading, error]);
 
     const handleClickLogin = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
         event.preventDefault();
@@ -33,7 +37,7 @@ export const Login:FC = () =>{
         auth({ 
             username: `${login}`, 
             password: `${password}`, 
-            expiresInMins: 30 
+            expiresInMins: 30
             }).then(respouse=>{
                 dispatch(idUser(respouse.data.id)) // передаем Id юзера
                 let authToken:string = respouse.data.token
@@ -54,15 +58,18 @@ export const Login:FC = () =>{
 
     return(
         <div className={styles.login}>
-            <h1 className={styles.name}>Login</h1>
-            <form className={styles.form}>
-                <div className={styles.formInput}>
-                    <input type="text" className={styles.input} placeholder="Login" onChange={handleChangeLogin} autoComplete="given-name"/>
-                    <input type="password" className={styles.input} placeholder='Password' onChange={handleChangePassword} autoComplete="current-password"/>
-                    { result.status==="rejected" && <div className={styles.errorText}>Incorrect login or password*</div>}
-                    <Button value={"Login"} styleCss={'defaultButton'} onClickEvent={handleClickLogin}></Button>
-                </div>
-            </form>
+        <h1 className={styles.name}>Login</h1>
+        <form className={styles.form}>
+            <div className={styles.formInput}>
+                <input type="text" className={styles.input} placeholder="Login" onChange={handleChangeLogin} autoComplete="given-name"/>
+                <input type="password" className={styles.input} placeholder='Password' onChange={handleChangePassword} autoComplete="current-password"/>
+                { result.status==="rejected" && <div className={styles.errorText}>Incorrect login or password*</div>}
+                <Button value={"Login"} styleCss={'defaultButton'} onClickEvent={handleClickLogin}></Button>
+            </div>
+        </form>
+
+        
+
         </div>
     )
 }

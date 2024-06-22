@@ -22,7 +22,7 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
     const idCart:number = useSelector((state: RootState) => state.idCart.id)
     const [stock,setStock] = useState<number>(0)
     const [productQuantity,setProductQuantity] = useState<number>(0)
-    const {data,isLoading} = useGetSingleProductQuery(product.id) // запришиваю тут что бы получить stock
+    const {data,isLoading} = useGetSingleProductQuery(product.id) // запришиваю тут что бы получить stock даже если упадет с ошибкой возьмет дефолт значение из стайта
     const [update] = useUpdateQuantityMutation()
    
     useEffect(()=>{
@@ -94,7 +94,6 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
         update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                console.log(respons.data);
                 dispatch(chengeQuantity(respons.data))
             } else {
                 console.error('Server dont return data');

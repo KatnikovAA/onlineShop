@@ -106,7 +106,6 @@ const handleAddToCart = ():void =>{
         update({idCart:idCart,product:modifiedCart}) 
         .then(respons =>{
             if (respons.data) {
-                console.log(respons.data);
                 dispatch(chengeQuantity(respons.data))
             } else {
                 console.error('Server dont return data');
