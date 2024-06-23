@@ -31,9 +31,6 @@ export const Login:FC = () =>{
 
     const handleClickLogin = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) =>{
         event.preventDefault();
-        {
-            //oliviaw oliviawpass использую для теста
-        }
         auth({ 
             username: `${login}`, 
             password: `${password}`, 
