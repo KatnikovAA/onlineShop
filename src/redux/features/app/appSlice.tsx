@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { apiCartsByUser ,apiCarts} from '../../../services/api'
+import { apiCartsByUser , apiCarts} from '../../../components/types/types'
 
 
 export interface cartsByUserState {
