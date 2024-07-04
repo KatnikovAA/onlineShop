@@ -1,14 +1,57 @@
-npm install react-redux  
-npx storybook@latest init 
-npm i --save lodash  
+# Интернет-магазин Goods4you 
 
-npm install --save-dev jest 
-npm install --save-dev @jest/globals 
-npm install --save-dev ts-jest 
-npm install --save-dev babel-jest @babel/core @babel/preset-env	 				
-npm install --save-dev babel-jest @babel/core @babel/preset-env 
-npm install --save-dev @babel/preset-typescript 
-	
-For start project : npm run dev   
-For start storybook: npm run storybook 
-For start test:npm run test 
+Проект для проработки комплексного стека поэтапной реализации приложения:
+
+  1. развёртка и настройка приложения 
+  2. вёрстка с поддержкой адаптивности и доступности
+  3. создание компонентов
+  4. роутинг
+  5. aвторизация
+  6. управление глобальным состоянием и запросами к API
+  7. документирование интерфейса
+  8. тестирование
+
+В основу взят графический макет и набор практических задач из курса "Открытая школа разработчиков"
+
+## DEMO
+Ссылка
+
+Используемые технологии
+<li>Vite</li>
+<li>React</li>
+<li>TypeScript</li>
+<li>CSS Modules</li>
+<li>React Router</li>
+<li>Redux Toolkit </li>
+<li>RTK Query</li>
+<li>Storybook</li>
+<li>Jest</li>
+
+### Локальный запуск
+
+Для запуска проекта:
+
+1. Клонирование репозитория локально
+```
+$ git clone https://github.com/KatnikovAA/onlineShop.git
+```
+2. Установка зависимостей
+```
+$ npm install
+```
+3. Запуск проекта
+```
+$ npm run dev
+```
+
+Запуск Storybook:
+
+```
+$ npm run storybook
+```
+
+Запуск тестов:
+
+```
+$ npm run test
+```
