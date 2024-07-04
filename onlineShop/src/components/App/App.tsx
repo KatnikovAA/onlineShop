@@ -15,7 +15,6 @@ import { Login } from '../pages/Login/Login'
 import { useNavigate } from 'react-router-dom'
 import { useGetAuthUserMutation } from '../../services/api'
 import { RootState } from "../../redux/store"
-import { useLocation } from 'react-router-dom'
 import { getIdCart } from '../../redux/features/app/appSliceTwo'
 import { idUser } from "../../redux/features/login/loginSlice";
 
@@ -23,20 +22,17 @@ const App:FC = () => {
 
   
   const idUserFromState:number = useSelector((state: RootState) => state.idUser.id)
-  const location = useLocation()
   const navigate = useNavigate()
   const {data,isLoading} = useGetCartsByUserQuery(idUserFromState)
   const dispatch = useDispatch()
   const [_] = useGetAuthUserMutation()
-  const { data: authData, error , isLoading: authIsLoading} = useGetCurrentAuthUserQuery(undefined); // проверяем срок жизни токена
+  const { data: authData , isLoading: authIsLoading} = useGetCurrentAuthUserQuery(undefined); // проверяем срок жизни токена
 
 useEffect(() => {
-    if (!localStorage.token || (!authIsLoading && error)) {
+    if (!localStorage.token) {
       navigate('/auth'); 
   }
-}, [location.pathname, navigate, error]);
-
- 
+}, [navigate]);
 
   useEffect(()=>{
     if(data){
@@ -45,7 +41,7 @@ useEffect(() => {
     }
 
     if(idUserFromState === 0 && authData){
-      dispatch(idUser(authData.id)) //
+      dispatch(idUser(authData.id)) 
       
     }
   },[isLoading,authIsLoading])
@@ -88,7 +84,7 @@ useEffect(() => {
       {
         isLoading  || authIsLoading 
         ?
-        <h3>Loading...</h3> 
+        <h3 className={styles.loading}>Loading...</h3> 
         :
       <div className={styles.app}>
       <Header scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>

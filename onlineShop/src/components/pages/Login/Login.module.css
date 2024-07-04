@@ -1,4 +1,5 @@
 .login{
+    flex: 1 1 auto;
     padding: 0 119px 0;
     display: flex;
     flex-direction: column;

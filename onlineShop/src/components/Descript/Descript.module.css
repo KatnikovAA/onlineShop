@@ -66,15 +66,23 @@
 
   @media (max-width:1000px) {
 
+    .tagline{
+        font-size:30px;
+        width: 400px;
+    }
     .backLayerLogo{
-        font-size: 120px;
+        font-size: 110px;
 
     }
-
   }
   @media (max-width:768px) {
-    .article{
-        padding-left: 430px;
+    .tagline{
+        font-size:26px;
+        width: 400px;
+    }
+    .backLayerLogo{
+        font-size: 70px;
+
     }
   }
   @media (max-width:480px) {

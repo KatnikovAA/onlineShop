@@ -1,13 +1,13 @@
 import styles from './Catalog.module.css'
 import { Button } from '../Button/Button'
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Product } from '../Product/Product'
 import { useSelector,useDispatch } from 'react-redux'
 import { Search } from '../Search/Search'
 import { useGetProductsQuery  } from '../../services/api'
 import { RootState } from "../../redux/store"
 import { countLoadProducts } from '../../redux/features/catalog/catalogSlice'
-import { apiData } from '../../services/api'
+import { apiData } from '../types/types'
 import { catalogData } from '../../redux/features/catalog/catalogTwoSlice'
 
 
@@ -19,22 +19,22 @@ type catalogProps = {
 export const Catalog:FC<catalogProps> = ({}) => {
 
     const dispatch = useDispatch()
+    const [loadMoreFlg,setLoadMoreFlg] = useState<boolean>(false)
     const loadCount:number = useSelector((state: RootState) => state.countLoadProducts.countLoad)
     const searchValue:string = useSelector((state: RootState) => state.textSearchValue.text)
     const {isLoading,data,error} = useGetProductsQuery({value:searchValue,skip:loadCount})
     const apiDataCatalog:apiData = useSelector((state: RootState) => state.apiData.apiDataCatalog)
     
     const clickButtonShowMore = () =>{
+        setLoadMoreFlg(true)
         dispatch(countLoadProducts())
+        
     }
 
     useEffect(()=>{
-        {
-            // добавил хранение состояния для useGetProductsQuery т.к не понял как выводить данные из апи когда есть параметр СКИП + старые данные
-            // старые данные сохрнаяю в состояние и при каждом запросе к ним добавляю новые , если поиск по слову не изменился
-        }
         if(!isLoading && data){
             dispatch(catalogData(data)) 
+            setLoadMoreFlg(false)
         }
 
     },[data])
@@ -46,9 +46,9 @@ export const Catalog:FC<catalogProps> = ({}) => {
             {
                 error 
                     &&
-                <div className={styles.propucts}>
-                    {error && JSON.stringify(error)}
-                </div>
+                <h3>
+                    {error && "Error Data Pls Reload"}
+                </h3>
             }
             <div className={styles.propucts}>
                 {   
@@ -70,14 +70,20 @@ export const Catalog:FC<catalogProps> = ({}) => {
                 }
             </div>
             
-
+            {
+                                loadMoreFlg  && <div className={styles.loader}></div>
+            }
             
             {        
+            
                 (apiDataCatalog.products.length < apiDataCatalog.total)
 
                 &&
 
-                   <div className={styles.button}>            
+                
+     
+                
+                <div className={styles.button}>            
                    <Button onClickEvent={clickButtonShowMore} aria-label='Show more' value={'Show more'} styleCss={'defaultButton'}></Button>
                </div>
             }

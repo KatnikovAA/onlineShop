@@ -30,8 +30,8 @@ export const Footer:FC<footerProps> = ({scrollIntoHeader,scrollIntoCatalog,scrol
                     <h1 className={styles.name} tabIndex={4} aria-label='Goods4you'>Goods4you</h1>
                 </Link>
                 <nav className={styles.nav}>
-                <Link onClick={handleClickCatalog} className={stylesApp.link} aria-label='Lint to Catalog' to="/">Catalog</Link>                   
-                <Link onClick={handleClickFAQ} className={stylesApp.link} aria-label='Lint to FAQ' to="/">FAQ</Link>
+                    <Link onClick={handleClickCatalog} className={stylesApp.link} aria-label='Lint to Catalog' to="/">Catalog</Link>                   
+                    <Link onClick={handleClickFAQ} className={stylesApp.link} aria-label='Lint to FAQ' to="/">FAQ</Link>
                 </nav>   
         </footer>
     )

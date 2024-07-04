@@ -4,13 +4,13 @@ import { FC, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import plusImg from  '../../image/plus.png'
 import minusImg from  '../../image/minus.png'
-import { apiProducts } from '../../services/api'
-import { useGetSingleProductQuery , objUpdateCartProduct} from '../../services/api'
+import { apiProducts , objUpdateCartProduct, apiCartsByUser } from '../types/types'
+import { useGetSingleProductQuery } from '../../services/api'
 import { deleteProduct,chengeQuantity} from "../../redux/features/app/appSlice";
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../redux/store"
-import { useUpdateQuantityMutation,apiCartsByUser } from "../../services/api";
+import { useUpdateQuantityMutation } from "../../services/api";
 
 type productInCartProps = {
     product:apiProducts,
@@ -55,7 +55,10 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
                 inProductFlg = true
             }
         })
-        setProductQuantity(actualQuantity);
+        setTimeout(() =>{
+            setProductQuantity(actualQuantity);
+        },1000)
+        
         if(inProductFlg){ // если есть находим и прибавлем/отнимаем
                 let cartProdcutsQuantity = data.map((dataProduct)=>{
                     if(dataProduct.id === product.id){

@@ -51,7 +51,12 @@
   }
 
   @media (max-width:1000px) {
+    .footer{
+        padding: 18.5px 130px 18.5px 130px;
+        width: auto;
+    }
     .nav{
+
         padding-left: 500px;
     }
   
@@ -60,15 +65,12 @@
   @media (max-width:768px) {
 
     .nav{
-        padding-left: 450px;
+        padding-left: 150px;
     }
   }
   @media (max-width:480px) {
 
-    .name{
-        padding-left: 200px;
-    }
     .nav{
-        padding-left: 300px;
+        padding-left: 0px;
     }
   }

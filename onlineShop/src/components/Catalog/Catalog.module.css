@@ -10,9 +10,32 @@
     font-size: 30px;
 }
 
-.emptyData{
-    
-}
+.loader {
+    margin-top: 90px;
+    display: flex;
+    align-self: center;
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;
+    animation: l21 2s infinite linear;
+
+  }
+  .loader::before {
+    content :"Loading...";
+    color: #0000;
+    padding: 0 5px;
+    background: inherit;
+    background-image: linear-gradient(90deg,#fff 50%,#000 0);
+    -webkit-background-clip:text;
+            background-clip:text;
+  }
+  
+  @keyframes l21{
+    100%{background-position: left}
+  }
+
 .propucts{
     width: 1180px;
     height: auto;
@@ -45,17 +68,20 @@
 }
 
 @media (max-width:1000px) {
+    .propucts{
+        width: 680px;  
+    }
+    .catalog{
+        justify-content: space-between;
+    }
 .button{
     padding-right: 500px;  
 }
 
 }
 @media (max-width:768px) {
-    .catalog{
-        padding-left: 260px;
-    }
     .propucts{
-        width:800px;  
+        width: 500px;  
     }
     .searchBlock{
         width: 700px;
@@ -64,7 +90,10 @@
 @media (max-width:480px) {
 
     .propucts{
-        width: 580px;  
+        width: 300px;  
+    }
+    .button{
+        padding-right: 900px;  
     }
 
 }

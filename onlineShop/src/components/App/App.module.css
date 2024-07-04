@@ -4,7 +4,11 @@
     flex-direction: column;
     font-style: 'Jost';     
 }
-
+.loading{
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
+}
 .link {
     color: #FFFFFF;
     text-decoration: none; 

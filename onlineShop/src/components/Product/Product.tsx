@@ -5,11 +5,10 @@ import { Link } from 'react-router-dom'
 import cartImg from  '../../image/cart.png'
 import plusImg from  '../../image/plus.png'
 import minusImg from  '../../image/minus.png'
-import { apiProducts } from '../../services/api'
+import { apiProducts ,apiCartsByUser ,objUpdateCartProduct} from '../types/types'
 import { useState } from 'react'
 import { RootState } from "../../redux/store"
-import { apiCartsByUser } from "../../services/api"
-import { useUpdateQuantityMutation ,objUpdateCartProduct} from "../../services/api";
+import { useUpdateQuantityMutation } from "../../services/api";
 import { deleteProduct,chengeQuantity} from "../../redux/features/app/appSlice";
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
@@ -133,20 +132,16 @@ const handleAddToCart = ():void =>{
     return( 
         <div className={styles.product}>
             <Link to={`/${product.id}`}>
-                <img src={product.thumbnail} alt="Картиника товара" className={styles.imgProduct} />
+                <img src={product.thumbnail} alt="Photo product" className={styles.imgProduct} />
             </Link>
             <div className={styles.productInfo}>
                 <div className={styles.description}>
-                    {
-                        // выражение id !== 1 ? name : reduceName() ниже использовал для зашулшку для макета дальше буду завязвать логику на пропс/состояние
-                    }
-                    <h2 aria-label={product.title} className={styles.productName}>{!inCartFlg ? product.title : reduceName(product.title)}</h2> 
+                    <div aria-label={product.title} className={styles.productName}>{!inCartFlg ? product.title : reduceName(product.title)}</div> 
                     <div className={styles.productCost}>{product.price} $</div>
                 </div>
 
                 {
-                     // выражение id !== 1 ниже использовал для зашулшку для макета дальше буду завязвать логику на пропс/состояние
-                                        
+
                     !inCartFlg
                     ?
                         <Button onClickNumber={handleAddToCart} idProduct={product.id} styleCss ={'productCountButton'} value={cartImg} imgFlg={true} aria-label='Add to cart'/>

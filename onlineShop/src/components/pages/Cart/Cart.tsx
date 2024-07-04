@@ -3,28 +3,24 @@ import styles from './Cart.module.css'
 import { FC } from "react";
 import { useGetCartsByUserQuery } from "../../../services/api";
 import { RootState } from '../../../redux/store'
-import { apiCartsByUser } from '../../../services/api'
 import { useSelector } from 'react-redux'
-
+import { apiCartsByUser } from "../../types/types";
 
 export type productValueType = {
     id:number,
     stock?:number,
 }
+
 type propsCart = {
     authIsLoading:boolean
 }
-export const Cart:FC<propsCart> = ({authIsLoading}) =>{
 
-    
+export const Cart:FC<propsCart> = ({authIsLoading}) =>{
 
     const idCart:number = useSelector((state: RootState) => state.idCart.id)
     const { error, isLoading } = useGetCartsByUserQuery(idCart) // использую тут useGetCartsByUserQuery т.к по 1 заданию надо и error, isLoading учитывать
     // и и получать data корзины из Стора а не из запроса 
     const data:apiCartsByUser = useSelector((state: RootState) => state.dataCartsByUser.dataCart)
-
- 
-
 
     return(
         <div className={styles.cart}>
@@ -40,9 +36,9 @@ export const Cart:FC<propsCart> = ({authIsLoading}) =>{
                             :
                             error                 
                             ? 
-                                <div className={styles.listProduct}>
-                                    {error && JSON.stringify(error)}
-                                </div>
+                                <h3>
+                                    {error && "Error Data Pls Reload"}
+                                </h3>
                             :
                                 data && data.carts && data.carts.length > 0 && data.carts[0].products.length > 0 
                             

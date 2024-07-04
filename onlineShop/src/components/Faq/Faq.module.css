@@ -25,10 +25,10 @@
 }
 
 @media (max-width:1000px) {
-
-.faqBlock{
-  padding-left: 30px;
+.main{
+  padding: 36px 200px 123px 150px;
 }
+
 
 }
 @media (max-width:768px) {

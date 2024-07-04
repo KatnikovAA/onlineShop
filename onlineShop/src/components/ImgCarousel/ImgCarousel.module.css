@@ -6,12 +6,11 @@
     border-radius: 4px;
 }
 
-/* заглушка для макета  :first-child*/
 .activImgCarousel{ 
     outline:3px solid #C4C4C4;
     outline-offset:-4px;
     border-radius: 4px;
-    object-fit: cover;
+    object-fit: contain;
     width: 70px;
     height: 75px;
 

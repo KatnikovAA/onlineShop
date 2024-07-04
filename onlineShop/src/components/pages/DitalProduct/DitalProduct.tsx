@@ -5,15 +5,14 @@ import starImg from  '../../../image/star.png'
 import { ImgCarousel } from "../../ImgCarousel/ImgCarousel"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../../../redux/store"
-import { useGetSingleProductQuery  , objUpdateCartProduct} from "../../../services/api"
+import { useGetSingleProductQuery} from "../../../services/api"
+import { objUpdateCartProduct , apiProducts ,apiCartsByUser} from "../../types/types"
 import { useParams } from "react-router-dom"
 import { pickActivImg } from '../../../redux/features/ditalProduct/ditalProductSlice'
 import plusImg from  '../../../image/plus.png'
 import minusImg from  '../../../image/minus.png'
-import { apiCartsByUser } from "../../../services/api"
 import { useUpdateQuantityMutation } from "../../../services/api";
 import { deleteProduct,chengeQuantity} from "../../../redux/features/app/appSlice";
-import { apiProducts } from "../../../services/api"
 import { countDiscountPrice } from "../../../function/countDiscountPrice/countDiscountPrice"
 
 type propsDitalProduct = {
@@ -40,6 +39,8 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
         }
 
     },[isLoading])
+
+    //delete localStorage.token // проверка на остусвтие token
 
     useEffect(() => {
         if (dataCart.carts.length > 0) {
@@ -154,7 +155,7 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
 
         if(!isLoading && data){
             stars = []
-            for(let i = 0;i<Math.round(data?.rating);i++){
+            for(let i = 0; i < Math.round(data?.rating); i++){
                 stars.push(starImg)
             }  
         }
@@ -168,15 +169,15 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
                 {   
                     isLoading  || authIsLoading 
                     ?
-                    <h3>Loading...</h3> 
+                    <h3 className={styles.mainDitalProduct}>Loading...</h3> 
                     :
                     error                 
                     ? 
-                        <div className={styles.listProduct}>
-                            {error && JSON.stringify(error)}
-                        </div>
+                        <h3>
+                            {error && "Error Data Pls Reload"}
+                        </h3>
                     :
-                    <div className={styles.mainDitalProduct}>
+                    <article  className={styles.mainDitalProduct}>
                         <h1 className={styles.productNameId} aria-label='Product' tabIndex={3}>Product {data?.id}</h1>
                         <div className={styles.productInform}>
                             <section className={styles.imgBlock}>
@@ -187,19 +188,18 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
                                     />
                                     <img alt='' src={activImg} className={styles.imgMain}></img>
                                 </picture>
-                                <div className={styles.listImgCarousel}>
+                                <ul className={styles.listImgCarousel}>
                                     {
-                                        data?.images.map((urlImg,index) =>{
-                                            return(
-                                                    <ImgCarousel srcValue={urlImg} 
-                                                        key={index} 
-                                                        styleCss = {urlImg === activImg ? 'activImgCarousel' : 'imgCarousel'}
-                                                        
-                                                    ></ImgCarousel>
-                                            )
-                                        })
+                                        data?.images.map((urlImg, index) => (
+                                            <li key={index}>
+                                                <ImgCarousel 
+                                                    srcValue={urlImg} 
+                                                    styleCss={urlImg === activImg ? 'activImgCarousel' : 'imgCarousel'}
+                                                />
+                                            </li>
+                                        ))
                                     }
-                                </div>
+                                </ul>
                             </section>
                             <section className={styles.descriptionProduct}>
                                 <div className={styles.descriptionHead}>
@@ -218,7 +218,7 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
                                     <div className={styles.rating}>
                                         {
                                             handleRating().map((star,index)=>{
-                                                return <img src={star} key={index} className={styles.starImg} alt="Рейтинг в звездах" />
+                                                return <img src={star} key={index} className={styles.starImg} alt="Rating product" />
                                             })
                                         }  
                                     </div>  
@@ -280,7 +280,7 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
                                 }
                             </section>
                         </div>
-                    </div>
+                    </article>
                 }
             </div>
         )

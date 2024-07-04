@@ -25,6 +25,6 @@ export const SearchField:FC<searchFieldProps> = ({handleTextValue}) => {
     const debounceOnChege = debounce(handleChangeValue,1000)
 
     return(
-        <input onChange={debounceOnChege}type="text" placeholder='Search by title' className={styles.seacrhText} />
+        <input onChange={debounceOnChege} type="text" placeholder='Search by title' className={styles.seacrhText}/>
     )
 }

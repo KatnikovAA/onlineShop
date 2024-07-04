@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { apiData } from '../../../services/api'
+import { apiData } from '../../../components/types/types'
 
 export interface catalogApiData {
   apiDataCatalog:apiData,

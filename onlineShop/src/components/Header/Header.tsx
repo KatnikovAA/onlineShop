@@ -6,7 +6,7 @@ import cartImg from  '../../image/cart.png'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../redux/store'
-import { apiCartsByUser } from '../../services/api'
+import { apiCartsByUser } from '../types/types'
 import { cheackLocation } from '../../function/cheackLocation/cheackLocation'
 
 type headerProps = {
@@ -42,8 +42,8 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
                         <Link onClick={handleClickFAQ} className={stylesApp.link} to="/" aria-label='Link to FAQ'>FAQ</Link>
                         <div className={styles.cart}>
                             <Link to='/cart' className={stylesApp.link}>Cart</Link>
-                                <div className={styles.cartCountProductImg}>
-                                    <img className={styles.cartImg} src={cartImg} alt="Коризна" />
+                                <Link to='/cart' className={styles.cartCountProductImg}>
+                                    <img className={styles.cartImg} src={cartImg} alt="Cart" title='Cart'/>
                                     {
                                         dataCart.carts[0]?.totalQuantity
                                         ?
@@ -51,7 +51,7 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
                                         :
                                         <></>
                                     }
-                                </div>    
+                                </Link>    
                         </div>
                     </nav> 
                 </div>

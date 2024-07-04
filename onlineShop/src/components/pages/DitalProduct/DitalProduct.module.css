@@ -26,18 +26,20 @@
 .imgMain{
     width: 520px;
     height: 461px;
-    object-fit: cover;
+    object-fit: contain;
     padding-bottom: 14px;
 }
 .listImgCarousel{
     width: 520px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    margin-left: 5px;
+    justify-content:flex-start
 }
 
 
 .descriptionProduct{
+
     display: flex;
     flex-direction: column;
     padding-left: 45px;
@@ -127,11 +129,12 @@
     color: #B2B5BB;
     border: #F6F6F6;
     border-radius: 4px;  
+    cursor: default;
 }
 
 .inputCountProduct:focus{
     outline: none;
-    color: #444B58;
+    
 }
 
 .countButtons{
@@ -154,8 +157,17 @@
 
   }
 @media (max-width:1000px) {
-    .productNameId{
-        padding-left:200px; 
+    .description{
+
+        width: auto;
+    }
+
+    .imgMain{
+        width: 220px;
+        height: 220px;
+    }
+    .imgBlock{
+        height: 350px;
     }
     .mainDitalProduct{
         width: 1180px;
@@ -164,17 +176,22 @@
     }
     .productInform{
         display: flex;
-        flex-direction: column;
-        padding-left: 200px;   
+
+         
     }
     .descriptionProduct{
-        margin-top: 10px;
+        width:500px;
+        height: 500px;
+        padding-left:0px;
+    }
+    .countButtons{
+        padding-top: 20px;
     }
 
   }
 @media (max-width:768px) {
-    .imgMain{
-        width: 420px;
+    .productInform{
+        flex-direction: column; 
     }
 
     .imgCarousel{
@@ -184,9 +201,15 @@
     .listImgCarousel{
         width: 420px;
     }
+    .descriptionProduct{
+        padding-top: 20px;
+    }
   }
 @media (max-width:480px) {
-
+    .name{
+        width: 200px;
+        height: auto;
+    }
     .mainDitalProduct{
         width: 1180px;
         padding-left: 130px; 
@@ -195,6 +218,14 @@
     .productInform{
         display: flex;
         flex-direction: column;   
+    }
+    .descriptionProduct{
+        width:300px;
+        height: auto;
+        padding-left:0px;
+    }
+    .countButtons{
+        padding-top: 100px;
     }
     .descriptionProduct{
         margin-top: 10px;

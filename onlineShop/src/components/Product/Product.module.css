@@ -1,5 +1,5 @@
 .imgProduct{
-    object-fit: cover;
+    object-fit: contain;
     width: 370px;
     height: 293px;
     border-radius: 4px;
@@ -39,15 +39,16 @@
     background-color: #F6F6F6;
     color: #B2B5BB;
     border: #F6F6F6;
-    border-radius: 4px;  
+    border-radius: 4px; 
+    cursor: default; 
 }
 
 .inputCountProduct:focus{
     outline: none;
-    color: #444B58;
 }
 
 .productName{
+    font-weight: bold;
     letter-spacing:0px;
     line-height: 22px;
     font-size: 16px;
@@ -67,22 +68,16 @@
     padding-top: 1.5px;
 }
 
-@media (max-width:1200px) {
-
-}
-
 @media (max-width:1000px) {
 
     .imgProduct{
-        width: 170px;
-        height: 193px;
+        width: 230px;
+        height: 250px;
     }
     .productName{
-        font-size: 14px;
+        font-size: 13px;
     }
-    .product{
-        padding-left: 20px;
-    }
+
 
 }
 @media (max-width:768px) {
@@ -91,16 +86,22 @@
         height: 193px;
     }
     .productName{
-        font-size: 14px;
+        font-size: 11px;
+    }
+    .product{
+        padding-left: 10px;
     }
 }
 @media (max-width:480px) {
 
     .imgProduct{
-        width: 70px;
-        height: 93px;
+        width: 140px;
+        height: 160px;
     }
     .productName{
-        font-size: 12px;
+        font-size: 10px;
+    }
+    .product{
+        padding-left: 20px;
     }
 }

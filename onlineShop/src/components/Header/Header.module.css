@@ -139,16 +139,14 @@
         width: 1200px; 
     }
     .menu{
-        padding-left: 450px;
+        padding-left: 0;
     }
   }
   @media (max-width:480px) {
 
 
     .main{
-        width: 880px; 
+        width: 1200px; 
     }
-    .menu{
-        padding-left: 300px;
-    }
+
   }
