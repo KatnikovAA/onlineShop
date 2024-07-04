@@ -1,5 +1,5 @@
 
-export const countDiscountPrice = (price, discountPercentage) => {
+export const countDiscountPrice = (price:number, discountPercentage:number) => {
     let result
     
     result = price - (price * discountPercentage / 100);
