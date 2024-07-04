@@ -1,10 +1,14 @@
+.ditalProduct{
+    flex: 1 1 auto;
+    
+}
 .mainDitalProduct{
     width: 1180px;
     padding: 0 130px 0; 
     padding-bottom: 109px;
 }
 .productNameId{
-    padding: 55px 0 55px;
+    padding: 35px 0 35px;
     font-size: 30px;
 }
 .productInform{
@@ -16,55 +20,228 @@
     height: 558px;
     display: flex;
     flex-direction: column; 
-    justify-content: space-between;
+    
 }
 
 .imgMain{
     width: 520px;
-    height: 462px;
+    height: 461px;
+    object-fit: contain;
+    padding-bottom: 14px;
 }
 .listImgCarousel{
+    width: 520px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
+    margin-left: 5px;
+    justify-content:flex-start
 }
 
-.imgCarousel{
-    width: 70px;
-    height: 75px;
-}
 
 .descriptionProduct{
+
     display: flex;
     flex-direction: column;
-    padding-left: 43px;
+    padding-left: 45px;
+    width: 616px;
+    height: 92px;
+
 }
 
 .descriptionHead{
     display: flex;
-    justify-content: space-between;
-
 }
+
 .name{
+    letter-spacing:0px;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 600;
     width: 523px;
     padding-bottom: 48px;
-}
-.nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRatinga,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
+    align-self: center;
+    align-items: center;
     
+}
+
+.nameDescription,.nameCategory,.nameBrand,.nameSkuid, .nameStock,.nameRating,.nameBasePrice ,.nameDiscountPercentage ,.nameDiscountPrice{
+    line-height: 23px;
     color: #B2B5BB;
     display: flex;
     flex-direction: row;
-    padding-bottom: 24px;
+    padding-bottom: 23px;
+    letter-spacing:0.5px;
     
 }
-.description,.category,.brand,.skuid, .stock, .ratinga,.basePrice,.discountPercentage,.discountPrice{
+
+.nameSkuid{
+    letter-spacing:1px;
+   position: relative;
+   white-space: nowrap;
+   width: 103px;
+   height: 23px; 
+   display: flex;
+   justify-self: center;
+   top: 8%;
+   
+}
+.description,.category,.brand,.skuid, .stock, .rating,.basePrice,.discountPercentage,.discountPrice{
+    letter-spacing:0px;
     padding-left: 10px;
     color: black;
     font-size: 16px;
+    font-weight: 600;
 }
-.ditalProductButton{
-    padding-top: 43px;
+.description{
+    font-size: 15px;
 }
+.nameDescription{
+    min-height: 60px;
+}
+.nameDiscountPrice{
+    padding-bottom: 21px;
+}
+
+.rating{
+    display: flex;
+    padding-top: 2px;
+    
+    width: 116px;
+    height: 20px;
+}
+
+.starImg{
+    padding-left: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+.buttons{
+    padding-bottom: 10px;
+}
+
+
+.inputCountProduct{
+    margin: 0 10px 0;
+    width: 106px;
+    height: 67px;
+    text-align:center;
+    background-color: #F6F6F6;
+    color: #B2B5BB;
+    border: #F6F6F6;
+    border-radius: 4px;  
+    cursor: default;
+}
+
+.inputCountProduct:focus{
+    outline: none;
+    
+}
+
+.countButtons{
+    display: flex;
+    height: 67px;
+
+}
+
+@media (max-width:1400px) {
+    .descriptionHead{
+        display: flex;
+        flex-direction: column;
+    }
+    .name{
+        padding-bottom: 0px;
+        align-self: normal;
+        align-items: normal;
+        
+    }
+
+  }
+@media (max-width:1000px) {
+    .description{
+
+        width: auto;
+    }
+
+    .imgMain{
+        width: 220px;
+        height: 220px;
+    }
+    .imgBlock{
+        height: 350px;
+    }
+    .mainDitalProduct{
+        width: 1180px;
+        padding-left: 130px; 
+        padding-bottom: 109px;
+    }
+    .productInform{
+        display: flex;
+
+         
+    }
+    .descriptionProduct{
+        width:500px;
+        height: 500px;
+        padding-left:0px;
+    }
+    .countButtons{
+        padding-top: 20px;
+    }
+
+  }
+@media (max-width:768px) {
+    .productInform{
+        flex-direction: column; 
+    }
+
+    .imgCarousel{
+        width: 50px;
+        height: 55px;
+    }
+    .listImgCarousel{
+        width: 420px;
+    }
+    .descriptionProduct{
+        padding-top: 20px;
+    }
+  }
+@media (max-width:480px) {
+    .name{
+        width: 200px;
+        height: auto;
+    }
+    .mainDitalProduct{
+        width: 1180px;
+        padding-left: 130px; 
+        padding-bottom: 109px;
+    }
+    .productInform{
+        display: flex;
+        flex-direction: column;   
+    }
+    .descriptionProduct{
+        width:300px;
+        height: auto;
+        padding-left:0px;
+    }
+    .countButtons{
+        padding-top: 100px;
+    }
+    .descriptionProduct{
+        margin-top: 10px;
+    }
+    .imgBlock{
+        height: 300px;
+    }
+    .imgMain{
+        width: 220px;
+        height: 220px;
+    }
+    .imgCarousel{
+        width: 50px;
+        height: 55px;
+    }
+    .listImgCarousel{
+        width: 420px;
+    }
+  }

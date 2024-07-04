@@ -1,27 +1,29 @@
 .cart{
     padding: 0 130px 0;
-
+    margin-bottom: 285px;
+    flex: 1 1 auto;
 }
 
 .mainBlock{
-    
+    padding-bottom: 21px;
 }
-.mainBlockName{
-    padding: 55px 0 55px;
+.name{
+    padding: 35px 0 35px 1px;
+    font-size: 30px;
 }
+
 .listProduct{
-    width: 780px;
+    width: 703px;
     border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    height: auto;
+    padding: 50px 30px 30px 45px;
 }
 
 .informCart{
     display: flex;  
 }
 
-.listProduct{
-    padding: 30px 47px 30px 47px;
-    margin-bottom: 307px;
-}
 .product{
     
     display: block;
@@ -33,25 +35,88 @@
     padding-top: 30px;
     display: flex;
     flex-direction: column;
-    padding-left: 53px;
-    width: 343px;
+    width: 397px;
+    font-size: 20px;
 }
 .nameTotalCount,.nameTotalPrice,.nameTotalCountWithDiscount{
-    color: #B2B5BB;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    color: #B2B5BB; 
+    margin: 0;
+    font-size: 20px;
+}
+.nameTotalCount{
+    font-weight: normal;
 }
 
-.nameTotalCount{
+.totalCount{
     padding-bottom: 42px;
 }
 .nameTotalPrice{
     padding-bottom: 4px;
-}
-.totalCount,.totalPrice,.totalCountWithDiscount{
-    padding-left: 10px;
-    color: black;
-    font-size: 16px;
+    font-size: 20px;
     
 }
+.nameTotalCountWithDiscount{
+    font-weight: bold;
+    font-size: 22px;
+}
+.totalCount,.totalPrice,.totalCountWithDiscount{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.valueTotalPrice,.valueTotalCount,.valueTotalCountWithDiscount{
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.totalCountWithDiscount{
+    font-size: 24px;
+    letter-spacing:-0.2px;
+}
+
+@media (max-width:1400px) {
+
+    .informCart{
+        display: flex;  
+        flex-direction: column;
+    }
+
+  }
+@media (max-width:1200px) {
+    .cart{
+        padding-left: 130px;
+    }
+    .listProduct{
+        width: 700px;
+    }
+  }
+
+  @media (max-width:1000px) {
+
+
+  }
+  @media (max-width:768px) {
+    .listProduct{
+        width: 400px;
+    }
+
+  }
+  @media (max-width:480px) {
+
+    .listProduct{
+        padding: 20px 10px 30px 5px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        width: 450px;
+    }
+
+
+    .totalCount,.totalPrice,.totalCountWithDiscount{
+        display: flex;
+        justify-content: center;
+        
+    }
+
+  }

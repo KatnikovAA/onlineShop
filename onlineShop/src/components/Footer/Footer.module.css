@@ -2,19 +2,75 @@
     background-color: #444B58;
     color: azure;
     height: 43px;
-    width: 1180;
+    width: 1180px;
     padding: 18.5px 130px 18.5px 130px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    
     align-items: center;
     
 }
+.footerNone{
+    display: none;
 
-nav{
+}
+.nav{
+    padding-left: 892px;
+    font-size: 14px;
+    height: 20px;
     display: flex;
     width: 110px;
     justify-content: space-between;
     flex-direction: row; 
 }
+.name{
+    width: 174px;
+    height: 43px;
+    padding-left: 1px;
+    line-height: 43.35px;
+    font-size: 30px;
+    width: 181px;
+    letter-spacing: normal;
+}
 
+
+@media (max-width:1400px) {
+
+    .nav{
+        padding-left: 700px;
+    }
+    
+
+  }
+  @media (max-width:1200px) {
+
+
+    .nav{
+        padding-left: 600px;
+    }
+  }
+
+  @media (max-width:1000px) {
+    .footer{
+        padding: 18.5px 130px 18.5px 130px;
+        width: auto;
+    }
+    .nav{
+
+        padding-left: 500px;
+    }
+  
+
+  }
+  @media (max-width:768px) {
+
+    .nav{
+        padding-left: 150px;
+    }
+  }
+  @media (max-width:480px) {
+
+    .nav{
+        padding-left: 0px;
+    }
+  }

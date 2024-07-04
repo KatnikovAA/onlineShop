@@ -1,0 +1,40 @@
+.faqBlock{
+    margin-top: 60px;
+    width: 1440px;
+    height: 445px;
+    background-color: #484283;
+    color: white;
+    margin-right: 20px;
+  }
+
+.main{
+  padding: 36px 280px 123px 280px;
+  width: 880px;
+  height: 287px;
+}
+
+.name{
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+@media (max-width:1200px) {
+
+}
+
+@media (max-width:1000px) {
+.main{
+  padding: 36px 200px 123px 150px;
+}
+
+
+}
+@media (max-width:768px) {
+
+}
+@media (max-width:480px) {
+
+
+}

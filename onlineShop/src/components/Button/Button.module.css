@@ -1,4 +1,4 @@
-.articleButton{
+.defaultButton{
     z-index: 2;
     width: 200px;
     height: 67px;
@@ -10,21 +10,51 @@
 }
 
 
-.articleButton:hover{
+.defaultButton:hover{
     background-color: #8C2828;
     cursor: pointer;
 }
 
 .productCountButton{
     cursor: pointer;
+    border: none;
     width: 48px;
     height: 48px;
     border-radius: 4px;
     background-color: #F14F4F;
     color: #FFFFFF;
 }
+.productCountButtonNone{
+    cursor: pointer;
+    pointer-events: none;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background-color: #7c7c7c;
+    color: #FFFFFF; 
+}
+.productDetalCountButton{
+    cursor: pointer;
+    border: none;
+    width: 67px;
+    height: 67px;
+    border-radius: 4px;
+    background-color: #F14F4F;
+    color: #FFFFFF;
+}
 
-.noneBorder{
+.productDetalCountButtonNone{
+    pointer-events: none;
+    cursor: pointer;
+    border: none;
+    width: 67px;
+    height: 67px;
+    border-radius: 4px;
+    background-color: #7c7c7c;
+    color: #FFFFFF;
+}
+.noneBorderButton{
     cursor: pointer;
     width: 42px;
     height: 20px;
@@ -32,8 +62,22 @@
     background-color: white;
     color: #B2B5BB;
 }
-.noneBorder:hover{
+.noneBorderButton:hover{
     color: #444B58;
     cursor: pointer;
     text-decoration: underline;
 }
+
+.cartImg{  
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    padding-left: 6px;
+  }
+
+  .productDetalCartImg{  
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    padding-left: 12px;
+  }

@@ -2,16 +2,30 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    font-style: 'Jost';   
+    font-style: 'Jost';     
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
 }
 .link {
-    
     color: #FFFFFF;
     text-decoration: none; 
   }
 
-  .link:hover{
-
+.link:hover{
     text-decoration: underline;
     color: #C4C4C4; 
+}
+.linkNone{
+  color: #FFFFFF;
+  text-decoration: none; 
+  pointer-events: none
+}
+
+.cartImg{
+  width:21px;
+  height: 18px;
+  fill: white;
 }
