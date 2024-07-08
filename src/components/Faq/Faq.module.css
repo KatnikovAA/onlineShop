@@ -19,22 +19,3 @@
   font-weight: bold;
   padding-bottom: 25px;
 }
-
-@media (max-width:1200px) {
-
-}
-
-@media (max-width:1000px) {
-.main{
-  padding: 36px 200px 123px 150px;
-}
-
-
-}
-@media (max-width:768px) {
-
-}
-@media (max-width:480px) {
-
-
-}
