@@ -14,19 +14,3 @@
     outline: none;
     color: #444B58;
 }
-
-@media (max-width:1200px) {
-    .seacrhText{
-        width: 744px;
-        padding-left: 16px;
-    }
-}
-
-@media (max-width:768px) {
-
-    .seacrhText{
-        width: 444px;
-        padding-left: 16px;
-    }
-
-}
