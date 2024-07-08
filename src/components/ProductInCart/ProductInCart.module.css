@@ -80,37 +80,3 @@
 .buttonPlus{
     padding-left: 6px;
 }
-
-
-@media (max-width:1400px) {
-
-    .informCart{
-        display: flex;  
-        flex-direction: column;
-    }
-    
-
-  }
-
-  @media (max-width:768px) {
-    .productInCart{
-        flex-direction: column;
-        height: 200px;
-        width: 300px;
-    }
-  }
-  @media (max-width:480px) {
-    .productInCart{
-        width: 386px;
-        display: flex;
-        flex-direction: column;
-    }
-    .product{
-        padding-bottom: 10px;
-        width: 300px;
-    }
-    .buttonDelete{
-        padding-left: 100px;
-    }
-
-  }

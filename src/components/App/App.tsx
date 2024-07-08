@@ -19,7 +19,6 @@ import { getIdCart } from '../../redux/features/app/appSliceTwo'
 import { idUser } from "../../redux/features/login/loginSlice";
 
 const App:FC = () => {
-
   
   const idUserFromState:number = useSelector((state: RootState) => state.idUser.id)
   const navigate = useNavigate()
@@ -29,8 +28,8 @@ const App:FC = () => {
   const { data: authData , isLoading: authIsLoading} = useGetCurrentAuthUserQuery(undefined); // проверяем срок жизни токена
 
 useEffect(() => {
-    if (!localStorage.token) {
-      navigate('/auth'); 
+    if (!sessionStorage.token) {
+      navigate('/onlineShop/auth'); 
   }
 }, [navigate]);
 
@@ -89,11 +88,11 @@ useEffect(() => {
       <div className={styles.app}>
       <Header scrollIntoCatalog={scrollIntoCatalog} scrollIntoFAQ ={scrollIntoFAQ}/>
       <Routes>
-        <Route path='/' element={<Home scrollIntoCatalog={scrollIntoCatalog}/>}></Route>
-        <Route path='/auth' element={<Login />}></Route>
-        <Route path='/:idProduct' element={<DitalProduct authIsLoading = {authIsLoading}/>}></Route>
-        <Route path='/cart' element={<Cart authIsLoading = {authIsLoading}/>}></Route>
-        <Route path='/*' element={<ErrorPage/>}></Route>
+        <Route path='/onlineShop/' element={<Home scrollIntoCatalog={scrollIntoCatalog}/>}></Route>
+        <Route path='/onlineShop/auth' element={<Login />}></Route>
+        <Route path='/onlineShop/:idProduct' element={<DitalProduct authIsLoading = {authIsLoading}/>}></Route>
+        <Route path='/onlineShop/cart' element={<Cart authIsLoading = {authIsLoading}/>}></Route>
+        <Route path='/onlineShop/*' element={<ErrorPage/>}></Route>
       </Routes>
       <Footer scrollIntoCatalog={scrollIntoCatalog} 
         scrollIntoFAQ ={scrollIntoFAQ}

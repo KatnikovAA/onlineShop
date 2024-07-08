@@ -1,6 +1,5 @@
 .cart{
     padding: 0 130px 0;
-    margin-bottom: 285px;
     flex: 1 1 auto;
 }
 
@@ -74,49 +73,3 @@
     font-size: 24px;
     letter-spacing:-0.2px;
 }
-
-@media (max-width:1400px) {
-
-    .informCart{
-        display: flex;  
-        flex-direction: column;
-    }
-
-  }
-@media (max-width:1200px) {
-    .cart{
-        padding-left: 130px;
-    }
-    .listProduct{
-        width: 700px;
-    }
-  }
-
-  @media (max-width:1000px) {
-
-
-  }
-  @media (max-width:768px) {
-    .listProduct{
-        width: 400px;
-    }
-
-  }
-  @media (max-width:480px) {
-
-    .listProduct{
-        padding: 20px 10px 30px 5px;
-        width: 300px;
-        display: flex;
-        flex-direction: column;
-        width: 450px;
-    }
-
-
-    .totalCount,.totalPrice,.totalCountWithDiscount{
-        display: flex;
-        justify-content: center;
-        
-    }
-
-  }

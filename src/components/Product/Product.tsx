@@ -131,7 +131,7 @@ const handleAddToCart = ():void =>{
 
     return( 
         <div className={styles.product}>
-            <Link to={`/${product.id}`}>
+            <Link to={`/onlineShop/${product.id}`}>
                 <img src={product.thumbnail} alt="Photo product" className={styles.imgProduct} />
             </Link>
             <div className={styles.productInfo}>
