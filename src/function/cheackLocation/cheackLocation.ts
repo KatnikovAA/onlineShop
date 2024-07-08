@@ -1,3 +1,4 @@
 export const cheackLocation = (value:string) =>{
-    return value === '/' ? true : false
+    console.log(value)
+    return value === '/onlineShop/' ? true : false
 }

@@ -26,10 +26,6 @@ export const Header:FC<headerProps> = ({scrollIntoCatalog,scrollIntoFAQ}) => {
     const handleClickFAQ = ():void =>{
         scrollIntoFAQ && scrollIntoFAQ();
     }
-
-    // const cheackLocation = ():boolean =>{
-    //     return location.pathname === '/' ? true : false
-    // }
     
     return(
         <header className={styles.header} id='header'>
