@@ -18,6 +18,7 @@
 [Ссылка](https://katnikovaa.github.io/onlineShop/)
 
 ### Используемые технологии
+
 <li>Vite</li>
 <li>React</li>
 <li>TypeScript</li>
