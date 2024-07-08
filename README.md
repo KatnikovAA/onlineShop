@@ -14,7 +14,7 @@
 В основу взят графический макет и набор практических задач из курса "Открытая школа разработчиков"
 
 ## DEMO
-[https://katnikovaa.github.io/onlineShop/]Ссылка
+[https://katnikovaa.github.io/onlineShop/] Ссылка
 
 Используемые технологии
 <li>Vite</li>
