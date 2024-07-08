@@ -123,7 +123,7 @@ export const ProductInCart:FC<productInCartProps> = ({product}) =>{
 
     return(
         <div className={styles.productInCart}>
-            <Link className={styles.product} to={`/${product.id}`} >
+            <Link className={styles.product} to={`/onlineShop/${product.id}`} >
                 <img className={styles.img} src={product.thumbnail} alt=''></img>
                 <div className={styles.inform}>
                     <h2 className={styles.name} aria-label={product.title}>{product.title}</h2>

@@ -20,15 +20,15 @@ export const Login:FC = () =>{
     useEffect(()=>{
         loginRef.current?.focus()
         if (result.status==="fulfilled") {
-            navigate('/'); 
+            navigate('/onlineShop/'); 
           }
     },[result])
 
     useEffect(()=>{
-        if (localStorage.token) {
-          navigate('/'); 
-        } else if (error) {
-          navigate('/auth');
+        if (sessionStorage.token) {
+          navigate('/onlineShop/'); 
+        } else if (!sessionStorage.token) {
+          navigate('/onlineShop/auth');
         }
       },[authIsLoading, error]);
 
@@ -37,10 +37,11 @@ export const Login:FC = () =>{
         auth({ 
             username: `${login}`, 
             password: `${password}`, 
-            expiresInMins: 30
+            expiresInMins: 1
             }).then(respouse=>{
                 dispatch(idUser(respouse.data.id)) // передаем Id юзера
                 let authToken:string = respouse.data.token
+                sessionStorage.token = authToken
                 localStorage.token = authToken
             })
     } 

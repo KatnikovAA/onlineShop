@@ -40,7 +40,7 @@ export const DitalProduct:FC<propsDitalProduct> = ({authIsLoading}) =>{
 
     },[isLoading])
 
-    //delete localStorage.token // проверка на остусвтие token
+    delete localStorage.token // проверка на остусвтие token
 
     useEffect(() => {
         if (dataCart.carts.length > 0) {
